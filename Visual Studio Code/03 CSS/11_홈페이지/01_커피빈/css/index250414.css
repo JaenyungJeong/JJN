@@ -57,15 +57,21 @@ h6 {
 
 header {
     width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    z-index: 999;
+    background-color: #fff;
+    opacity: 0.8;
 
 
 }
 
 header .top {
     width: 100%;
+    height: 40px;
     background-color: #d3d3d3;
-    
-    
 }
 
 header .top .top-menu {
@@ -77,22 +83,30 @@ header .top .top-menu .login-menu {
     float: right;
 }
 
+
 header .top .top-menu .login-menu li {
     float: left;
     margin-left: 20px;
+    line-height: 40px;
+    
+    
 }
 
-header .top .top-menu .img-frame {
-    width: 41px;
-    height: 31px;
+header .top .top-menu .login-menu li a {
+    font-size: 14px;
+    color: #555;
+    vertical-align: middle;
+}
+
+header .top .top-menu .shortcut  {
     background-color: #000;
-    outline: 1px solid blue;
     float: right;
-    text-align: center;
+    padding: 7px 15px ;
+    
 }
 
 header .top .top-menu .img-frame .shortcut a img {
-    vertical-align: middle;
+    display: block;
 }
 
 
@@ -102,7 +116,6 @@ header .bottom {
     height: 69px;
     padding: 10px 0;
     margin: 0 auto;
-    
 }
 
 header .bottom .logo {
@@ -115,7 +128,6 @@ header .bottom .logo a img {
 
 header .bottom h1, header .bottom .gnb{
     float: left;
-    
 }
 
 header .bottom .gnb ul li {
@@ -125,6 +137,15 @@ header .bottom .gnb ul li {
     margin-right: 50px;
     text-transform: uppercase;
     line-height: 69px;
+}
+
+header .bottom .gnb ul li a {
+    color: #555;
+}
+
+header .bottom .gnb ul li a:hover {
+    color: rgb(207,102,26);
+    text-decoration: underline;
 }
 
 header .bottom form .search {
@@ -144,9 +165,7 @@ header .bottom form .search input[type="submit"] {
 }
 
 section {
-    width: 100%;
-    height: 800px;
-
+    margin-top: 129px;
 }
 
 section .main-img .img1 {    
@@ -159,6 +178,8 @@ section .main-img .img1 {
     font-size: 0;
 }
 
+
+
 section .main-img .img2 {    
     width: 100%;
     height: 400px;
@@ -167,22 +188,28 @@ section .main-img .img2 {
     display: block;
     
     font-size: 0;
-    margin-bottom: 70px;
 }
 
 section .item {
     width: 100%;
+    padding: 70px 0;
+}
+
+section .item .title {
+    font-size: 1.8rem;
+    font-family: "Merriweather", serif;
+    color: rgb(207,102,26);
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 section .item .picks {
     width: 1280px;
-    margin: 0 auto;
+    margin: 0 auto 70px;
 }
 
-section .item .picks .title {
-    font-family: "Merriweather", serif;
-    text-align: center;
-    margin-bottom: 30px;
+section .item .picks .title {   
+    
 }
 
 section .item .picks .item-list {
@@ -194,4 +221,189 @@ section .item .picks .item-list li {
     float: left;
     text-align: center;
 }
+
+section .item .picks .item-list li a {
+    margin-bottom: 20px;
+    display: block;
+}
+
+section .item .picks .item-list li div h3 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+section .item .picks .item-list li div p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+section .item .picks .item-list li div p:last-child {
+    color: rgb(207,102,26);
+    font-weight: 600;
+}
+
+section .item .news .news-list {
+    width: 1280px;
+    margin: 0 auto ;
+}
+
+section .item .news .news-list li{
+    width: 33.3%;
+    float: left;
+
+    text-align: center;
+}
+
+section .item .news .news-list li a {
+    display: block;
+    margin-bottom: 20px;
+}
+
+
+section .item .news .news-list li p {
+    font-weight: 600;
+    font-family: "Merriweather", serif;
+    color: rgb(207,102,26);
+    
+}
+
+section .instagram {
+    background-color: rgb(124,81,161);
+    padding: 70px 0;
+    
+}
+
+section .instagram .title {
+    font-size: 1.8rem;
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+section .instagram .thumb-list {
+    width: 1280px;
+    margin: 0 auto 30px;
+}
+
+section .instagram .thumb-list li{
+    width: 16.6%;
+    float: left;
+}
+
+section .instagram .thumb-list li a img {
+    width: 100%;
+    display: block;
+}
+
+section .instagram .button {
+    text-align: center;
+}
+
+section .instagram .button .follow {
+    width: 426px;
+    font-size: 18px;
+    background-color: rgb(207,102,26);
+    color: #fff;
+    text-transform: uppercase;
+    padding: 10px 0;
+    display: inline-block;
+    font-family: "Merriweather", serif;
+    
+}
+
+footer {
+    background-color: rgba(0,0,0,0.1);
+    padding: 70px 0;
+}
+
+footer .sitemap {
+    width: 1280px;
+    margin: 0 auto 30px;
+    
+
+}
+
+footer .sitemap div {
+    width: 16.6%;
+    float: left;
+}
+
+footer .sitemap div .menu {
+    font-family: "Merriweather", serif;
+    color: rgb(207,102,26);
+    display: block;
+    margin-bottom: 20px;
+
+}
+
+
+footer .sitemap div ul li {
+    margin-bottom: 10px;
+}
+
+footer .sitemap div ul li a {
+    color: #555;
+}
+
+footer .sitemap div ul li a:hover {
+    color: rgb(207,102,26);
+}
+
+footer hr {
+    width: 1280px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+footer .footer-policy {
+    width: 1280px;
+    margin: 0 auto;
+
+}
+
+footer .footer-policy .content {
+    float: left;
+}
+
+footer .footer-policy .content ul li {
+    float: left;
+    margin-right: 20px;
+}
+
+footer .footer-policy .content ul li a {
+    color: #555;
+    display: block;
+    margin-bottom: 20px;
+}
+
+footer .footer-policy .content ul li a:hover {
+    color: rgb(207,102,26);
+}
+
+footer .footer-policy .content p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+
+footer .footer-policy .sns-icon {
+    float: right;
+}
+
+footer .footer-policy .sns-icon li {
+    float: left;
+    margin-left: 10px;
+}
+
+
+
+
+
+
+
 
