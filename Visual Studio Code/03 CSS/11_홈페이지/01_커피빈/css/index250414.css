@@ -81,6 +81,7 @@ header .top .top-menu {
 
 header .top .top-menu .login-menu {
     float: right;
+
 }
 
 
@@ -98,18 +99,13 @@ header .top .top-menu .login-menu li a {
     vertical-align: middle;
 }
 
-header .top .top-menu .shortcut  {
+header .top .top-menu .login-menu .shortcut  {
     background-color: #000;
     float: right;
-    padding: 7px 15px ;
+    padding: 8px 15px ;
+    line-height: 1;
     
 }
-
-header .top .top-menu .img-frame .shortcut a img {
-    display: block;
-}
-
-
 
 header .bottom {
     width: 1280px;
@@ -151,7 +147,6 @@ header .bottom .gnb ul li a:hover {
 header .bottom form .search {
     float: right;
     line-height: 69px;
-    
 } 
 
 header .bottom form .search input[type="text"] {
@@ -160,9 +155,12 @@ header .bottom form .search input[type="text"] {
 }
 
 header .bottom form .search input[type="submit"] {
-    
-    
 }
+
+
+
+
+
 
 section {
     margin-top: 129px;
