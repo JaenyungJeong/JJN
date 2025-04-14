@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>z-index</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 20px;
+
+        }
+
+        header {
+            width: 100%;
+            height: 50px;
+            background-color: aqua;
+
+            position: fixed;
+            left: 0;
+            top: 0;
+
+            z-index: 9999;
+
+        }
+
+        header p {
+            line-height: 50px;
+            text-align: center;
+        }
+
+        section {
+            margin-top: 50px;
+        }
+
+        section .slide {
+            width: 100%;
+            height: 500px;
+            background-color: antiquewhite;
+            position: relative;
+            
+
+        }
+
+        section .slide p {
+            line-height: 100px;
+            text-align: center;
+        }
+
+        section .slide a {
+            outline: 1px solid yellowgreen;
+            width: 50px;
+            height: 50px;
+            display: block;
+
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+        }
+
+        section .slide a.prev {
+            left: 20px;
+        }
+
+        section .slide a.next {
+            right: 20px;
+        }
+
+
+
+
+
+        section .slide a img {
+            width: 100%;
+        }
+
+        section .content {
+            width: 100%;
+            height: 500px;
+            background-color: blue;
+
+        }
+
+        section .content p {
+
+            line-height: 100px;
+            text-align: center;
+        }
+
+        footer {
+            width: 100%;
+            height: 100px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <p>header</p>
+    </header>
+    <section>
+        <article class="slide">
+
+            <div>
+                <p>슬라이드</p>
+            </div>
+            <a href="#" class="prev"><img src="img/left_icon.png" alt="이전버튼" ></a>
+            <a href="#" class="next"><img src="img/right_icon.png" alt="다음버튼"></a>
+        </article>
+
+        <article class="content">
+            <p>컨텐츠</p>
+        </article>
+
+    </section>
+
+    <footer>footer</footer>
+    
+</body>
+</html>

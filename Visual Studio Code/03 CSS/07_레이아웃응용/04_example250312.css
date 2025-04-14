@@ -1,0 +1,79 @@
+@charset "UTF-08";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+.clear::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 400;
+    }
+
+.container {
+    background-color: blueviolet;
+    padding: 80px 0;
+}
+
+.intro {
+    width: 1280px;
+    margin: 0 auto 0;
+}
+
+.intro .hashtag {
+    text-align: center;
+    margin: 0 0 50px;
+}
+
+.intro .hashtag p {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+
+.intro .menu .box {
+    width: 16.66%;
+    float: left;
+
+}
+
+.intro .menu .box img {
+    width: 100%;
+    display: block;
+}
+
+.intro .email {
+    width: 426px;
+    margin: 50px auto;
+    text-align: center;
+
+}
+
+.intro .email p {
+    background-color: orange;
+    color: white;
+    line-height: 50px;
+    font-weight: 600;
+}

@@ -1,0 +1,101 @@
+일러스트 
+
+팬톤 컬러칩 세팅방법
+
+swatches -> library -> color books -> pantone + solid coated
+
+window -> pathfinder 세팅
+
+
+
+제작 -> 설계 - > 응용
+
+앵커포인트만 삭제 펜툴에서 딜리트
+앵커포은트와 패스 삭제 수정 선택후 딜리트
+
+*일러스트 단축키
+ 
+복사 :
+
+앞으로 붙여넣기 : CTRL+F
+뒤로 붙여넣기 : CTRL+B
+ 
+선을 면으로 만들기
+object -> path -> outline stroke
+
+2/6
+
+레이어 마스크로 영역 흐리게 하기
+-> 흐리게 할 구역 사각도형으로 지정 -> transparency make mast 클릭
+
+place 로 이미지 파일 갖고올때 -> Linked file (원본 링크가 유실되면 이미지가 안나옴)
+로 들어와서 임베드 시켜야됨. 포토샵 좌측 상단 embed 버튼 클릭 or 플레이스 창에서 찾아올때 Linked 체크박스 해제후 열기
+
+**클리핑 마스크 만들기(클리핑할 이미지 최상단에 위치 꼭!)
+-> 원본이미지 잠금후 원하는 이미지 펜툴로 누끼 -> 잠금이미지 해제 후 누끼 이미지 원본이미지 전부 선택
+-> 우클릭 make clipping mask 선택 -> 복사 후 사용  
+
+*이미지 누끼 후 닫힌 패스로 안쪽에 하나 더 만들어서 minus front 할 시
+-> compound path 형태로 되어있는지 확인, group 화 되어있으면 안됨
+
+*좌우정렬 시 기준 잡기
+-> 두 이미지 선택 후 기준이될 이미지 한번 더 클릭 후 정렬 실행
+
+*로고 색감 글자 가독성이 떨어지지 않게 생각해보기
+
+*유나이트하면 열린패스는 닫힌패스로 바뀜
+
+원형 래디얼 그라디언트
+
+*블렌드 툴 독립적인 패스로 나눌시
+-> object -> blend -> expand
+
+*화면에 보이는 것처럼 패스를 적용할 시(일직선 패스를 라면 모양으로 꼬불꼬불하게 바꿨는데 패스는 일직선 일때)
+-> object -> Expand Appearance
+
+*선을 면으로 확장하는 것
+-> object -> path -> outline stroke
+
+최종적으로는 닫힘패스로 만들어져야 완성
+
+*레이어 맨위에 ->shift+ctrl+]
+           맨아래 ->shift+ctrl+[
+*일러에서 클리핑 마스크는 보여질 부분의 패스를 제일 위에
+*-> 포토샵은 반대
+
+麵 手
+
+*패턴에 가이드까지 그룹화 되어있으면 패턴화 안됨.
+
+
+*글자 깨기
+-> 선택 후 오른쪽 클릭 -> create outline
+
+*아트보드 포함 문서 전체 내보내기
+-> 내용 선택후  FILE - > EXPORT SELETION -> ARTBOARD 에서 추출
+*내용만 내보내기
+-> 내용 선택후  FILE - > EXPORT SELETION -> ASSET 에서 추출
+
+*불러온 이미지 투명 부분 잘라내기
+-> IMAGE -> TRIM
+
+*패턴 크기 변형시
+-> 패턴 적용 후 스케일 툴 더블 클릭 후 -> Transform Patterns
+
+*패턴 등록 스와치 패널에 드래그
+
+*패턴 위치 변형시
+-> 무브 툴 더블 클릭후 -> Transform Patterns 하고 위치 조절
+
+*패턴 회전시 
+-> 회전 툴 더블 클릭 후 -> Transform Patterns 하고 위치 조절
+
+
+*offset path 화면에 보여지는대로 패스 적용시
+-> OBject -> path -> offset path
+
+*offset path 패스 모양은 그대로  적용시
+-> Effect -> path ->  offset path
+
+*지우개 툴 -> 지운 부분 닫힌 패스로 만들어줌 연결해줌
+*시저스 툴 -> 자른부분 열린 패스로 놔둠 연결 안해줌 

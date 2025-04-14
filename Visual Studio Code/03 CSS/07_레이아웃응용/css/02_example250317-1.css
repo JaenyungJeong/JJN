@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+.clear::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.container {
+    width: 1720px;
+    margin: 0 auto;
+
+}
+
+.container .box {
+    width: 100%;
+}
+
+.container .top {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.container .top h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.container .top p {
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.container .content {
+    position: relative;
+    
+}
+.container .content li{
+    
+    float: left;
+    
+    width: 19%;
+       
+}
+
+.container .content {
+    
+}
+
+.container .content li~li {
+    margin-left: 1%;
+}
+.container .content li p {
+    position: absolute;
+    padding: 20px 0 0 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    z-index: 9999;
+    
+
+}
+.container .content li a {
+
+}
+.container .content li a img {
+    width: 100%;
+    /* filter: brightness(0.5); */
+   
+}
+
+.container .content li a img.radius1 {
+    border-top-right-radius: 100px;
+}
+.container .content li a img.radius2 {
+    border-bottom-left-radius: 100px;
+}
+.container .content li a img.radius3 {
+    border-bottom-right-radius: 100px;
+}
+.container .content li a img.radius4 {
+    border-bottom-left-radius: 100px;
+       
+}
+.container .content li a img.radius5 {
+    border-top-right-radius: 100px;
+}
+
+

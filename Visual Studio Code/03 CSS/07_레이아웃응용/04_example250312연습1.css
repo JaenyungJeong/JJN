@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+.clear::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+body {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 400;
+}
+
+.container {
+    background-color: darkblue;
+    padding: 80px 0 ;
+    
+}
+
+.intro {
+    width: 1280px;
+    margin: 0 auto;
+    
+}
+
+.intro .hashtag {
+
+    margin: 0 0 50px;
+}
+
+.intro .hashtag p {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+}
+
+
+.intro .menu .goods {
+    width: 16.66%;
+    float: left;
+    outline: 1px solid red;
+}
+.intro .menu .goods img {
+    width: 100%;
+    display: block;
+}
+
+.intro .email {
+    width: 426px;
+    height: 50px;
+    margin: 50px auto;
+    text-align: center;
+    background-color: orange;
+    line-height: 50px;
+    color: #fff;
+}
+
+.intro .email p {
+    
+    
+}

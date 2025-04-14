@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>text-font-face</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+
+
+    <style>
+        /* 구글웹폰트 - 감자 플라워 */
+
+        @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap');
+
+        /* 웹폰트 설정! 
+            url(경로) format(확장자)->여러 개 이용 시 콤마 후 추가 기입
+            */
+        @font-face {
+            font-family: '훈하늘보리R';
+            src: url('font/훈하늘보리R.eot') format('embeded-opentype'), url('font/훈하늘보리R.woff') format('woff');
+        }
+
+        @font-face {
+            font-family: '1HoonSkybori R';
+            src: url('font/HoonSkybR.eot');
+            src: url('font/HoonSkybR.eot?#iefix') format('embedded-opentype'),
+                url('font/HoonSkybR.woff2') format('woff2'),
+                url('font/HoonSkybR.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+
+        @font-face {
+            font-family: 'Binggrae Melona';
+            src: url('font/BinggraeMelona.eot');
+            src: url('font/BinggraeMelona.eot?#iefix') format('embedded-opentype'),
+                url('font/BinggraeMelona.woff2') format('woff2'),
+                url('font/BinggraeMelona.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+
+        }
+
+        @font-face {
+            font-family: 'TmonMonsori';
+            src: url('font/TmonMonsoriBlack.eot');
+            src: url('font/TmonMonsoriBlack.eot?#iefix') format('embedded-opentype'),
+                url('font/TmonMonsoriBlack.woff2') format('woff2'),
+                url('font/TmonMonsoriBlack.woff') format('woff');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'BinggraeII';
+            src: url('font/BinggraeII.eot');
+            src: url('font/BinggraeII.eot?#iefix') format('embedded-opentype'),
+                url('font/BinggraeII.woff2') format('woff2'),
+                url('font/BinggraeII.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* 
+        eot : IE 하위버전을 위해서 만들어진 포맷
+        woff : 크롬, 사파리 등 모던 브라우저를 위해 사용
+        woff2 : woff를 개선한 파일 포맷으로 woff 대비 30~50% 압축율이 높음, 브라우저에서 지원이 안 되는 경우가 있으므로 woff 포맷과 함께 사용 
+        더 많이 압축해서 빠르게, 1과 같이 이용
+        */
+
+
+
+        h2 {
+
+            color: brown;
+
+        }
+
+        /* font-family 적용 시 
+            
+            한글명일 때나 폰트 전체가 그룹으로 되어있을 때
+            -> ''으로 묶어주기
+
+            */
+
+        .serif {
+            font-family: times, 'Times New Roman', serif;
+        }
+
+        .sans-serif {
+            font-family: '돋움', Helvetica, Arial, sans-serif;
+        }
+
+        /* 웹폰트 적용! */
+        .hun {
+            font-family: '훈하늘보리R';
+            font-size: 32px;
+        }
+
+        .hun2 {
+            font-family: '1HoonSkybori R';
+        }
+
+        .bing {
+            font-family: 'BinggraeII';
+        }
+
+        .bm {
+            font-family: 'Binggrae Melona';
+            font-size: 3rem;
+        }
+
+        .tmon {
+            font-family: 'TmonMonsori';
+        }
+
+        .dohyeun {
+            font-family: "Do Hyeon", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 30px;
+        }
+
+        .cute-font-regular {
+            font-family: "Cute Font", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 32px;
+        }
+
+        .song-myung-regular {
+            font-family: "Song Myung", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 300%;
+        }
+
+        .potato {
+            font-family: "Gamja Flower", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 32px;
+        }
+
+        .bwf {
+            font-family: "Black And White Picture", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 64px;
+        }
+
+        /* Noto Sans KR 두께별 디자인 */
+        .noto {
+            font-family: "Noto Sans KR", serif;
+
+        }
+        .n100 {font-weight: 100;}
+        .n200 {font-weight: 200;}
+        .n300 {font-weight: 300;}
+        .n400 {font-weight: 400;}
+        .n500 {font-weight: 500;}
+        .n600 {font-weight: 600;}
+        .n700 {font-weight: 700;}
+        .n800 {font-weight: 800;}
+        .n900 {font-weight: 900;}
+    </style>
+</head>
+
+<body>
+
+    <h2>font-family</h2>
+    <p class="serif">serif</p>
+    <p class="sans-serif">sans-serif</p>
+
+    <h2>font-face</h2>
+    <p>기본폰트</p>
+    <p class="hun">훈하늘보리R</p>
+    <p class="hun2">훈하늘보리보리보리R~</p>
+    <p class="bing">빙그레그레</p>
+    <p class="bm">빙그레메로나로나</p>
+    <p class="tmon">티몬소리블래크래크</p>
+
+    <h2>구글 웹폰트</h2>
+    <p class="dohyeun">배달의 민족 도현체</p>
+
+    <p class="cute-font-regular">큐트 폰트 </p>
+
+    <p class="song-myung-regular">송명 폰트</p>
+
+    <p class="potato">맛있는 감자플라워</p>
+
+    <p class="bwf">블랙 앤 화이트 그림체</p>
+
+    <h2>Noto Sans</h2>
+    <p class="noto n100">노토 산스 Noto Sans KR 100</p>
+    <p class="noto n200">노토 산스 Noto Sans KR 200</p>
+    <p class="noto n300">노토 산스 Noto Sans KR 300</p>
+    <p class="noto n400">노토 산스 Noto Sans KR 400</p>
+    <p class="noto n500">노토 산스 Noto Sans KR 500</p>
+    <p class="noto n600">노토 산스 Noto Sans KR 600</p>
+    <p class="noto n700">노토 산스 Noto Sans KR 700</p>
+    <p class="noto n800">노토 산스 Noto Sans KR 800</p>
+    <p class="noto n900">노토 산스 Noto Sans KR 900</p>
+
+
+</body>
+
+</html>

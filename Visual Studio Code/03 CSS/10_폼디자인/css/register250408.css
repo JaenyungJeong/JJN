@@ -1,0 +1,287 @@
+@charset "utf-8";
+
+/* 공통으로 사용할 CSS ************************************************************ */
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+fieldset {
+    border: 0;
+}
+
+legend {
+    display: none;
+}
+
+/** HEADER********************************************************************/
+
+
+header {
+    width: 100%;
+    background-color: #f6f5ef;
+    height: 115px;
+    padding: 20px 0;
+    box-sizing: border-box; 
+
+    /* position: fixed;
+    left: 0;
+    top: 0; */
+
+    z-index: 999;
+    opacity: 80%;
+   
+}
+
+header .inner-header {
+    width: 80%;
+    max-width: 1280px;
+    /* 내가 지정한 최댓값 이상은 넘지마 80% 가 1180px 이면 그 사이즈 그대로, 넘으면 1280px 까지만 적용 */
+    /* outline: 2px solid red; */
+    margin: 0 auto;
+
+}
+
+header h1.logo {
+    float: left;
+}
+header h1.logo a{}
+header h1.logo a img{
+    height: 75px;
+    /* 높이를 넣으면 너비는 자동으로 바꿔 */
+}
+
+header nav.gnb {
+    float: right;
+}
+header nav.gnb ul {}
+header nav.gnb ul li {
+    float: left;
+    margin-right: 40px;
+    line-height: 80px;
+    font-size: 18px;
+    /* 로고 글자크기 18px 일반적은 20~22px 메뉴가 별로 없을시  */
+    text-transform: uppercase;
+}
+
+header nav.gnb ul li:last-child {
+    margin-right: 0;
+}
+header nav.gnb ul li a{
+    color: #555;
+
+}
+
+header nav.gnb ul li a:hover {
+    color: #007042;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+section {
+    width: 100%;
+    background: url(../img/login_bg.jpg) no-repeat;
+    /* background: color url() repaeat position/size; */
+
+    background-size: cover;
+    background-attachment: fixed;
+    
+    padding: 70px 0 80px;
+
+    margin-top: 115px;
+
+
+}
+
+section .inner-section {
+    width: 800px;
+    margin: 0 auto;
+    /* outline: 1px solid yellowgreen; */
+}
+
+section .inner-section .register {
+    padding: 
+}
+
+section .inner-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    font-weight: 400;
+    color: #fff;
+
+}
+
+section .inner-section .register {
+    background-color: #fff;
+    
+    
+}
+
+section .inner-section .register .welcome {
+    padding: 30px;
+    border-bottom: 1px solid #eee;
+    
+    
+}
+
+section .inner-section .register .welcome .staff-img{
+    float: left;
+       
+}
+
+section .inner-section .register .welcome .welcome-comment  {
+    float: right;
+    
+}
+
+section .inner-section .register .requires-box {
+    padding: 30px;
+}
+
+section .inner-section .register .requires-box .requires-input {
+    font-size: 16px;
+    font-weight: normal;
+    color: #554538;
+    margin-bottom: 30px;
+} 
+
+.requires-box .requires {
+    width: 760px;
+    margin-bottom: 60px;
+}
+
+.requires-box .requires table {
+    border-collapse: collapse;
+    border-top: 3px solid #000;
+}
+
+.requires-box .requires table th {
+    text-align: left;
+    vertical-align: middle;
+    background-color: #f4f4f2;
+}
+
+.requires-box .requires table th, .requires-box .requires table td{
+    
+    border-bottom: 1px solid #333;
+    padding: 20px 10px; 
+    height: 70px;
+    box-sizing: border-box;
+}
+
+.requires-box .requires2 {
+    width: 760px;
+}
+
+
+.requires-box .requires2 table {
+    border-collapse: collapse;
+    border-top: 3px solid #000;
+}
+
+.requires-box .requires2 table th {
+    text-align: left;
+    vertical-align: middle;
+    background-color: #f4f4f2;
+
+}
+
+.requires-box .requires2 table th, .requires-box .requires2 table td{
+    
+    border-bottom: 1px solid #333;
+    padding: 20px 10px; 
+    height: 70px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+    width: 100%;
+    background-color: #2c2a29;
+    padding: 30px 100px;
+    box-sizing: border-box  ;
+    
+}
+
+footer a {
+    color: #fff;
+
+}
+
+/* footer .inner-footer {
+    width: 80%;
+    max-width: 1280px;
+    margin: 0 auto;
+    outline: 2px solid lime;
+} */
+
+footer .links {
+    margin-bottom: 20px;
+    text-align: center;
+    color: rgba(255,255,255,0.9);
+}
+footer .links ul {}
+footer .links ul li {
+    display: inline-block;
+    margin: 0 10px;
+    line-height: 40px;
+}
+footer .links ul li a {}
+
+footer .btngrp { 
+    /* background-color: lightgreen; */
+    text-align: center;
+    margin-bottom: 40px;
+}
+footer .btngrp a {
+    display: inline-block;
+    border: 2px solid #fff;
+    width: 150px;
+    border-radius: 6px;
+    padding: 12px 0;
+    
+}
+
+footer .info {
+    line-height: 1.6;
+    text-align: center;
+    color: rgba(255,255,255,0.6);
+}
+footer .info p {}
+footer .info p span {
+    margin-right: 10px;
+
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>05_example</title>
+
+    <style>
+
+        h2, p {
+            color: #fff;
+        }
+
+        .list {
+            position: relative;
+            /* overflow: hidden; */
+        }
+
+        .list .imgs{
+
+            width: 300px;
+            height: 200px;
+            float: left;
+
+            margin-right: 10px;
+            
+
+        }
+
+    
+        .list .txt-box {
+            position: absolute;
+            left: 0;
+            top: 200px;
+            
+            
+        }
+        
+        .list .txt-box .content {
+            width: 300px;
+            height: 200px;
+            background-color: rgba(0,0,0,0.7);
+            margin-right: 10px;
+
+            float: left;
+            transition: all 1s;
+        }
+
+        
+
+        .list:hover .content {
+            transform: translateY(-200px);
+        }
+
+
+
+        
+    </style>
+</head>
+
+<body>
+
+    <h1>신상품 목록</h1>
+
+
+    <div class="list">
+        
+        <div class="imgs">
+            <img src="images/prod1.jpg" alt="">
+
+        </div>
+
+        <div class="imgs">
+            <img src="images/prod2.jpg" alt="">
+
+        </div>
+
+        <div class="imgs">
+            <img src="images/prod3.jpg" alt="">
+
+        
+    </div>
+
+        <div class="txt-box">
+        <div class="content">
+            <h2>상품 1</h2>
+            <p>상품1 설명 텍스트</p>
+            <p>가격 : 119,000원</p>
+        </div>
+
+        
+        <div class="content">
+            <h2>상품 2</h2>
+            <p>상품2 설명 텍스트</p>
+            <p>가격 : 119,000원</p>
+        </div>
+
+        
+        <div class="content">
+            <h2>상품 3</h2>
+            <p>상품3 설명 텍스트</p>
+            <p>가격 : 119,000원</p>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

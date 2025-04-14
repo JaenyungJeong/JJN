@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>15_example_application-form</title>
+</head>
+
+<body>
+
+    <div>
+
+        <h1>프런트엔드 개발자 지원서</h1>
+
+        <p>HTML, CSS, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</p>
+
+    </div>
+
+    <hr>
+
+    <form action="#" method="get" name="loginfrm">
+        
+        <div>
+
+            <h2>개인정보</h2>
+
+            <ul>
+                <li>
+                    <label for="name">이름</label>
+                    <input type="text" name="username" id="name" placeholder="공백없이 입력하세요">
+                </li>
+
+                <li>
+                    <label for="tel">전화</label>
+                    <input type="text" name="usertel" id="tel">
+                </li>
+
+                <li>
+                    <label for="location">지역</label>
+                    <select name="city" id="location">
+
+                        <option value="서울">서울</option>
+                        <option value="경기">경기</option>
+                        <option value="대전">대전</option>
+                        <option value="강원">강원</option>
+                        <option value="광주">광주</option>
+                        <option value="부산">부산</option>
+
+                    </select>
+                </li>
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h2>지원분야</h2>
+
+            <ul>
+                <li>
+
+                    <input type="radio" name="job" value="웹 퍼블리싱" id="publishing">
+                    <label for="publishing">웹 퍼블리싱</label>
+                </li>
+
+                <li>
+
+                    <input type="radio" name="job" value="웹 애플리케이션 개발" id="app-dev">
+                    <label for="app-dev">웹 애플리케이션 개발</label>
+                </li>
+
+                <li>
+
+                    <input type="radio" name="job" value="개발 환경 개선" id="environment">
+                    <label for="environment">개발 환경 개선</label>
+
+                </li>
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h2>지원동기</h2>
+
+            <textarea name="txt" cols="50" rows="10" placeholder="지원 동기를 간략히 입력해 주세요."></textarea>
+
+        </div>
+
+        <br><br>
+
+        <input type="submit" value="접수하기">&nbsp;<input type="reset" value="다시작성">
+    </form>
+
+    
+
+</body>
+
+</html>

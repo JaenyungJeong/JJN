@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+/* float 해제를 위한 클래스*/
+.clear::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.slider .icon1, .icon2 {
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+
+.container {
+    width: 100%;
+    background-color: rgb(124,81,161);
+    padding: 100px 0;
+}
+
+.container .instagram {
+    width: 1280px;
+    margin: 0 auto;
+
+    /* outline: 3px solid lime; */
+}
+
+.instagram .title {
+    font-size: 2rem;
+    color: rgb(255,255,255);
+    margin-bottom: 40px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.instagram .content {
+    /* background-color: yellow; */
+    margin-bottom: 60px;
+}
+.instagram .content ul {
+
+}
+.instagram .content ul li {
+    /* outline: 1px solid plum; */
+    width: 16.66%;
+    float: left;
+
+    overflow: hidden;
+    /* hover 했을 때 이미지 크기가 커지면서 li 공간을 넘치게 되면 넘치는 부분을 안보이게 해!! */
+}
+.instagram .content ul li a {
+    display: block;
+}
+.instagram .content ul li a img {
+    width: 100%;
+    
+    /* 2번 float 해제 
+    Float된 박스들을 감싸는 박스를 다시 float:left; 처리 했을 시  */
+
+    /* float: left; */
+    
+    display: block;
+    transition: all 0.6s;
+
+}
+
+/* hover */
+.instagram .content ul li:hover img {
+    transform: scale(1.5);
+}
+
+.instagram .button {
+    /* background-color: tomato; */
+    text-align: center;
+    /* 
+    하위요소 중 인라인 성격을 가진 요소는 글자처럼 취급되므로 text-align 을 통해 정렬할 수 있다
+     */
+}
+.instagram .button .follow {
+    font-size: 18px;
+    background-color: rgb(243,130,0);
+    color: rgb(255,255,255);
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: inline-block;   
+  
+}

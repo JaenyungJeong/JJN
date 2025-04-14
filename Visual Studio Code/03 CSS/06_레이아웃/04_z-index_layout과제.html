@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>04_z-index_layout</title>
+
+    <style>
+
+        * {
+
+            margin: 0;
+            padding: 0;
+        }
+        
+
+        header {
+            width: 100%;
+            height: 50px;
+            background-color: rgba(176, 224, 230, 0.7);
+            position: fixed;
+            left: 0;
+            top: 0;
+            text-align: center;
+
+
+
+
+        }
+
+        section .box1 {
+            width: 100%;
+            height: 300px;
+            background-color: pink;
+            background-image: url(img/left_icon.png), url(img/right_icon.png);
+            background-size: 30px;
+            background-repeat: no-repeat;
+            background-position: 20px center, right 20px center ;                    
+            margin-top: 50px;
+            text-align: center;
+            
+
+        }
+
+        section .box2 {
+
+            width:100%;
+            height: 500px;
+            background-color: yellow;
+            text-align: center;
+        }
+
+        footer {
+            width: 100%;
+            height: 50px;
+            background-color: #777;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>header</header>
+    <section>
+
+        <div class="box1">SECTION</div>
+
+        <div class="box2">컨텐츠</div>
+
+    </section>
+
+    <footer>footer</footer>
+    
+</body>
+</html>

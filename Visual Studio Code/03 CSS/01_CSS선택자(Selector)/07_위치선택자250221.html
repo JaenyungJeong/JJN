@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>07_위치선택자</title>
+
+    <style>
+        /* li 중에 첫 번째 요소
+        같은 태그를 가진 형제관계에서 주로 사용
+        */
+        li:first-child {
+            color: blue;
+        }
+        li:last-child {
+            color: red;
+            font-size: 30px;
+            
+        }
+
+        li:nth-child(3) {
+            background-color: aquamarine;
+
+        }
+
+
+    </style>
+
+    <!-- 형제가 다르면(통일 안된 다른 태그가 있으면) 위치선택자 선택이 안됨. -->
+</head>
+<body>
+
+    <ul>
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+    </ul>
+
+    <ol>
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+        <li>menu</li>
+    </ol>
+    
+</body>
+</html>

@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+/*  float 해제를 위한 클래스 가상요소 블록처리 클리어처리*/
+.clear::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* 
+
+구글웹폰트
+
+1) Noto Sans Kr (font-weight: 100~900)
+font-family: "Noto Sans KR", sans-serif;
+
+2) Fredoka (font-weight: 300~700)
+font-family: "Fredoka", sans-serif;
+
+*/
+
+
+.sandwich-menu {
+    width: 1280px;
+    margin: 0 auto;
+    /* background-color: aquamarine; */
+}
+
+.sandwich-menu .top {
+    width: 100%;
+    /* outline: 2px solid red; */
+    margin: 100px 0;
+    
+
+}
+
+
+.sandwich-menu .top .title {
+    float: left;
+    font-size: 3rem;
+    font-weight: 900;
+    /* outline: 2px solid darkorange; */
+    background-image: url(../img/example3/bul_tit.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    padding: 0 0 0 25px;
+}
+
+.sandwich-menu .top .tabmenu  {
+    float: right;
+    padding: 20px;
+
+    
+}
+
+.sandwich-menu .top .tabmenu li {
+    display: inline-block;
+    padding: 0 20px;
+    /* outline: 2px solid darkorange; */
+}
+
+.sandwich-menu .top .tabmenu li a {
+    color: #666;
+}
+
+.sandwich-menu .top .tabmenu li~li {
+    border-left: 1px solid rgba(179, 177, 177, 0.7);
+}
+
+.sandwich-menu .content {
+    text-align: center;
+    position: relative;
+    /* outline: 2px solid blue; */
+}
+
+.sandwich-menu .content .btn {
+    width: 50px;
+    height: 50px;
+    background-image: url(../img/example3/icon_event_slider_arr.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+
+    /* overflow: hidden; */
+
+}
+
+.sandwich-menu .content .prev {
+    left: -150px;
+}
+
+.sandwich-menu .content .prev:hover {
+    background-position: 0 100%;
+}
+
+
+.sandwich-menu .content .next {
+    background-position: 100% 0;
+    right: -150px;
+}
+
+.sandwich-menu .content .next:hover {
+    background-position: 100% 100%;
+}
+
+.sandwich-menu .content .menu-wrap {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.sandwich-menu .content .menu-wrap li {
+    
+    width: 25%;
+    float: left;
+}
+
+.sandwich-menu .content .menu-wrap li a img {
+    width: 100%;
+    margin-bottom: 20px;
+    
+}
+
+
+.sandwich-menu .content .menu-wrap li .info h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.sandwich-menu .content .menu-wrap li .info p {
+    font-size: 14px;
+    color: #777;
+
+}
+
+
+
+

@@ -1,0 +1,130 @@
+@charset "utf-8";
+
+/* ***************************공통으로 사용할 css********************** */
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* *****headaer *****************************/
+header {
+    width: 100%;
+    background-color: #f6f5ef;
+    height: 115px;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+header .inner-header {
+    width: 80%;
+    max-width: 1280px;
+    margin: 0 auto;
+
+}
+
+header h1.logo {
+    float: left;
+}
+
+header h1.logo a {}
+
+header h1.logo a img {
+    height: 75px;
+}
+
+header nav.gnb {
+    float: right;
+}
+
+header nav.gnb ul {}
+
+header nav.gnb ul li {
+    float: left;
+    margin-right: 40px;
+    line-height: 80px;
+    font-size: 18px;
+    text-transform: uppercase;
+
+}
+
+header nav.gnb ul li:last-child {
+    margin-right: 0;
+}
+
+header nav.gnb ul li a {
+    color: #555;
+}
+
+header nav.gnb ul li a:hover {
+    color: #007042;
+    text-decoration: underline;
+}
+
+
+/* *****section*************************** */
+
+
+
+
+
+
+
+/* *************footer************** */
+footer {
+    width: 100%;
+    background-color: #2c2a29;
+    padding: 30px 100px;
+    box-sizing: border-box;
+}
+
+footer a {
+    color: #fff;
+}
+
+/* footer .inner-footer {
+    width: 80%;
+    max-width: 1280px;
+    margin: 0 auto;
+
+    outline: 2px solid lime;
+} */
+footer .links {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+footer .links ul {}
+
+footer .links ul li {
+    display: inline-block;
+    margin: 0 10px;
+    line-height: 40px;
+}
+
+footer .links ul li a {}
+
+footer .btngrp {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+footer .btngrp a {
+    display: inline-block;
+    border: 2px solid #fff;
+    width: 150px;
+    border-radius: 6px;
+    padding: 12px 0;
+}
+
+footer .info {
+    line-height: 1.6;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+footer .info p {}
+
+footer .info p span {
+    margin-right: 10px;
+}

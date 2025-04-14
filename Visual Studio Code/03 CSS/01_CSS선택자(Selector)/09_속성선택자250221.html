@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>09_속성선택자</title>
+
+        <style>
+            /* (태그/요소의) 속성 선택자 
+            *태그의 속성 속성값을 선택할때-> [] */
+
+            a[id] {
+                background-color: yellowgreen;
+            }
+
+            a[class="link1"] {
+                background-color: pink;
+            } 
+
+            /* 속성값 - 시작이 같은 것 찾기 ^=  */
+            a[class^="link"] {
+                color: red;
+            }
+            
+            /* 속성값의 끝이 같은 것 찾기 $= */
+            a[href$="net"] {
+                border: 2px solid blue;
+            }
+
+            /* 같은 값 모두 찾기 */
+            a[href*="www"] {
+                text-decoration: line-through overline ;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <!-- ul>li*3>a[href=http] 대괄호의 의미 태그에 속성을 넣겠다. -->
+        <ul>
+            <li><a href="http://www.naver.com" class="link1">네이버</a></li>
+            <li><a href="http://www.google.com" class="link2">구글</a></li>
+            <li><a href="http://www.daum.net" id="daum">다음</a></li>
+        </ul>
+
+    </body>
+</html>

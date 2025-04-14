@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>03_transition</title>
+
+        <style>
+
+            h2{
+                color: tomato;
+            }
+
+            div {
+                margin-left: 100px;
+            }
+
+            /* transition-property & duration */
+            .div1 {
+                width: 100px;
+                height: 100px;
+                background-color: lightpink;
+                border: 2px solid #000;
+                transition-property: width, height;
+                transition-duration: 4s, 2s;
+
+            }
+
+            .div1:hover {
+                width: 400px;
+                height: 300px;
+                background-color: greenyellow;
+            }
+
+            /* transition-timing-funtion */
+
+            .div2::after {
+                content: "";  
+                display: block;
+                clear: both;
+            } 
+
+            .div2 > div {
+                width: 100px;
+                height: 50px;
+                background-color: navy;
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                float: left;
+                margin: 5px 10px;
+
+                transition: all 10s;
+
+            }
+
+            .div2:hover > div {
+                height: 400px;
+            }
+
+            .div2 .ease {transition-timing-function: ease;}
+            .div2 .linear {transition-timing-function: linear ;}
+            .div2 .ease-in {transition-timing-function: ease-in;}
+            .div2 .ease-out {transition-timing-function: ease-out;}
+            .div2 .ease-in-out {transition-timing-function: ease-in-out;}
+
+            /* 
+            
+            timing-funtion (가속도)
+
+            1) ease : 기본값, 처음에는 천천히 시작, 점점 빨라지다가 마지막에 천천히 끝남
+            2) linear : 시작부터 끝까지 일정한(같은) 속도
+            3) ease-in : 시작을 느리게
+            4) ease-out : 느리게 끝내기
+            5) ease-in-out : 느리게 시작해서 느리게 끝내기
+
+            */
+
+            /* transition-delay */
+            .no-delay {
+                width: 150px;
+                height: 150px;
+                background-color: darkseagreen;
+                border: thin solid #000;
+                margin-bottom: 20px;
+
+                transition: all .5s linear;
+            }
+
+            .no-delay:hover {
+                transform: rotate(30deg);
+            }
+
+            .delay {
+                width: 150px;
+                height: 150px;
+                background-color: greenyellow;
+                border: thin solid #000;
+
+                transition: all .5s linear;
+                transition-delay: 1s;
+            }
+
+            .delay:hover {
+                transform: rotate(30deg);
+            }
+
+            /* transition */
+            .div3 {
+                width: 200px;
+                height: 200px;
+                background-color: yellow;
+                border: 1px solid #000;
+                
+                transition: all 1s ease-in-out 1s;
+                /* transition: property duration timing-funtion delay ; */
+            }
+
+            .div3:hover {
+                background-color: tomato;
+                border: 5px dotted greenyellow;
+                border-radius: 50%;
+            }
+
+            
+
+
+
+        </style>
+    </head>
+    <body>
+
+        <h2>transition-property &amp; duration</h2>
+        <div class="div1"></div>
+        
+        <h2>transition-timing-funtion</h2>
+
+        <div class="div2">
+            <div class="ease">ease</div>
+            <div class="linear">linear</div>
+            <div class="ease-in">ease-in</div>
+            <div class="ease-out">ease-out</div>
+            <div class="ease-in-out">ease-in-out</div>
+
+        </div>
+        
+        <h2>transition-delay</h2>
+        <div class="no-delay"></div>
+        <div class="delay"></div>
+
+        <h2>transition</h2>
+
+        <div class="div3"></div>
+
+    </body>
+</html>

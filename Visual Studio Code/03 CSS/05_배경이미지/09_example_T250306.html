@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>09_example</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url(images/backdrop.gif);
+        }
+
+        .title {
+            /* background-color: yellow; */
+            margin: 30px 0 50px;
+            /* text-align: center; */
+
+        }
+
+        /* .title h1 {
+                text-align: center;
+            }
+
+            .title p {
+                text-align: center;
+            } */
+
+        .title h1 {
+            font-size: 0;
+            height: 120px;
+            /* 배경이미지 높이만큼!*/
+            background-image: url(images/title.gif);
+            background-repeat: no-repeat;
+            background-position: center top;
+            margin-bottom: 10px;
+
+        }
+
+        .title p {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .content {
+            width: 800px;
+            margin: 0 auto;
+            
+            /* outline: 2px solid lime; */
+
+        }
+
+        .content .box-wrap {
+            text-align: center;
+        }
+
+        .content .box {
+            background-color: gray;
+            margin: 10px;
+            margin-bottom: 20px;
+
+            width: 200px;
+            padding: 10px;
+            text-align: center;
+            display: inline-block;
+
+        }
+
+        .content .box img {}
+
+        .content .box p {
+            color: #fff;
+            /* text-align: center; */
+            font-size: 15px;
+            background-image: url(images/icon.png);
+            background-repeat: no-repeat;
+
+            display: inline-block;
+            padding-left: 20px;
+
+            /* outline: 2px solid lime; */
+            background-position: left center;
+            
+        }
+
+
+        /* 2. figure 태그 사용 */
+
+        .fig-wrap {
+            text-align: center;
+        }
+        .fig-wrap figure {
+            width: 220px;
+            padding: 10px 0;
+            background-color: tomato;
+            text-align: center;
+
+            margin: 10px;
+            margin-bottom: 20px;
+            display: inline-block;
+
+            
+        }
+        .fig-wrap figure figcaption {
+            /* outline: 2px solid blue; */
+            color: #fff;
+            font-size: 15px;
+            padding: 0 10px;
+        }
+        .fig-wrap figure figcaption img {
+            margin-right: 6px;
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="title">
+        <!-- <h1><img src="images/title.gif" alt="Galerie Botanique"></h1> -->
+        <h1>Galerie Botanique</h1>
+        <p>개최된 컬렉션에 선택된 고풍스러운 식물 이미지는 다음과 같다.</p>
+    </div>
+
+    <div class="content">
+
+        <!-- 1. div 태그 사용 -->
+        <div class="box-wrap">
+
+            <div class="box">
+                <img src="images/print-01.jpg" alt="">
+                <p>해바라기(Helianthus)</p>
+            </div>
+
+            <div class="box">
+                <img src="images/print-02.jpg" alt="">
+                <p>시계꽃(passiflora)</p>
+            </div>
+
+            <div class="box">
+                <img src="images/print-03.jpg" alt="">
+                <p>닉토칼로스(Nyctocalos)</p>
+            </div>
+
+            <div class="box">
+                <img src="images/print-04.jpg" alt="">
+                <p>폴리안테스(Polianthes)</p>
+            </div>
+
+            <div class="box">
+                <img src="images/print-05.jpg" alt="">
+                <p>무화과나무(Ficus)</p>
+            </div>
+
+            <div class="box">
+                <img src="images/print-06.jpg" alt="">
+                <p>덴드로비움(Dendrobium)</p>
+            </div>
+
+        </div>
+
+        <!-- 2. figure 태그 사용 -->
+
+        <div class="fig-wrap">
+            <figure>
+                <img src="images/print-01.jpg" alt="">
+                <figcaption>
+                    <img src="images/icon.png" alt="">
+                    <span>해바라기(Helianthus)</span>
+                </figcaption>
+            </figure>
+
+            <figure>
+                <img src="images/print-02.jpg" alt="">
+                <figcaption>
+                    <img src="images/icon.png" alt="">
+                    <span>시계꽃(passiflora)</span>
+                </figcaption>
+            </figure>
+
+            <figure>
+                <img src="images/print-03.jpg" alt="">
+                <figcaption>
+                    <img src="images/icon.png" alt="">
+                    <span>닉토칼로스(Nyctocalos)</span>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+@charset "UTF-8";
+
+/* 
+    font
+
+    1) merriweather 폰트(영문)
+    font-family: "Merriweather", serif;
+    font-weight: 300 ~ 900;
+
+    2) nanum gothic 폰트(한글)
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 400 | 700 | 800;
+
+    컨텐츠 너비 : 1280px
+
+    컬러
+    오렌지색
+    rgb(243,130,0)
+    rgb(207,102,26)
+
+    보라색 rgb(124,81,161)
+
+    진한갈색 rgb(47,28,17)
+
+
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+.clear::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+header {
+    width: 100%;
+
+
+}
+
+header .top {
+    width: 100%;
+    background-color: #d3d3d3;
+    
+    
+}
+
+header .top .top-menu {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+header .top .top-menu .login-menu {
+    float: right;
+}
+
+header .top .top-menu .login-menu li {
+    float: left;
+    margin-left: 20px;
+}
+
+header .top .top-menu .img-frame {
+    width: 41px;
+    height: 31px;
+    background-color: #000;
+    outline: 1px solid blue;
+    float: right;
+    text-align: center;
+}
+
+header .top .top-menu .img-frame .shortcut a img {
+    vertical-align: middle;
+}
+
+
+
+header .bottom {
+    width: 1280px;
+    height: 69px;
+    padding: 10px 0;
+    margin: 0 auto;
+    
+}
+
+header .bottom .logo {
+    margin-right: 70px;
+}
+
+header .bottom .logo a img {
+    display: block;
+}
+
+header .bottom h1, header .bottom .gnb{
+    float: left;
+    
+}
+
+header .bottom .gnb ul li {
+    float: left;
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 800;
+    margin-right: 50px;
+    text-transform: uppercase;
+    line-height: 69px;
+}
+
+header .bottom form .search {
+    float: right;
+    line-height: 69px;
+    
+} 
+
+header .bottom form .search input[type="text"] {
+    border: none;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+header .bottom form .search input[type="submit"] {
+    
+    
+}
+
+section {
+    width: 100%;
+    height: 800px;
+
+}
+
+section .main-img .img1 {    
+    width: 100%;
+    height: 700px;
+    background-image: url(../img/main_forest.jpg);
+    background-size: cover;
+    display: block;
+    
+    font-size: 0;
+}
+
+section .main-img .img2 {    
+    width: 100%;
+    height: 400px;
+    background-image: url(../img/main_event.jpg);
+    background-size: cover;
+    display: block;
+    
+    font-size: 0;
+    margin-bottom: 70px;
+}
+
+section .item {
+    width: 100%;
+}
+
+section .item .picks {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+section .item .picks .title {
+    font-family: "Merriweather", serif;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+section .item .picks .item-list {
+    margin-bottom: 70px;
+}
+
+section .item .picks .item-list li {
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+

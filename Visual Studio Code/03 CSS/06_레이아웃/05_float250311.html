@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>05_float</title>
+
+    <style>
+
+        /* 
+        
+        float 
+        -요소를 '가로'로 나열할 때 사용
+        - 부모 공간에서 가로로 나열되는 요소에 float 적용
+        - float 된 요소는 부모요소가 높이를 읽을 수 없으므로 부모의 높잇값이 0이 되는 문제가 발생!
+        - float 적용 후, float 해제 작업이 필요!
+
+        *요소를 가로로 나열할 때
+        1) display : inline-block
+        2) float : 
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            width: 90%;
+            background-color: gold;
+            margin: 50px auto 0;
+            outline: 3px solid #ff0000;
+
+            overflow: auto;
+        }
+
+        .wrap > div {
+            width: 200px;
+            /* width: 33.33%; */
+            height: 200px;
+            font-size: 30px;
+
+            /* display: inline-block; */
+            float: left;
+            margin-right: 20px;
+        }
+
+        .box1 {background-color: #d65c52;}
+        .box2 {background-color: #f6c1dd;}
+        .box3 {background-color: #c8f8c4;}
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
+        <div class="box3">3</div>
+    </div>
+
+</body>
+
+</html>

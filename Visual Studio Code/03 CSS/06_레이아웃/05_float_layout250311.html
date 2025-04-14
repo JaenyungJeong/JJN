@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>05_float_layout</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 16px;
+
+        }
+
+        header {
+            width: 100%;
+            height: 100px;
+            background-color: pink;
+        }
+
+        header p {
+            text-align: center;
+        }
+
+        section .slide {
+            width: 90%;
+            height: 200px;
+            background-color: greenyellow;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        section .rowbox {
+            width: 100%;
+            background-color: antiquewhite;
+            text-align: center;
+            /* outline: 3px solid blue; */
+
+            overflow: auto;
+        }
+
+        section .rowbox>div {
+            width: 33.33%;
+            height: 200px;
+
+            float: left;
+        }
+
+        section .rowbox .box1 {
+            background-color: powderblue;
+        }
+
+        section .rowbox .box2 {
+            background-color: pink;
+        }
+
+        section .rowbox .box3 {
+            background-color: darkorange;
+        }
+
+        section .colbox {
+            width: 100%;
+            height: 200px;
+            background-color: red;
+            text-align: center;
+        }
+
+        footer {
+            width: 100%;
+            height: 100px;
+            background-color: darkblue;
+        }
+
+        footer p {
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <p>Header</p>
+    </header>
+    <section>
+        <article class="slide">메인슬라이드</article>
+        <article class="rowbox">
+            <div class="box1">컨텐츠1</div>
+            <div class="box2">컨텐츠2</div>
+            <div class="box3">컨텐츠3</div>
+        </article>
+        <article class="colbox">컨텐츠4</article>
+    </section>
+
+    <footer>
+        <p>Copywright2024</p>
+    </footer>
+
+</body>
+
+</html>

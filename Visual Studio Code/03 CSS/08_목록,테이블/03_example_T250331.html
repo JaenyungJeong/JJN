@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>03_example</title>
+
+    <style>
+
+        body {
+            background-color: #eee;
+            color: #333;
+        }
+
+        .title {
+            color: dimgray;
+        }
+
+        /* 다음 요소 선택자(+) 형제관계에서 쓸 수 있는 것들 */
+        .title + p {
+            line-height: 1.6;
+            color: red;
+        }
+
+        ul.list {
+            list-style-image: url(images/icon-plus.png);
+            margin: 0 0 30px 0;
+        }
+
+        ul.list li {
+            /* outline: 2px solid red; */
+
+            /* line-height: 2; */
+            margin-bottom: 10px;
+        }
+
+        .schedule {
+            width: 760px;
+            border-collapse: collapse;
+
+            /* border-radius: 50px 50px 0 0 ;
+            overflow: hidden; */
+            
+            /* outline: 2px solid red; */
+
+        }
+
+        .schedule th, .schedule td {
+            border: 1px solid grey;
+            border-width: 0 1px 1px 0;
+            padding: 8px 10px;
+        }
+
+        .schedule th {
+            text-align: left;
+        }
+        .schedule td {}
+
+        /* tr 태그 배경색1 - 클래스로 선택하기 */
+        /* .schedule tr.odd {
+            background-color: #e0ecf2;
+        }
+        .schedule tr.even {
+            background-color: #c5dbe7;
+        } */
+
+        /* tr 태그 배경색2 - nth-child 로 짝수번쨰, 홀수번째 선택하기 */
+
+        /* 
+        thead와 tbody로 테이블 내의 내용을 구분할 경우
+        nth-child 로 선택했을 때 각각의 덩어리에서 짝수, 홀수번째 요소가 선택됨
+
+        */
+
+        /* .schedule tr:nth-child(2n) {
+            background-color: greenyellow;
+        } */
+
+        .schedule tr:nth-child(odd) {
+            background-color: #e0ecf2;
+        }
+
+        .schedule tr:nth-child(even) {
+            background-color: #c5dbec;
+        }
+
+        .schedule tr.top {
+            background-color: #0078ca;
+            color: #fff;
+            border-bottom: 3px inset gray;
+        }
+
+        .schedule tr.top th {
+            text-align: center;
+            letter-spacing: 2px;
+            border-color: #ccc;
+        }
+
+        .schedule tr.top th:first-child {
+            border-radius: 16px 0 0 0 ;
+        }
+
+        .schedule tr.top th:last-child {
+            border-radius: 0 16px 0 0 ;
+            border-right: 0;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <h1 class="title">시 워크샵 (Poetry Workshop)</h1>
+
+    <p class="des">
+        1년 동안 다양한 시 워크샵과 심포지엄을 실시합니다. <br>
+        다음과 같은 이벤트가 회원들에게 무료로 제공되오니 참고하여 주시기 바랍니다.
+    </p>
+
+    <ul class="list">
+        <li>A Poetic Perspective</li>
+        <li>Walt Whitman at War</li>
+        <li>Found Poems and Outsider Poetry</li>
+    </ul>
+
+    <table class="schedule">
+        <!-- 너비설정 주로 %  -->
+        <colgroup>
+            <col width="34%">
+            <col width="22%">
+            <col width="22%">
+            <col width="22%">
+        </colgroup>
+
+        <thead>
+            <tr class="top">
+                <th>구분</th>
+                <th>뉴욕</th>
+                <th>시카고</th>
+                <th>샌프란시스코</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr class="odd">
+                <!-- odd : 홀수 -->
+                <th>A Poetic Perspective</th>
+                <td>2024년 9월 6일(금) <br> 오전11시~오후2시</td>
+                <td>2024년 9월 7일(토) <br> 오전11시~오후2시</td>
+                <td>2024년 9월 8일(일) <br> 오전11시~오후2시</td>
+            </tr>
+
+            <tr class="even">
+                <!-- even : 짝수 -->
+                <th>Walt Whitman at War</th>
+                <td>2024년 9월 6일(금) <br> 오전11시~오후2시</td>
+                <td>2024년 9월 7일(토) <br> 오전11시~오후2시</td>
+                <td>2024년 9월 8일(일) <br> 오전11시~오후2시</td>
+            </tr>
+
+            <tr class="odd">
+                <th>Found Poems &amp; Outsider Poetry</th>
+                <td>2024년 9월 6일(금) <br> 오전11시~오후2시</td>
+                <td>2024년 9월 7일(토) <br> 오전11시~오후2시</td>
+                <td>2024년 9월 8일(일) <br> 오전11시~오후2시</td>
+            </tr>
+
+            <tr class="even">
+                <th>Neutral Death: An Exploration</th>
+                <td>2024년 9월 6일(금) <br> 오전11시~오후2시</td>
+                <td>2024년 9월 7일(토) <br> 오전11시~오후2시</td>
+                <td>2024년 9월 8일(일) <br> 오전11시~오후2시</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+</body>
+
+</html>

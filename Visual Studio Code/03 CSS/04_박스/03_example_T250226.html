@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>03_example_T</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            /* background-color: yellow; */
+            padding: 20px 0;
+            /* line-height: 80px; */
+            text-align: center;
+            /* border-bottom: 1px solid #ccc; */
+            box-shadow: 0 2px 8px #d9d9d9;
+        }
+
+        header .title {
+            font-size: 2.5rem;
+        }
+
+        section {
+            /* background-color: bisque; */
+            /* margin-top: 100px; */
+            padding-top: 80px;
+            text-align: center;
+
+        }
+        section .top {
+            /* text-align: center; */
+            /* outline: 2px solid red; */
+            margin-bottom: 40px;
+        }
+
+        section .top h2 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        section .top p {
+            font-size: 1.5rem;
+            color: #666;
+        }
+
+        section .content {
+            /* text-align: center; */
+        }
+        section .content .box {
+            border: 1px solid #ccc;
+            width: 240px;
+            height: 240px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: inline-block;
+            margin: 0 10px 20px ;
+            text-align: left;
+            /* 
+            
+            부모를 포함한 상위요소에 'text-align' 스타일 적용되는 경우, 하위 요소 중 인라인 성격을 가진 요소는 글자처럼 취급, text-align 을 통해 정렬할 수 있다!
+            */
+            
+
+        }
+        section .content .box h3 {
+            font-size: 22px;
+            margin-bottom: 40px;
+        }
+        section .content .box a.btn {
+            border: 2px solid tomato;
+            text-decoration: none;
+            padding: 6px 12px;
+            color: tomato;
+            border-radius: 20px;
+        }
+        section .content .box a.btn:hover {
+            background-color: tomato;
+            color: white;
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="title">킴스키친</h1>
+    </header>
+
+    <section>
+        <div class="top">
+            <h2>인기 요리법</h2>
+            <p>킴스키친의 인기요리법을 확인해 보세요!</p>
+
+
+        </div>
+
+        <div class="content">
+            <div class="box">
+                <h3>한우 불고기</h3>
+                <a href="#" class="btn">바로가기</a>
+            </div>
+
+            <div class="box">
+                <h3>궁중 떡볶이</h3>
+                <a href="#" class="btn">바로가기</a>
+            </div>
+
+            <div class="box">
+                <h3>산적 꼬치구이</h3>
+                <a href="#" class="btn">바로가기</a>
+            </div>
+
+            <div class="box">
+                <h3>돼지 등갈비 구이</h3>
+                <a href="#" class="btn">바로가기</a>
+            </div>
+
+            <div class="box">
+                <h3>더덕생채</h3>
+                <a href="#" class="btn">바로가기</a>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+
+</html>

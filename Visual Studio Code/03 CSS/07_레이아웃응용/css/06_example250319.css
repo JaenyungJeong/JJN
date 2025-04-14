@@ -1,0 +1,263 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+.clear::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+body {
+    background-image: url(../images/bg.jpg)
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    background-image: url(../images/bg-header.jpg);
+    line-height: 100px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+
+}
+
+header .hd {
+    width: 960px;
+    background-image: url(../images/logo.png), url(../images/header-triangle.png);
+    background-position: center left, 252px center;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    position: relative;
+
+}
+
+header .hd .title {
+    font-size: 0;
+    position: absolute;
+}
+
+
+
+header .hd .menu {
+    float: right;
+}
+
+header .hd .menu li {
+    display: inline-block;
+    color: #fff;
+    position: relative;
+    
+}
+
+header .hd .menu li~li {
+    margin-left: 10px;
+}
+
+header .hd .menu li:after {
+
+    content: "/";
+    /* width: 2px;
+    height: 14px;
+    background-color: #b2b2b2;
+    
+    
+    top: 44px;
+    transform: rotate(10deg); */
+    position: absolute;
+    left: -10px;
+}
+
+header .hd .menu li:first-child::after {
+    display: none;
+}
+
+header .hd .menu li a {
+    color: #fff;
+}
+
+header .hd .menu li a:hover {
+    color: darkorange;
+    text-decoration: underline;
+}
+
+.main {
+    width: 960px;
+    height: 600px;
+    margin: 0 auto;
+    border-bottom: 1px solid #fff;
+
+    position: relative;
+
+}
+
+.main .main-box img {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.main .main-box h2 {
+
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+}
+
+.main .main-box img.tri-black {}
+
+.main .main-box img.bi-body {
+    left: 121px;
+    top: 140px;
+}
+
+.main .des {
+    position: absolute;
+    left: 75%;
+    top: 31%;
+
+}
+
+.main .des p {
+    font-size: 14px;
+    color: #fff;
+    margin: 10px 0;
+
+}
+
+.main .des p.date {
+    color: bisque;
+}
+
+.main .des p a {
+    color: #fff;
+}
+
+.main .des p a:hover {
+    color: darkorange;
+}
+
+
+
+.detail {
+    width: 960px;
+    margin: 0 auto 30px;
+}
+
+
+.detail h2 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 10px 0;
+}
+
+.detail .box li {
+    width: 23.5%;
+    float: left;
+}
+
+
+.detail .box li~li {
+    margin-left: 2%;
+}
+
+.detail .box li p {
+    font-size: 13px;
+    color: #fff;
+    padding: 5px 0;
+
+}
+
+.detail .box li a img {
+    width: 100%;
+}
+
+
+.detail .box li p:nth-child(2) {
+    border-bottom: 1px solid #b2b2b2;
+}
+
+.detail .box li p:nth-child(3) {
+    border-bottom: 1px solid #b2b2b2;
+}
+
+footer {
+    width: 100%;
+    height: 100px;
+    background-image: url(../images/bg-header.jpg);
+
+
+}
+
+footer .info {
+    width: 960px;
+    margin: 0 auto;
+    line-height: 100px;
+
+}
+
+footer .info ul {
+    float: right;
+
+}
+
+footer .info ul li  {
+
+    
+    display: inline-block;
+    position: relative;
+
+}
+
+footer .info ul li a{
+    color: #fff;
+
+}
+
+footer .info ul li~li {
+    margin-left: 5px;
+}
+
+footer .info ul li:after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 14px;
+    background-color: #b2b2b2;
+    position: absolute;
+    left: -6px;
+    top: 44px;
+}
+
+footer .info ul li:first-child::after {
+    display: none;
+
+}
