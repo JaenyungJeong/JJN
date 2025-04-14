@@ -248,10 +248,14 @@ section .item .news .news-list {
 }
 
 section .item .news .news-list li{
-    width: 33.3%;
+    width: 32%;
     float: left;
+    margin-right: 2%;
 
     text-align: center;
+}
+section .item .news .news-list li:last-child {
+    margin-right: 0;
 }
 
 section .item .news .news-list li a {
@@ -259,6 +263,9 @@ section .item .news .news-list li a {
     margin-bottom: 20px;
 }
 
+section .item .news .news-list li a img {
+    width: 100%;
+}
 
 section .item .news .news-list li p {
     font-weight: 600;
