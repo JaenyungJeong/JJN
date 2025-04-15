@@ -1,0 +1,271 @@
+@charset "UTF-8";
+
+/* 
+    font
+
+    1) merriweather 폰트(영문)
+    font-family: "Merriweather", serif;
+    font-weight: 300 ~ 900;
+
+    2) nanum gothic 폰트(한글)
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 400 | 700 | 800;
+
+    컨텐츠 너비 : 1280px
+
+    컬러
+    오렌지색
+    rgb(243,130,0)
+    rgb(207,102,26)
+
+    보라색 rgb(124,81,161)
+
+    진한갈색 rgb(47,28,17)
+
+
+
+*/
+
+/* reset */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+ul::after, ol::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+li {
+    float: left;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+/* conmmon.css */
+/* 공통으로 사용할 css를 모아놓는 것! */
+
+/* float 해제를 위한 가상요소! */
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* 안쪽에서 컨텐츠 너비를 잡아줄 때 사용할 클래스! */
+.inner {
+    width: 1280px;
+    margin: 0 auto;
+    /* outline: 2px solid red; */
+}
+
+/* 본문영역 제목에 공통으로 적용될 디자인 */
+.sec-title {
+    color: rgb(207,102,26);
+    font-size: 28px;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+body {
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 400;
+}
+
+/***header***********************************************************************/
+
+header {
+    width: 100%;
+    background-color: rgba(255,255,255,0.9);
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 10px #d9d9d9;
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    z-index: 9999;
+
+}
+
+header a {
+    /* header 하위의 모든 a태그 선택!! */
+    color: #333;
+}
+
+header .header-top {
+    width: 100%;
+    background-color: lightgray;
+    height: 40px;
+    line-height: 40px;
+}
+
+header .header-top ul {
+    width: 1280px;
+    margin: 0 auto;
+    text-align: right;
+}
+header .header-top ul li{
+    float: none;
+    /* 플롯 기본속성 none - 성격 없앨때 */
+    display: inline-block;
+    /* 가로나열 공간의 여유있게 쓸때 인라인블록
+    부모공간 정확하게 나눠서 쓰고 싶을 때 플롯 */
+    margin-left: 10px;
+}
+
+header .header-top ul li:last-child {}
+header .header-top ul li:last-child a {
+    width: 60px;
+    height: 40px;
+    background: rgb(47,28,17) url(../img/ico_user_info_line.png) no-repeat center;
+
+    /* font-size: 0; */
+    /* opacity: 0; */
+    /* display none은 공간까지 없애버림
+    opacity는 공간 그대로 유지 */
+    text-indent: -9999px;
+    /* 내용 없애고 한줄 높이만큼 공간 잡게 하기 */
+    text-align: left;
+}
+
+
+header .header-bottom {
+    width: 1280px;
+    margin: 0 auto;
+    height: 100px;
+}
+
+header .header-bottom .logo {
+    float: left;
+    margin-right: 50px;
+    height: 100%;
+    padding: 15px 0;
+    box-sizing: border-box;
+}
+
+header .header-bottom .logo img {
+    height: 70px;
+    display: block;
+}
+
+header .header-bottom .gnb {
+    float: left;
+}
+
+header .header-bottom .gnb ul {}
+header .header-bottom .gnb ul li {
+    margin: 0 20px;
+}
+header .header-bottom .gnb ul li a {
+    line-height: 100px;
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgb(47,28,17);
+
+}
+
+header .header-bottom .gnb ul li.active a {
+    color: rgb(207,102,26);
+}
+
+header .header-bottom .gnb ul li a:hover {
+    color: rgb(207,102,26);
+}
+
+
+
+header .header-bottom .search {
+    float: right;
+    height: 100%;
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    /* 검색창 클릭시 외곽라인 삭제 */
+    height: 30px;
+    margin-top: 35px;
+
+    vertical-align: middle;
+    /* 부모요소에 주면 안됨 위아래 정렬할 요소에 직접, 모든 요소에 다같이 적용 */
+}
+
+.search input[type="search"] {
+    border-bottom: 1px solid #ccc;
+}
+
+.search input[type="submit"] {
+    /* 배경색만 빼기 background : transparent ;  */
+    background-color: transparent;
+    background-image: url(../img/ico_search.png);
+    background-repeat: no-repeat;
+    background-position: right;
+
+    font-size: 0;
+    width: 24px;
+    cursor: pointer;
+
+}
+
+
+/* **MAIN****************************************************************** */
+
+main {
+    margin-top: 140px;
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+main .promotion {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 700px;
+    background: url(../img/main_forest.jpg) no-repeat center top/cover  ;
+}
+
+main .promotion a {
+    /* background-color: plum; */
+    font-size: 0;
+    width: 100%;
+    height: 100%;
+    /*  */
+}
+
+main .event {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+main .event img {
+    width: 100%;
+    display: block;
+}
+
+
+/* ***section ********************************************************************** */
+
+section 
+
+
+
+

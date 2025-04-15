@@ -72,6 +72,7 @@ header .top {
     width: 100%;
     height: 40px;
     background-color: #d3d3d3;
+    /* outline: 1px solid blue; */
 }
 
 header .top .top-menu {
@@ -81,16 +82,16 @@ header .top .top-menu {
 
 header .top .top-menu .login-menu {
     float: right;
-
+    /* outline: 1px solid blue; */
 }
 
 
 header .top .top-menu .login-menu li {
     float: left;
     margin-left: 20px;
+    /* outline: 1px solid blue; */
+    height: 40px;
     line-height: 40px;
-    
-    
 }
 
 header .top .top-menu .login-menu li a {
@@ -102,8 +103,7 @@ header .top .top-menu .login-menu li a {
 header .top .top-menu .login-menu .shortcut  {
     background-color: #000;
     float: right;
-    padding: 8px 15px ;
-    line-height: 1;
+    padding: 0 15px ;
     
 }
 
