@@ -81,6 +81,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Merriweather", serif;
     font-weight: 700;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 body {
@@ -119,12 +120,13 @@ header .header-top ul {
     width: 1280px;
     margin: 0 auto;
     text-align: right;
+    outline: 1px solid blue;
 }
 header .header-top ul li{
     float: none;
     /* 플롯 기본속성 none - 성격 없앨때 */
     display: inline-block;
-    /* 가로나열 공간의 여유있게 쓸때 인라인블록
+    /* 가로나열 공간의 여유있게 쓸때 인라인블록-> 인라인이 기본적으로 가지고 있는 내용이 있어 n분의 1로 정확히 나눠서 쓰기 힘듬
     부모공간 정확하게 나눠서 쓰고 싶을 때 플롯 */
     margin-left: 10px;
 }
@@ -179,7 +181,6 @@ header .header-bottom .gnb ul li a {
     font-weight: 700;
     text-transform: uppercase;
     color: rgb(47,28,17);
-
 }
 
 header .header-bottom .gnb ul li.active a {
@@ -200,7 +201,7 @@ header .header-bottom .search {
 .search input {
     border: 0;
     outline: 0;
-    /* 검색창 클릭시 외곽라인 삭제 */
+    /* 검색창 클릭시 표시되는 외곽라인 삭제 */
     height: 30px;
     margin-top: 35px;
 
@@ -264,8 +265,230 @@ main .event img {
 
 /* ***section ********************************************************************** */
 
-section 
+section {}
+section > article {}
+
+article.md-pick {
+    width: 1280px;
+    
+    margin: 0 auto 100px;
+}
+
+article.md-pick .md-wrap {
+    /* background-color: plum; */
+    text-align: center;
+
+}
+article.md-pick .md-wrap .md-box {
+    width: 25%;
+    float: left;
+
+
+}
+article.md-pick .md-wrap .md-box .photo{
+  
+}
+
+.md-box .photo {
+    margin-bottom: 30px;
+    position: relative; /* class quick의 기준! */
+    /* outline: 3px solid blue; */
+}
+.md-box .photo img {
+    width: 100%;
+    display: block;
+}
+.md-box .photo .quick {
+    background-color: rgb(243,130,0);
+    display: inline-block;
+    /* 내용만큼의 여백을 갖고 크기 조절가능 */
+    padding: 10px 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: rgb(255,255,255);
+    letter-spacing: 1.2px;
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 20%;
+
+    display: none;
+    
+
+    /* top: 50%;
+
+    transform: translate(-50%,-50%); */
+
+    
+    
+}
+
+/* hover 적용!! */
+.md-box .photo:hover img {
+    opacity: 0.4;
+}
+.md-box .photo:hover .quick {
+    display: inline-block;
+    /* display: none ; 한 부분을 다시 보이게 구현 */
+}
 
 
 
+.md-box .caption {
+    padding: 0 5%;
+}
+.md-box .caption h3{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.md-box .caption p{
+    margin-bottom: 10px;
+}
+.md-box .caption p.des {}
+.md-box .caption p.price {
+    color: rgb(207,102,26);
+    font-weight: 700;
+}
 
+article.new {
+    width: 1280px;
+    margin: 0 auto 100px;
+    /* background-color: greenyellow; */
+}
+
+article.new .new-box {
+    
+    width: 32%;
+    float: left;
+    
+}
+
+article.new .new-box~.new-box {
+    /* 형제요소 선택자 첫번째 요소 선택 안함 */
+    margin-left: 2%;
+}
+
+article.new .new-box > a {/* img를 담는 박스! */
+    margin-bottom: 30px;
+    /* outline: 3px solid blue; */
+    overflow: hidden;
+    /* 2) 넘치는 공간에 히든 구현 */
+}
+
+
+
+article.new .new-box > a img {
+    width: 100%;
+    display: block;
+    /* 3) 인라인의 여백이 채워지고 사라지는 현상 방지 */
+    transition: all 0.5s;
+    /* 4) 디자인변화가 일어나는 것은 이미지 태그로 트랜지션 구현 */
+}
+
+/* hover 효과! */
+
+article.new .new-box > a:hover img {
+    transform: scale(1.5);
+    /* 1) 이미지를 담은 덩어리를 먼저 호버하려고 시도  */
+}
+
+article.new .new-box h3 {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 700;
+    
+    margin-bottom: ;
+}
+article.new .new-box h3 a {
+    
+    color: rgb(207,102,26)
+}
+
+article.instagram {
+    width: 100%;
+    background-color: rgb(124,81,161);
+    padding: 60px 0;
+    /* text-align: center; */
+}
+
+article.instagram .sec-title {
+    color: rgb(255,255,255);
+    font-family: "Nanum Gothic", sans-serif;
+}
+
+article.instagram .thumb-list {
+    margin-bottom: 50px;
+}
+article.instagram .thumb-list li {
+    width: 16.66%;
+    overflow: hidden;
+}
+article.instagram .thumb-list li a {}
+article.instagram .thumb-list li a img {
+    width: 100%;
+    display: block;
+    transition: all 0.6s;
+}
+/* hover 효과!! */
+article.instagram .thumb-list li:hover img {
+    transform: scale(1.2);
+    opacity: 0.7;
+} 
+article.instagram .follow-btn {
+    background-color: rgb(243,130,0);
+    color: rgb(255,255,255);
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Merriweather", serif;
+    text-transform: uppercase;
+
+    display: inline-block;
+    padding: 10px 20px;
+
+    /* 버튼 위치 조절 */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    /* 요소의 크기를 기준으로 하여 이동 */
+}
+
+footer {
+    width: 100%;
+    background-color: lightgray;
+    padding: 60px 0;
+}
+
+footer a {
+    color: #333;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer .sitemap {
+    /* background-color: greenyellow; */
+    margin-bottom: 30px;
+}
+
+footer .sitemap .mapbox {
+    width: 16.66%;
+    /* outline: 2px solid blue; */
+    float: left;
+}
+
+footer .sitemap .mapbox h3 {
+    font-size: 18px;
+    color: rgb(207,102,26);
+    font-family: "Merriweather", serif;
+    margin-bottom: 20px;
+}
+footer .sitemap .mapbox ul {}
+footer .sitemap .mapbox ul li {
+    float: none;
+    line-height: 30px;
+}
+
+footer .info {}
