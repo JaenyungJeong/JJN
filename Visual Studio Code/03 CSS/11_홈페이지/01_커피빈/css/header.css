@@ -1,0 +1,139 @@
+@charset "utf-8";
+
+/***header.css***********************************************************************/
+
+header {
+    width: 100%;
+    background-color: rgba(255,255,255,0.9);
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 10px #d9d9d9;
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    z-index: 9999;
+
+}
+
+header a {
+    /* header 하위의 모든 a태그 선택!! */
+    color: #333;
+}
+
+header .header-top {
+    width: 100%;
+    background-color: lightgray;
+    height: 40px;
+    line-height: 40px;
+}
+
+header .header-top ul {
+    width: 1280px;
+    margin: 0 auto;
+    text-align: right;
+}
+header .header-top ul li{
+    float: none;
+    /* 플롯 기본속성 none - 성격 없앨때 */
+    display: inline-block;
+    /* 가로나열 공간의 여유있게 쓸때 인라인블록-> 인라인이 기본적으로 가지고 있는 내용이 있어 n분의 1로 정확히 나눠서 쓰기 힘듬
+    부모공간 정확하게 나눠서 쓰고 싶을 때 플롯 */
+    margin-left: 10px;
+}
+
+header .header-top ul li:last-child {}
+header .header-top ul li:last-child a {
+    width: 60px;
+    height: 40px;
+    background: rgb(47,28,17) url(../img/ico_user_info_line.png) no-repeat center;
+
+    /* font-size: 0; */
+    /* opacity: 0; */
+    /* display none은 공간까지 없애버림
+    opacity는 공간 그대로 유지 */
+    text-indent: -9999px;
+    /* 내용 없애고 한줄 높이만큼 공간 잡게 하기 */
+    text-align: left;
+}
+
+
+header .header-bottom {
+    width: 1280px;
+    margin: 0 auto;
+    height: 100px;
+}
+
+header .header-bottom .logo {
+    float: left;
+    margin-right: 50px;
+    height: 100%;
+    padding: 15px 0;
+    box-sizing: border-box;
+}
+
+header .header-bottom .logo img {
+    height: 70px;
+    display: block;
+}
+
+header .header-bottom .gnb {
+    float: left;
+}
+
+header .header-bottom .gnb ul {}
+header .header-bottom .gnb ul li {
+    margin: 0 20px;
+}
+header .header-bottom .gnb ul li a {
+    line-height: 100px;
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgb(47,28,17);
+}
+
+header .header-bottom .gnb ul li.active a {
+    color: rgb(207,102,26);
+}
+
+header .header-bottom .gnb ul li a:hover {
+    color: rgb(207,102,26);
+}
+
+
+
+header .header-bottom .search {
+    float: right;
+    height: 100%;
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    /* 검색창 클릭시 표시되는 외곽라인 삭제 */
+    height: 30px;
+    margin-top: 35px;
+
+    vertical-align: middle;
+    /* 부모요소에 주면 안됨 위아래 정렬할 요소에 직접, 모든 요소에 다같이 적용 */
+}
+
+.search input[type="search"] {
+    border-bottom: 1px solid #ccc;
+}
+
+.search input[type="submit"] {
+    /* 배경색만 빼기 background : transparent ;  */
+    background-color: transparent;
+    background-image: url(../img/ico_search.png);
+    background-repeat: no-repeat;
+    background-position: right;
+
+    font-size: 0;
+    width: 24px;
+    cursor: pointer;
+
+}
+
+
