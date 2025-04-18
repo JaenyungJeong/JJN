@@ -43,16 +43,13 @@
 .breadcrumb ul {
     width: 1280px;
     margin: 0 auto;
-    outline: 1px solid red;
 
-    
 }
 
 .breadcrumb ul li {
     margin-right: 20px;
     padding-right: 10px;
     position: relative;
-    
 
 }
 
@@ -63,13 +60,14 @@
     line-height: 20px;
 
 }
-.breadcrumb ul::after {
+
+.breadcrumb ul li::after {
     content: ">";
     display: block;
     clear: both;
     color: #fff;
     font-size: 10px;
-    
+
     position: absolute;
     left: 100%;
     top: 0;
@@ -79,36 +77,49 @@
 
 }
 
+
 .simply .banner {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
     margin-bottom: 40px;
+
 }
 
 .simply .value {
     width: 1280px;
     margin: 0 auto;
     text-align: center;
+
 }
+
 .simply .value .value-list {
+    border-bottom: 2px solid #69519d;
+    margin-bottom: 40px;
 }
+
 .simply .value .value-list li {
     width: 25%;
 
 }
+
 .simply .value .value-list li img {}
-.simply .value .value-list li .txt-box  {}
-.simply .value .value-list li .txt-box h3, .simply .value .value-list li dl dt {
+
+.simply .value .value-list li .txt-box {}
+
+.simply .value .value-list li .txt-box h3,
+.simply .value .value-list li dl dt {
     font-family: "Merriweather", serif;
     text-transform: uppercase;
     color: #69519d;
     margin-bottom: 10px;
 }
 
-.simply .value .value-list li .txt-box p, .simply .value .value-list li dl dd {
+.simply .value .value-list li .txt-box p,
+.simply .value .value-list li dl dd {
     font-size: 14px;
 
 }
-
-
 
 .simply .value .value-list li dl .froth {
     font-family: "Merriweather", serif;
@@ -116,8 +127,9 @@
 
     color: #69519d;
     text-transform: uppercase;
-    
+
 }
+
 .simply .value .value-list li .txt-box h3 p {}
 
 
@@ -125,13 +137,91 @@
     content: url(../img/bg_plus_icon.gif);
     display: block;
     float: right;
+
+}
+
+.simply .value .value-list li::after {}
+
+.simply .value-des p:first-child {
+    font-size: 14px;
+    margin-bottom: 20px;
+
+}
+
+.simply .value-des p:last-child {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 70px;
+
+    color: #cf661a;
+}
+
+
+
+.specialty .banner {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    margin-bottom: 70px;
+}
+
+.specialty .product {
+    width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.specialty .product .title {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "Merriweather", serif;
+
+    margin-bottom: 20px;
+    color: #cf661a;
+}
+
+.specialty .product .slogan {
+    font-family: "Merriweather", serif;
+    color: #cf661a;
+
+    margin-bottom: 20px;
+}
+
+.specialty .product .description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.specialty .product .img-list  {}
+.specialty .product .img-list li {
+    width: 32%;
+    margin-right: 2%;
+}
+
+.specialty .product .img-list li:last-child {
+    margin-right: 0;
+}
+
+.specialty .product .img-list li img {
+    width: 100%;
+}
+
+.specialty .product .btn {
+    
+    background-color: #cf661a;
+    display: inline-block;
+    margin: 30px 0 70px 0;
+    padding: 10px 30px;
+
+    text-transform: uppercase;
     
 }
 
-.simply .value .value-list li::after {
-    
+.specialty .product .btn a {
+    color: #fff;
+    font-family: "Merriweather", serif;
 }
-
 
 
 .specialty .product .coffee .title:before {
@@ -141,12 +231,12 @@
     height: 1px;
     background-color: #ccc;
 
-
 }
 
 .specialty .product .coffee .title:after {
     content: "-";
 }
+
 .specialty .product .coffee .img-list li {
     overflow: hidden;
 }
@@ -172,5 +262,3 @@
     transition: all 0.6s;
     opacity: 0.6;
 }
-
-
