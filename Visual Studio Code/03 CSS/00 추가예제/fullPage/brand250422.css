@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 
+
+구글웹폰트
+
+font-family: "Noto Sans KR", sans-serif;
+font-weight : 100 ~ 900;
+
+font-family: "Outfit", sans-serif;
+font-weight : 100 ~ 900;
+
+*/
+
+/* 보이는 화면 기준으로 너비, 높이 설정하기! */
+
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 400;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+header h1 {
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    background: url(img/amorepacific.png) no-repeat center;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+
+    padding-top: 100px;
+    box-sizing: border-box;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    /* fixed 시에는 배경이미지 위치 지정이 필요하지 않다. */
+
+}
+
+section.brand1 {background-image: url(img/brands_img_sulwhasoo.jpg);}
+section.brand2 {background-image: url(img/brands_img_laneige.jpg);}
+section.brand3 {background-image: url(img/brands_img_mamonde.png);}
+section.brand4 {background-image: url(img/brands_img_hanyul.png);}
+
+section .content {
+
+}
+section .content .brand {
+    padding: 100px 80px 0;
+    margin-bottom: 40px;
+}
+
+section .content .brand img {
+    height: 50px;
+}
+
+section .content .inner-content {
+    background-color: rgba(255,255,255,0.8);
+    text-align: center;
+    padding: 40px 0 50px;
+}
+
+.inner-content .title {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+.inner-content .title span {
+    /* 영문폰트 적용 */
+    font-family: "Outfit", sans-serif;
+}
+
+.inner-content .des {}
+.inner-content .des p {
+    margin-bottom: 16px;
+    font-size: 18px;
+
+    /* 현재 폰트 크기 권장
+    본문 18px
+    footer 16px
+     */
+}
+
+footer {
+    width: 100%;
+    background-color: rgb(0,0,0);
+    padding: 50px 0;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+}
+
