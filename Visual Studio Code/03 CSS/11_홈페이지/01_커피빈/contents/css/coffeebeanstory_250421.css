@@ -1,0 +1,246 @@
+@charset "utf-8";
+
+/* coffeebeanstory.css */
+
+
+/* sub에서 변경된 header 디자인 */
+header {
+    box-shadow: none;
+    border-bottom: 1px solid #ccc;
+}
+
+/*** Bread Crumb ****************************************************************************************/
+.breadcrumb {
+    margin-top: 140px;
+    width: 100%;
+    background-color: rgb(105, 81, 157);
+    height: 30px;
+    line-height: 30px;
+}
+
+.breadcrumb ul {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.breadcrumb ul li {
+    margin-right: 20px;
+    background: url(../img/img_arr_location.png) no-repeat right;
+    padding-right: 24px;
+}
+
+.breadcrumb ul li:last-child {
+    background: none;
+    padding-right: 0;
+}
+
+.breadcrumb ul li a {
+    color: rgb(255, 255, 255);
+}
+
+.breadcrumb ul li a:hover {
+    text-decoration: underline;
+}
+
+section {}
+
+section>article {}
+
+/*** section1. simply the best *******************************************************************************/
+section.simply {
+    margin-bottom: 100px;
+}
+
+section.simply .banner {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+section.simply .banner img {
+    width: 100%;
+    display: block;
+}
+
+section.simply .value {
+    width: 1200px;
+    margin: 60px auto 0;
+}
+
+.value .value-list {
+    border-bottom: 1px solid rgb(105, 81, 157);
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+}
+
+/* 1) 가상요소 after에 배경이미지 처리 */
+/* .value .value-list li {
+    outline: 2px solid red;
+    width: 25%;
+    text-align: center;
+
+    position: relative;
+}
+.value .value-list li~li::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url(../img/bg_plus_icon.gif) no-repeat;
+
+    position: absolute;
+    left: -20px;
+    top: 60px;
+} */
+
+/* 2) width, margin으로 조절 */
+.value .value-list li {
+    /* outline: 2px solid blue; */
+    text-align: center;
+    width: 340px;
+    
+    background: url(../img/bg_plus_icon.gif) no-repeat 0 60px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+.value .value-list li:first-child {
+    background: none;
+}
+
+.value .value-list li img {
+    margin-bottom: 25px;
+}
+
+.value .value-list li .txt-box,
+.value .value-list li dl {
+    padding: 0 20px;
+}
+.value .value-list li .txt-box h3,
+.value .value-list li dl dt {
+    font-size: 18px;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgb(105, 81, 157);
+    margin-bottom: 10px;
+}
+.value .value-list li .txt-box p,
+.value .value-list li dl dd {
+    font-size: 18px;
+    color: rgb(47, 28, 17);
+    line-height: 1.4;
+}
+.value .value-list li dl dd.accent {
+    font-family: "Merriweather", serif;
+    font-size: 16px;
+    color: rgb(105, 81, 157);
+    text-transform: uppercase;
+    margin-top: 10px;
+    letter-spacing: -0.6px;
+    font-weight: 700;
+}
+
+.value .value-des {
+    text-align: center;
+}
+
+.value .value-des p:first-child {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+.value .value-des p:last-child {
+    font-size: 32px;
+    font-weight: 700;
+    color: rgb(207,102,26);
+}
+
+
+/*** section2. spacialty coffee & tea *******************************************************************************/
+
+section.specialty {
+    margin-bottom: 100px;
+}
+section.specialty .banner {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto 60px;
+}
+section.specialty .banner img {
+    width: 100%;
+    display: block;
+}
+
+section.specialty .product {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.product > article {
+    /* outline: 3px solid plum; */
+    margin-bottom: 80px;
+}
+
+/* coffee & tea 공통 디자인 적용 */
+.product .title {
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: rgb(207,102,26);
+    margin-bottom: 20px;
+    text-align: center;
+
+    background: url(../img/bg_bar6.gif) repeat-x center;
+}
+.product .title span {
+    background-color: rgb(255,255,255);
+    padding: 0 30px;
+}
+.product .slogan {
+    font-family: "Merriweather", serif;
+    font-size: 22px;
+    color: rgb(207,102,26);
+    margin-bottom: 30px;
+    text-align: center;
+}
+.product .description {
+    font-size: 18px;
+    color: rgb(51, 51, 51);
+    line-height: 1.4;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.product .img-list {
+    margin-bottom: 60px;
+}
+.product .img-list li {
+    width: 32%;
+    overflow: hidden;
+}
+.product .img-list li~li {
+    margin-left: 2%;
+}
+.product .img-list li img {
+    width: 100%;
+    display: block;
+    transition: all 0.5s;
+}
+.product .img-list li:hover img {
+    transform: scale(1.3);
+}
+
+.product .btn {
+    text-align: center;
+}
+.product .btn a {
+    background-color: rgb(243,130,0);
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    display: inline-block;
+    padding: 16px 40px;
+}
