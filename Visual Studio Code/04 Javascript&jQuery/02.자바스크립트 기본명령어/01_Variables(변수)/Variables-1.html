@@ -8,10 +8,28 @@
 <body>
     <h3>변수 carName을 생성하고 변수값 "Volvo"를 지정하고 "Display the result here" 위치에 변수를 이용해 출력하세요.</h3>
     
-    <p id="demo">Display the result here.</p>
+    <p id="demo" style="color: aqua;">Display the result here.</p>
 
     <script>
         // Create the variable here
+
+        var carName = 'Volvo';
+
+        document.getElementById('demo').innerHTML = carName ;
+
+        var result = document.getElementById('demo').innerHTML;
+        console.log(result);
+
+        console.log(document.getElementById('demo').innerHTML);
+        document.write(document.getElementById('demo').innerHTML);
+
+        /* 
+        속성으로 할 수 있는 것
+
+        1) 속성값 반환(속성명 까지만 기입)
+        2) 속성값 설정('=' 대입연산자 사용)
+        */
+
     </script>
 </body>
 
