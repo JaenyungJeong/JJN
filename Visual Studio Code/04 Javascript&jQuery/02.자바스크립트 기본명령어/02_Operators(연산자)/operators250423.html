@@ -134,9 +134,163 @@
         document.write(num6, "<br>")//21
         
 
+        //5. 비교 연산자
 
+        /* 
+        - 두 개 이상의 데이터를 '크다, 작다, 같다' 와 같이 비교할 때 사용
+        - 연산된 결과값을 논리형 데이터로 반환(true(참) 또는 false(거짓))
+        
+        종류            설명
+        A>B             A는 B보다 크다
+        A<B             A는 B보다 작다
+        A>=B            A는 B보다 크거나 작다
+        A<=B            A는 B보다 작거나 작다
 
+        A==B            A와 B가 같다(데이터 형태 관계없이 표기된 값만 일치하면 true 반환)        
+        A!=B            A와 B가 같지 않다
+                        (숫자를 비교할 경우, 자료형(type)은 숫자형이든 문자형이든 상고나하지 않고 표기된 숫자만 다르면 true 반환!)
+                        ex) "10" != 10 -> false 표기된 문자 10과 숫자 10을 비교하는 것
 
+        A===B           A와 B가 같다(데이터 형태까지 일치했을 때 true 반환)
+        A!==B           A와 B가 같지 않다
+                        (숫자를 비교할 경우, 반드시 표기된 숫자 또는 자료형이 일치하지 않을 때 true 반환!)
+                        ex) "10" !== 10 -> true, 문자 10과 숫자 10의 표기된 내용은 동일하나 데이터 형태가 다르므로 true 반환!
+        
+        */
+
+        var no = 100;
+        var txt = "100";
+        // no는 숫자형 데이터, txt는 문자형 데이터
+
+        result = (no == 100); // 100 == 100, true
+        document.write(result, "<br>");
+
+        result = (txt == 100);// "100" == 100, true
+        document.write(result, "<br>");
+
+        result = (no === 100);// 100 == 100, true
+        document.write(result, "<br>");
+
+        result = (txt === 100);// "100" == 100, false
+        document.write(result, "<br><br>");
+
+        document.write(no != 100, "<br>"); // 100 != 100 false
+        document.write(txt != 100, "<br>"); // "100" != 100 false
+        document.write(no !== 100, "<br>"); // 100 !== 100 false
+        document.write(txt !== 100, "<br> <br>"); // "100" !== 100 true
+        
+
+         //6. 논리연산자
+
+         /* 
+         -컴퓨터는 논리연산이라는 과정을 통해 상황을 판단(true | false)
+         -이러한 논리연산에 사용되는 것이 논리 연산자!!
+         
+         1) AND(논리곱), &&
+         >> 피연산자 중 값이 하나라도 false 가 존재하면 false 로 결과값 반환
+        (모든 값이 true 가 되어야 true를 반환한다!)
+
+         2) OR(논리합), ||
+         >> 피연산자 중 값이 하나라도 true가 존재하면 true로 결과값 반환
+
+         3) NOT(논리부정), !
+         >> 결과값을 부정
+         >> 피연산자의 값이 true면 반대로 false 로 결과값 반환
+
+         */
+
+        var t = true;
+        var f = false;
+
+        result = t && t && t; // true && true && true -> true
+        document.write(result, "<br>");
+
+        result = t && t && f;// true && true && false -> false
+        document.write(result, "<br>");
+
+        result = t || t || t ; // true || true || true -> true
+        document.write(result, "<br>");
+
+        result = t || t || f ; // true || true || false -> true
+        document.write(result, "<br>");
+
+        result = !(t); //!(true) -> false
+        document.write(result, "<br>");
+
+        document.write(!(5>3), "<br>"); //!(true) -> false
+        
+        document.write(!(3 === "3"), "<br>");//!(false) -> true
+
+        /* 
+        연산자 우선순위
+        
+        1.()
+        2.증감 연산자 (++, --)
+        3.산술 연산자 (+,-,*,/,%)
+        4.비교 연산자 (>,>=,<,<=,==,===,!=,!==)
+        5.논리 연산자 (&&, ||, !)
+        6.(복합)대입 연산자 (=, +=, -=, *=, /=, %=)
+
+        */
+
+        //7. 조건 연산자(삼항 연산자)
+        /* 
+        - 조건식의 결과에 따라 실행문을 다르게 실행
+        - 간단한 조건식을 평가하고 결과에 따라 다른 값을 반환
+        - 조거닝 복잡하거나 여러 경우의 수를 처리해야 할 때는 조건문이 더 적합!
+
+        기본형 : 조건식 ? 실행문1 : 실행문2;
+        >> 조건식을 만족하면(true) 실행문1 실행
+        >> 조건식을 만족하지 않으면(false) 실행문2 실행
+
+        
+        
+        */
+
+        // 숫자 비교 결과
+
+        var bigNum = 10<20; // true
+        console.log(bigNum);
+
+       // bigNum ? alert('정답입니다~~') : alert('땡!!');
+    //  조건식   실행1     실행2
+        
+        result = bigNum ? "정답입니다~!" : "땡!" ;
+        document.write(result, "<br>");
+
+        //prompt() 메서드 : 사용자에게 입력값을 받아 가져오는 질문창 메서드
+        //기본형 : prompt('질문', '기본응답')    
+
+        //테스트 window.prompt()
+        // var name = prompt("이름이 뭐예요?", "그린팍");
+        // document.write(name + "님 반갑습니다<br>")
+
+        //예제1. 입력받은 점수로 합격여부 메세지 출력하기
+        //var cutScore = 60; //기준값! 
+       /*  const cutScore = 60; //기준값! 기준값은 변하지 않는 값이므로 상수로 선언!
+
+        var score = prompt('점수를 입력해 주세요!');
+
+        score >= cutScore ? alert("합격입니다!") : alert("불합격입니다!'") */
+
+        //예제2. 입력받은 숫자를 홀수, 짝수 구분하기 
+        //홀수, 짝수를 구분하기 위한 방법은?
+        //2로 나눈 나머지가 0과 같으면 짝수! 그게 아니면 홀수!
+
+       /*  var favoriteNum = prompt("좋아하는 숫자를 입력해 주세요.");
+
+        favoriteNum % 2 === 0 ? document.write("짝수를 좋아하시는군요!") : document.write("홀수를 좋아하시는군요!");
+         */
+
+        // Number() : 숫자형 데이터로 변환해주는 메서드
+
+         var inputNum = prompt("숫자를 입력하세요.") ;
+        console.log(inputNum + 10);
+        //프롬프트 형태로 대입되면 문자형 데이터
+
+        var inputNum2 = Number(prompt("숫자를 입력하세요.")) ;
+        console.log(inputNum2 + 10);
+            //  Number 로 바껴서 숫자형 데이터
 
     </script>
 
