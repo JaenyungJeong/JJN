@@ -26,6 +26,8 @@ header {
     margin: 0 auto;
     height: 90px;
     text-transform: uppercase;
+    box-sizing: border-box;
+    outline: 1px solid blue;
 }
 
 header .cafe-header a {
@@ -47,13 +49,12 @@ header .cafe-header .gnb .header-menu li{
     margin-left: 60px;
 }
 
-header .cafe-header .gnb .header-menu li a {
-    
-}
 
 main .main-content {
     width: 1440px;
     margin: 0 auto;
 }
+
+
 
 
