@@ -217,6 +217,7 @@ main .main-content .main-intro p {
 footer {
     width: 1440px;
     margin: 0 auto;
+    font-size: 5px;
     
 }
 footer .info {}
