@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+
+header {
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 100px;
+    margin: 0 auto;
+    height: 90px;
+    text-transform: uppercase;
+}
+
+header .cafe-header a {
+    color: #333;
+}
+
+header .cafe-header .logo {
+    float: left;
+    line-height: 90px;
+
+}
+header .cafe-header .gnb {
+    float: right;
+    line-height: 90px;
+
+}
+header .cafe-header .gnb .header-menu li{
+    float: left;
+    margin-left: 60px;
+}
+
+header .cafe-header .gnb .header-menu li a {
+    
+}
+
+main .main-content {
+    width: 1440px;
+    margin: 0 auto;
+}
+
+

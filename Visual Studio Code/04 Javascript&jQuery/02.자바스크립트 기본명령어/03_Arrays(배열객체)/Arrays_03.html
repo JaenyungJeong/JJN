@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="utf-8">
     <title>Array_03</title>
@@ -10,20 +11,43 @@
 
     <script>
         var cars = ["Audi", "Volvo", "BMW"];
-        
+
         // cars.shift();
         // cars.unshift('Benz');
-                
+
         // document.write(cars);
 
-        cars.splice(0,1,'Benz');
+        cars.splice(0, 1, 'Benz');
 
-        document.write(cars);
+        document.write(cars, "<br>");
+
+        /* 1. 배열값 재할당    
+          cars[0] = "Benz";
+             document.write(cars); */
+
+        // 2. 배열객체 메서드 - splice()
+ /*        cars.splice(0,1, 'Benz');
+        document.write(cars, "<br>"); */
+
+        var newCar = "Benz Korea";
+/*         cars.splice(0,1,newCar);
+        document.write(cars, "<br>"); */
+
+        // 3. 배열객체 메서드 - shift(), unshift()
+        cars.shift();
+        console.log(cars);
+
+        cars.unshift(newCar);
+        console.log(cars);
+
+        document.write(cars, "<br>");
 
 
 
-        
-        
+
+
+
+
     </script>
 
 
