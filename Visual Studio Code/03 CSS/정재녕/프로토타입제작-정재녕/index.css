@@ -1,11 +1,30 @@
 @charset "UTF-8";
 
+
+
+/* 
+
+구글웹폰트
+
+font-family: "Noto Sans KR", sans-serif;
+font-weight : 100 ~ 900;
+
+font-family: "Outfit", sans-serif;
+font-weight : 100 ~ 900;
+
+*/
+
 * {
     margin: 0;
     padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-size: 100%;
     font-weight: normal;
 }
@@ -14,7 +33,8 @@ a {
     text-decoration: none;
 }
 
-ul, ol {
+ul,
+ol {
     list-style: none;
 }
 
@@ -24,14 +44,12 @@ ul, ol {
     clear: both;
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
+body {
+    background-color: #ece4de;
 }
 
-
 header {
-    
+
     width: 100%;
     height: 90px;
     text-transform: uppercase;
@@ -39,18 +57,18 @@ header {
     position: fixed;
     left: 0;
     top: 0;
-    background-color: #fff;
     opacity: 0.8;
-    
+    background-color: #ece4de;
     z-index: 9999;
 }
+
+
 
 header .cafe-header {
     width: 1440px;
     margin: 0 auto;
-    padding: 0 100px;
-    box-sizing: border-box;
-
+    font-size: 16px;
+    font-family: "Outfit", sans-serif;
 }
 
 header .cafe-header a {
@@ -60,53 +78,70 @@ header .cafe-header a {
 header .cafe-header .logo {
     float: left;
     line-height: 90px;
-
 }
+
+
 header .cafe-header .gnb {
     float: right;
     line-height: 90px;
 
 }
-header .cafe-header .gnb .header-menu li{
+
+header .cafe-header .gnb .header-menu li {
     float: left;
-    margin-left: 60px;
+    margin: 0 30px;
+}
+
+header .cafe-header .gnb .header-menu li a:hover{
+    color: #fcbd00;
+    text-decoration: underline;
 }
 
 main {
 
-        width: 100%;
-        max-width: 1440px;   
-        height: 900px;  
-        background-image: url(angle340-img/1-3.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        margin: 90px auto;
-        padding: 0 100px;
-        box-sizing: border-box;
-        border-radius: 30px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 90px auto;
+    border-radius: 30px;
 }
 
 
 
 main .main-content {
     width: 1440px;
-
     margin: 0 auto;
     position: relative;
     text-align: center;
 
 }
 
+main .main-content .main-img {
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+main .main-content .main-img img {
+    width: 100%;
+    display: block;
+}
+
 main .main-content .main-intro {
     position: absolute;
-    left: 0;
-    top: 500px;
+    left: 100px;
+    bottom: 200px;
+
+    font-family: "Outfit", sans-serif;
+    color: #fff;
 
 }
+
 main .main-content .main-intro h2 {
     font-size: 40px;
     margin-bottom: 20px;
 }
+
 main .main-content .main-intro p {
     margin-bottom: 10px;
 }
@@ -114,88 +149,110 @@ main .main-content .main-intro p {
 
 .intro {
     width: 1440px;
-    margin: 0 auto;
-    
+    margin: 0 auto 90px;
+
 }
+
 .intro .cafe-intro {
     margin-bottom: 90px;
 }
-.intro .cafe-intro .intro-img {
+
+.intro .cafe-intro .intro-box {
     margin-bottom: 40px;
 }
-.intro .cafe-intro .intro-img li {
+
+.intro .cafe-intro .intro-box li {
     width: 32%;
     float: left;
+    
+
+}
+
+.intro .cafe-intro .intro-box li a {
+    display: block;
+    color: #333;
+}
+
+.intro .cafe-intro .intro-box li~li {
+    margin-left: 2%;
+
+}
+
+.intro .cafe-intro .intro-box li .img-box {
     border-radius: 30px;
     overflow: hidden;
-    
+    margin-bottom: 40px;
+
 }
 
-.intro .cafe-intro .intro-img li~li {
-    margin-left: 2%;
-}
- 
-.intro .cafe-intro .intro-img li img {
-    width: 100%;        
-    height: 700px;            
+
+.intro .cafe-intro .intro-box li img {
+    width: 100%;
+    display: block;
 }
 
-.intro .cafe-intro .intro-des {
-    width: 1440px;
-    margin: 0 auto;
-    text-align: center;    
-}
-.intro .cafe-intro .intro-des li {
-    width: 32%;
-    float: left;
-    border: 1px solid #eee;
-    box-sizing: border-box;
-    padding: 10px 10px;
+.intro .cafe-intro .intro-box  li .des-box {
+    text-align: center;
+    font-family: "Outfit", sans-serif;
+
+    border: 2px solid #eee;
     border-radius: 30px;
-    color: #333;
-    
+    box-sizing: border-box;
 }
 
-.intro .cafe-intro .intro-des li~li {
-    margin-left: 2%;
-}
-
-.intro .cafe-intro .intro-des li h2 {
+.intro .cafe-intro .intro-box li .des-box h2 {
     font-size: 60px;
     text-transform: uppercase;
-
 }
-.intro .cafe-intro .intro-des li p {
+
+.intro .cafe-intro .intro-box li .des-box p {
     margin-bottom: 10px;
 }
 
-.intro .content {
-    width: 1440px;
-    margin: 0 auto 90px;
+
+
+.intro .content .content-box {
+    width: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    margin-bottom: 40px;
+
 }
-.intro .content .content-des {
+
+.intro .content .content-box .box {
+    text-align: center;
+    position: relative;
+}
+
+.intro .content .content-box .box .content-img img {
+    display: block;
+}
+
+.intro .content .content-box .box .content-intro {
+    font-family: "Outfit", sans-serif;
+    color: #fff;
+    position: absolute;
+    left: 100px;
+    bottom: 200px;
+}
+
+.intro .content .content-box .box h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.intro .content .bottom-logo {
+    text-align: center;
     margin-bottom: 40px;
 }
 
-.intro .content .content-des .des {
-    float: left;
+.intro .content .bottom-logo p {
+    font-size: 8rem;
+    color: #333;
+    font-family: "Outfit", sans-serif;
 
 }
 
-.intro .content .content-des .des h2 {
-    font-size: 48px;
-}
-.intro .content .content-des .des p {}
-.intro .content .content-video {
-    float: right;
-}
-
-.intro .content .content-video video {
-    height: 600px;
-    border-radius: 30px;
-}
-
-.intro .content .content-menu {}
 .intro .content .content-menu li {
     width: 23.5%;
     float: left;
@@ -218,11 +275,24 @@ footer {
     width: 1440px;
     margin: 0 auto;
     font-size: 5px;
-    
+
 }
-footer .info {}
-footer .info .copy {}
-footer .info .details {}
 
+footer .info {
+    font-family: "Outfit", sans-serif;
+    text-transform: uppercase;
+    padding: 0 100px;
+    box-sizing: border-box;
+}
 
+footer .info .copy {
+    font-size: 16px;
 
+    float: left;
+}
+
+footer .info .details {
+    font-size: 16px;
+
+    float: right;
+}
