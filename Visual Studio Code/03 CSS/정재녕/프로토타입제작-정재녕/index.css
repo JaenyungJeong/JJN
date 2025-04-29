@@ -66,18 +66,25 @@ header {
 
 header .cafe-header {
     width: 1440px;
+    height: 90px;
+    overflow: hidden;
     margin: 0 auto;
     font-size: 16px;
     font-family: "Outfit", sans-serif;
+    box-sizing: border-box;
 }
 
-header .cafe-header a {
-    color: #333;
-}
+
+
 
 header .cafe-header .logo {
     float: left;
-    line-height: 90px;
+}
+
+header .cafe-header .logo a {
+    color: #333;
+    padding: 10px 0;
+
 }
 
 
@@ -90,6 +97,10 @@ header .cafe-header .gnb {
 header .cafe-header .gnb .header-menu li {
     float: left;
     margin: 0 30px;
+}
+
+header .cafe-header .gnb .header-menu li a {
+    color: #333;
 }
 
 header .cafe-header .gnb .header-menu li a:hover{
@@ -111,7 +122,7 @@ main .main-content {
     width: 1440px;
     margin: 0 auto;
     position: relative;
-    text-align: center;
+    text-align: left;
 
 }
 
@@ -125,6 +136,7 @@ main .main-content .main-img {
 main .main-content .main-img img {
     width: 100%;
     display: block;
+    filter: brightness(0.8);
 }
 
 main .main-content .main-intro {
@@ -139,11 +151,33 @@ main .main-content .main-intro {
 
 main .main-content .main-intro h2 {
     font-size: 40px;
+    font-weight: 700;
     margin-bottom: 20px;
 }
 
 main .main-content .main-intro p {
+    font-size: 16px;
     margin-bottom: 10px;
+
+}
+
+main .main-content .main-logo_title {
+    
+    font-family: "Outfit", sans-serif;
+    color: #fff;
+    text-align: left;
+    text-transform: uppercase;
+    position: absolute;
+    left: 100px;
+    top: 200px;
+}
+
+main .main-content .main-logo_title h2 {
+    font-size: 5rem;
+    font-weight: 700;
+}
+main .main-content .main-logo_title p {
+    font-size: 24px;
 }
 
 
@@ -220,11 +254,12 @@ main .main-content .main-intro p {
 }
 
 .intro .content .content-box .box {
-    text-align: center;
+    text-align: left;
     position: relative;
 }
 
 .intro .content .content-box .box .content-img img {
+    filter: brightness(0.8);
     display: block;
 }
 
@@ -238,7 +273,12 @@ main .main-content .main-intro p {
 
 .intro .content .content-box .box h2 {
     font-size: 40px;
+    font-weight: 700;
     margin-bottom: 20px;
+}
+
+.intro .content .content-box .box p {
+    margin-bottom: 10px;
 }
 
 .intro .content .bottom-logo {
