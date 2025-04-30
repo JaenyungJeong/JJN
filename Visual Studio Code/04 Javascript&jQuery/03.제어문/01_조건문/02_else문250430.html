@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_else문</title>
+
+    <script>
+        /* 
+        (2) else문 : 조건식을 만족(true)할 경우와 만족하지 않는 경우(false)에 따라 실행되는 코드가 달라짐, 즉 하나의 조건식 결과에 따라 두가지 실행코드를 사용할 수 있음.
+
+        ////////////// 기본형 //////////////////////////////////////////
+
+            if(조건식) {
+                실행코드;
+            } else {
+                실행코드; 
+            }
+
+        ///////////////////////////////////////////////////////////////
+       
+
+        (3) 
+        
+        */
+
+        // 기본예제
+
+       /*  var userName = prompt('방문자의 이름을 입력해 주세요!');
+
+        if (userName) {
+            document.write(userName + '님 반갑습니다!');
+        } else {
+            alert('이름을 입력해주세요!');
+        } */
+
+        //예제1. 입력받은 숫자가 짝수일 때 if문, 홀수일 때 else 문 실행
+        /* 
+        값
+        입력받은 값 -> 어떻게? -> prompt 입력받아야지
+        입력받은 값을 담을 곳 -> 변수
+
+        var 변수명 = prompt ('좋아하는 숫자 입력하시오!');
+        >> 숫자 연산(또는 비교)을 해야 하니까 숫자형 데이터가 필요해!
+        >> 숫자형 데이터로 어떻게 바꾸지? -> Number()
+
+        짝수, 홀수 구분을 어떻게? - 나머지 구하기 %
+        >> 짝수가 어떻게? 2로 나눈 나머지가 0인것! -> 변수%2 === 0
+        >> 홀수는 어떻게? 2로 나눈 나머지가 1인것! -> 변수%2 === 1
+
+         */
+
+    /*     var num = Number(prompt('좋아하는 숫자는?'));
+        
+
+        if (num == 2n) {
+            document.write('입력하신 숫자는 짝수입니다.');
+        } else {
+            document.write('입력하신 숫자는 홀수입니다.');
+
+        } */
+/* 
+        var num = prompt('좋아하는 숫자는?');
+
+        num = Number(num);
+
+        var numResult = Number(num);
+
+        console.log(numResult % 2);
+
+        if(numResult % 2 === 0) {
+            document.write('당신이 좋아하는 숫자는 짝수입니다!')
+        } else {
+            document.write('당신이 좋아하는 숫자는 홀수입니다!')
+        } */
+
+        //예제2
+        //  window.alert('테스트!'); 
+        /* 윈도우 객체에서 실행가능한 메소드 */
+
+        // window.confirm('야옹');
+        // confirm() - 확인(ok)을 누르면 true, 취소(cancel)를 누르면 false 반환
+
+        var result = confirm('정말로 구독서비스를 해지하시겠습니까?');
+        //확인 : true, 취소 : false
+        console.log(result);
+
+        if (result) {
+            //확인을 눌렀을 때 실행. true
+            document.write('구독서비스가 해지되었습니다.');
+
+            
+        } else {
+            //취소를 눌렀을 때 실행, false
+            document.write('구독서비스를 유지합니다.');
+        }
+
+        
+
+
+    </script>
+</head>
+<body>
+    
+    
+</body>
+</html>
