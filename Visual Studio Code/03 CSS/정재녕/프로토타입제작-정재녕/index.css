@@ -46,10 +46,10 @@ ol {
 
 body {
     background-color: #ece4de;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: fixed; */
 }
 
 header {
@@ -121,7 +121,6 @@ main {
 
 
 main .main-content {
-    width: 1440px;
     margin: 0 auto;
     position: relative;
     text-align: left;
@@ -240,6 +239,7 @@ main .main-content .main-logo_title p {
 
 .intro .cafe-intro .intro-box li .des-box h2 {
     font-size: 60px;
+    font-weight: 600;
     text-transform: uppercase;
 }
 
@@ -303,6 +303,8 @@ main .main-content .main-logo_title p {
     float: left;
     border-radius: 30px;
     overflow: hidden;
+
+    position: relative;
 }
 
 .intro .content .content-menu li~li {
@@ -314,19 +316,54 @@ main .main-content .main-logo_title p {
     display: block;
 }
 
+.intro .content .content-menu li .caption {
+
+    font-family: "Outfit", sans-serif;
+    font-size: 32px;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+
+    padding-top: 20px;
+    /* width: 300px;
+    height: 200px; */
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    left: 0;
+
+
+    transition: all 0.7s;
+}
+
+.intro .content .content-menu li.menu .caption {
+    top: 0;
+    opacity: 0;
+}
+
+.intro .content .content-menu li.menu:hover .caption {
+    opacity: 0.7;
+}
+
 footer {
     width: 100%;
     max-width: 1440px;
-    margin: 0 auto;
-    font-size: 5px;
-
+    margin: 0 auto 90px;
 }
 
 footer .info {
     font-family: "Outfit", sans-serif;
     text-transform: uppercase;
-    padding: 0 100px;
     box-sizing: border-box;
+    padding: 40px 0;
+    border-top: 2px solid #eee;
+
+    color: #333;
+
+
 }
 
 footer .info .copy {
@@ -335,8 +372,30 @@ footer .info .copy {
     float: left;
 }
 
+footer .info .copy p{
+}
+
+footer .info .copy p:first-child {
+    font-size: 5rem;
+    font-weight: 700;
+}
+
+footer .info .copy p:last-child {
+    font-size: 32px;
+}
+
 footer .info .details {
     font-size: 16px;
 
     float: right;
+}
+
+
+ul.item-list li.item2 .caption {
+    top: 0;
+    opacity: 0;
+}
+
+ul.item-list li.item2:hover .caption {
+    opacity: 1;
 }
