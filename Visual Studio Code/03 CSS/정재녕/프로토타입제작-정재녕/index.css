@@ -202,7 +202,6 @@ main .main-content .main-logo_title p {
     width: 32%;
     float: left;
 
-
 }
 
 .intro .cafe-intro .intro-box li a {
@@ -219,7 +218,22 @@ main .main-content .main-logo_title p {
     border-radius: 30px;
     overflow: hidden;
     margin-bottom: 40px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 
+}
+
+/* .intro .cafe-intro .intro-box li:hover.img-box {
+    
+} */
+
+.intro .cafe-intro .intro-box li .img-box a img {
+    transition: all 0.7s;
+}
+
+.intro .cafe-intro .intro-box li .img-box:hover a img {
+    
+    transform: scale(1.5);
+    cursor: zoom-in;
 }
 
 
@@ -325,7 +339,9 @@ main .main-content .main-logo_title p {
     color: #fff;
     text-align: center;
 
-    padding-top: 20px;
+    padding: 20px 10px 0;
+    box-sizing: border-box;
+    
     /* width: 300px;
     height: 200px; */
 
@@ -337,6 +353,8 @@ main .main-content .main-logo_title p {
 
 
     transition: all 0.7s;
+
+    cursor: zoom-in;
 }
 
 .intro .content .content-menu li.menu .caption {
@@ -381,7 +399,7 @@ footer .info .copy p:first-child {
 }
 
 footer .info .copy p:last-child {
-    font-size: 32px;
+    font-size: 24px;
 }
 
 footer .info .details {
@@ -391,11 +409,3 @@ footer .info .details {
 }
 
 
-ul.item-list li.item2 .caption {
-    top: 0;
-    opacity: 0;
-}
-
-ul.item-list li.item2:hover .caption {
-    opacity: 1;
-}
