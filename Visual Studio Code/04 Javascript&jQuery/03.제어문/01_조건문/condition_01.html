@@ -9,12 +9,28 @@
 
 <script>
 
-	// 1) 변수 선언 num
-	// 2) 5 > 2 
-	//  
+
+	// 1) 5 > 2 
+
+	//주어진 값을 조건식에 바로 적용  
 
 	if(5>2) {
-		document.write('Well done!');
+		document.write('Well done! <br>');
+	}
+
+	//변수에 값을 담아서 사용
+	var a=5, b=2;
+	if (a>b) {
+		document.write('Well done! good!! <br>');
+
+	}
+
+	//변수에 조건식 생성
+	var result = a>b;
+	console.log(result);
+
+	if (result) {
+		document.write('Well done! best!! <br>');
 	}
 	
 </script>

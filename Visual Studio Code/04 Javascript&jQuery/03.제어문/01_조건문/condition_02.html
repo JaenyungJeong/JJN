@@ -11,10 +11,35 @@
 
 <script>
 
-	var string = 'Kitty'
+/* 	var string = 'Kitty';
 
 	if(string === 'Kitty') {
 		alert('Hello Kitty!');
+	}
+
+	//1) 변수지정
+
+	var name = "Kitty" ;
+
+	if(name == "Kitty") {
+		alert("Hello Kitty!");
+	} */
+
+	//비교할 값(기준값!) 설정
+
+	var name = "Kitty" ;
+
+	//비교 대상 >> 사용자로부터 새롭게 입력 받기
+	var userCat = prompt('고양이의 이름은?');
+
+	if(name == userCat) {
+		//이름이 일치했다!!
+		alert("Hello Kitty!");
+	} else {
+		//이름이 일치하지 않았다!!! >>> false
+		// alert("키티 데려와!");
+
+		document.write("Welcome" + userCat);
 	}
 	
 </script>
