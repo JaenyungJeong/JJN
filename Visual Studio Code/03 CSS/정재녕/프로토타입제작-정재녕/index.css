@@ -331,9 +331,11 @@ main .main-content .main-logo_title p {
     position: relative;
 }
 
-.intro .content .content-box .box .content-img img {
+.intro .content .content-box .box .content-img video {
+    width: 100%;
     filter: brightness(0.8);
     display: block;
+    
 }
 
 .intro .content .content-box .box .content-intro {
@@ -344,13 +346,14 @@ main .main-content .main-logo_title p {
     bottom: 200px;
 }
 
-.intro .content .content-box .box h2 {
+.intro .content .content-box .box .content-intro h2 {
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-.intro .content .content-box .box p {
+.intro .content .content-box .box .content-intro p {
     margin-bottom: 10px;
 }
 
@@ -360,7 +363,7 @@ main .main-content .main-logo_title p {
 }
 
 .intro .content .bottom-logo p {
-    font-size: 12rem;
+    font-size: 10rem;
     font-weight: 600;
     color: #333;
     font-family: "Outfit", sans-serif;
