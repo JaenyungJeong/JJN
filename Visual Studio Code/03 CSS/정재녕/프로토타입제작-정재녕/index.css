@@ -1,489 +1,499 @@
-@charset "UTF-8";
+    @charset "UTF-8";
 
 
 
-/* 
+    /* 
 
-구글웹폰트
+    구글웹폰트
 
-font-family: "Noto Sans KR", sans-serif;
-font-weight : 100 ~ 900;
-
-font-family: "Outfit", sans-serif;
-font-weight : 100 ~ 900;
-
-*/
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-size: 100%;
-    font-weight: normal;
-}
-
-a {
-    text-decoration: none;
-}
-
-ul,
-ol {
-    list-style: none;
-}
-
-.clear::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-body {
-    background-color: #ece4de;
-    /* background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; */
-}
-
-header {
-
-    width: 100%;
-    height: 90px;
-    text-transform: uppercase;
-
-    position: fixed;
-    left: 0;
-    top: 0;
-    opacity: 0.8;
-    background-color: #ece4de;
-    z-index: 9999;
-}
-
-
-
-header .cafe-header {
-    width: 100%;
-    max-width: 1440px;
-    height: 90px;
-    overflow: hidden;
-    margin: 0 auto;
-    font-size: 16px;
-    font-family: "Outfit", sans-serif;
-    box-sizing: border-box;
-}
-
-
-
-
-header .cafe-header .logo {
-    float: left;
-}
-
-header .cafe-header .logo a {
-}
-
-
-header .cafe-header .gnb {
-    float: right;
-    line-height: 90px;
-
-}
-
-header .cafe-header .gnb .header-menu li {
-    float: left;
-    margin: 0 30px;
-}
-
-header .cafe-header .gnb .header-menu li a {
-    color: #333;
-}
-
-header .cafe-header .gnb .header-menu li a:hover {
-    color: #fcbd00;
-    text-decoration: underline;
-}
-
-main {
-
-    width: 100%;
-    max-width: 1440px;
-    margin: 90px auto;
-    border-radius: 30px;
-}
-
-
-
-main .main-content {
-    margin: 0 auto;
-    position: relative;
-    text-align: left;
-
-}
-
-main .main-content .main-img {
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 30px;
-    overflow: hidden;
-}
-
-main .main-content .main-img img {
-    width: 100%;
-    display: block;
-    filter: brightness(0.8);
-}
-
-main .main-content .main-intro {
-    position: absolute;
-    left: 100px;
-    bottom: 200px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight : 100 ~ 900;
 
     font-family: "Outfit", sans-serif;
-    color: #fff;
+    font-weight : 100 ~ 900;
+
+    */
 
-}
+    * {
+        margin: 0;
+        padding: 0;
+    }
 
-main .main-content .main-intro h2 {
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 100%;
+        font-weight: normal;
+    }
 
-main .main-content .main-intro p {
-    font-size: 16px;
-    margin-bottom: 10px;
+    a {
+        text-decoration: none;
+    }
 
-}
+    ul,
+    ol {
+        list-style: none;
+    }
 
-main .main-content .main-logo_title {
+    .clear::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    body {
+        background-color: #ece4de;
+        /* background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; */
+    }
 
-    font-family: "Outfit", sans-serif;
-    color: #fff;
-    text-align: left;
-    text-transform: uppercase;
-    position: absolute;
-    left: 100px;
-    top: 200px;
-}
+    header {
 
-main .main-content .main-logo_title h2 {
-    font-size: 5rem;
-    font-weight: 700;
-}
+        width: 100%;
+        height: 90px;
+        text-transform: uppercase;
 
-main .main-content .main-logo_title p {
-    font-size: 24px;
-}
+        position: fixed;
+        left: 0;
+        top: 0;
+        opacity: 0.8;
+        background-color: #ece4de;
+        z-index: 9999;
+    }
 
 
-.intro {
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto 90px;
 
-}
+    header .cafe-header {
+        width: 100%;
+        max-width: 1440px;
+        height: 90px;
+        overflow: hidden;
+        margin: 0 auto;
+        font-size: 16px;
+        font-family: "Outfit", sans-serif;
+        box-sizing: border-box;
+    }
 
-.intro .cafe-intro {
-    margin-bottom: 90px;
-}
 
-.intro .cafe-intro .intro-box {
-    margin-bottom: 40px;
-}
 
-.intro .cafe-intro .intro-box li {
-    width: 32%;
-    float: left;
 
-    
+    header .cafe-header .logo {
+        float: left;
+    }
 
-}
+    header .cafe-header .logo a {
+    }
 
-.intro .cafe-intro .intro-box li .box {
-    position: relative;
-    
-}
 
-.intro .cafe-intro .intro-box li .box .img-box {
-       
-}
+    header .cafe-header .gnb {
+        float: right;
+        line-height: 90px;
 
+    }
 
+    header .cafe-header .gnb .header-menu li {
+        float: left;
+        margin: 0 30px;
+    }
 
-.intro .cafe-intro .intro-box li .box .caption {
+    header .cafe-header .gnb .header-menu li a {
+        color: #333;
+    }
 
-    font-family: "Outfit", sans-serif;
-    text-transform: uppercase;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    text-align: center;
-    border-radius: 30px;
-    padding: 20px 10px 0;
-    box-sizing: border-box;
+    header .cafe-header .gnb .header-menu li a:hover {
+        color: #fcbd00;
+        text-decoration: underline;
+    }
 
-    width: 100%;
-    height: 100%;
+    main {
 
-    position: absolute;
-    left: 0;
+        width: 100%;
+        max-width: 1440px;
+        margin: 90px auto;
+        border-radius: 30px;
+    }
 
-    transition: all 0.5s;
 
-    cursor: zoom-in;
-}
 
-.intro .cafe-intro .intro-box li .box .caption {
-    top: 0;
-    opacity: 0;
-    
+    main .main-content {
+        margin: 0 auto;
+        position: relative;
+        text-align: left;
 
-}
+    }
 
-.intro .cafe-intro .intro-box li .box .caption h2 {
-    font-size: 48px;
-    margin-bottom: 20px;  
-
-}
-.intro .cafe-intro .intro-box li .box .caption p {
-    font-size: 24px;
-}
-
-.intro .cafe-intro .intro-box li .box:hover .caption {
-    opacity: 0.7;
-}
-
-
-
-.intro .cafe-intro .intro-box li a {
-    display: block;
-    color: #333;
-}
-
-.intro .cafe-intro .intro-box li~li {
-    margin-left: 2%;
-
-}
-
-.intro .cafe-intro .intro-box li .img-box {
-    border-radius: 30px;
-    overflow: hidden;
-    margin-bottom: 40px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-
-}
-
-/* .intro .cafe-intro .intro-box li:hover.img-box {
-    
-} */
-
-/* .intro .cafe-intro .intro-box li .img-box a img {
-    transition: all 0.7s;
-}
-
-.intro .cafe-intro .intro-box li .img-box:hover a img {
-    
-    transform: scale(1.5);
-    cursor: zoom-in;
-} */
-
-
-.intro .cafe-intro .intro-box li img {
-    width: 100%;
-    display: block;
-}
-
-.intro .cafe-intro .intro-box li .des-box {
-    text-align: center;
-    font-family: "Outfit", sans-serif;
-
-    border: 2px solid #eee;
-    border-radius: 30px;
-    box-sizing: border-box;
-}
-
-.intro .cafe-intro .intro-box li .des-box h2 {
-    font-size: 60px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.intro .cafe-intro .intro-box li .des-box p {
-    margin-bottom: 10px;
-}
-
-.intro .content .content-box {
-    width: 100%;
-    border-radius: 30px;
-    overflow: hidden;
-    margin-bottom: 40px;
-
-}
-
-.intro .content .content-box .box {
-    text-align: left;
-    position: relative;
-}
-
-.intro .content .content-box .box .content-img video {
-    width: 100%;
-    filter: brightness(0.8);
-    display: block;
-    
-}
-
-.intro .content .content-box .box .content-intro {
-    font-family: "Outfit", sans-serif;
-    color: #fff;
-    position: absolute;
-    left: 100px;
-    bottom: 200px;
-}
-
-.intro .content .content-box .box .content-intro h2 {
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.intro .content .content-box .box .content-intro p {
-    margin-bottom: 10px;
-}
-
-.intro .content .bottom-logo {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.intro .content .bottom-logo p {
-    font-size: 10rem;
-    font-weight: 600;
-    color: #333;
-    font-family: "Outfit", sans-serif;
-    text-transform: uppercase;
-
-}
+    main .main-content .main-img {
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 30px;
+        overflow: hidden;
+    }
 
-
-.intro .content .content-menu li {
-    width: 23.5%;
-    float: left;
-    border-radius: 30px;
-    overflow: hidden;
-
-    position: relative;
-}
-
-.intro .content .content-menu li~li {
-    margin-left: 2%;
-}
-
-.intro .content .content-menu li img {
-    width: 100%;
-    display: block;
-}
-
-.intro .content .content-menu li .caption {
-
-    font-family: "Outfit", sans-serif;
-    text-transform: uppercase;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    text-align: center;
-
-    padding: 20px 10px 0;
-    box-sizing: border-box;
-
-    width: 100%;
-    height: 100%;
-
-    position: absolute;
-    left: 0;
-
-    transition: all 0.7s;
-
-    cursor: zoom-in;
-}
-
-.intro .content .content-menu li.menu .caption {
-    top: 0;
-    opacity: 0;   
-}
-
-.intro .content .content-menu li.menu .caption h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-
-}
-.intro .content .content-menu li.menu .caption p {}
-
-.intro .content .content-menu li.menu:hover .caption {
-    opacity: 0.7;
-}
-
-footer {
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto 90px;
-}
-
-footer .info {
-    font-family: "Outfit", sans-serif;
-    text-transform: uppercase;
-    box-sizing: border-box;
-    padding: 40px 0;
-    border-top: 2px solid #eee;
-
-    color: #333;
-
-
-}
-
-footer .info .copy {
-    font-size: 16px;
-    padding: 20px 0;
-    float: left;
-}
-
-footer .info .copy p{
-}
-
-footer .info .copy p:first-child {
-    font-size: 3rem;
-    font-weight: 700;
-}
-
-footer .info .copy p:last-child {
-    font-size: 24px;
-}
-
-footer .info .details {
-    font-size: 16px;
-
-    float: right;
-}
-
-footer .info .details .cafe_name {
-    font-size: 20px;
-    font-weight: 700;
-}
-
-footer .info .details .ceo_name {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-footer .info .details .sns {
-    font-weight: 700;
-}
+    main .main-content .main-img img {
+        width: 100%;
+        display: block;
+        filter: brightness(0.8);
+    }
+
+    main .main-content .main-intro {
+        position: absolute;
+        left: 7%;
+        bottom: 20%;
+
+        transform: translateX(-7%);
+        transform: translateY(-20%);
+
+        font-family: "Outfit", sans-serif;
+        color: #fff;
+
+    }
+
+    main .main-content .main-intro h2 {
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    main .main-content .main-intro p {
+        font-size: 16px;
+        margin-bottom: 10px;
+
+    }
+
+    main .main-content .main-logo_title {
+
+        font-family: "Outfit", sans-serif;
+        color: #fff;
+        text-align: left;
+        text-transform: uppercase;
+        position: absolute;
+        left: 7%;
+        top: 25%;
+
+        transform: translateX(-7%);
+        transform: translateY(-25%);
+    }
+
+    main .main-content .main-logo_title h2 {
+        font-size: 5rem;
+        font-weight: 700;
+    }
+
+    main .main-content .main-logo_title p {
+        font-size: 24px;
+    }
+
+
+    .intro {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto 90px;
+
+    }
+
+    .intro .cafe-intro {
+        margin-bottom: 90px;
+    }
+
+    .intro .cafe-intro .intro-box {
+        margin-bottom: 40px;
+    }
+
+    .intro .cafe-intro .intro-box li {
+        width: 32%;
+        float: left;
+
+        
+
+    }
+
+    .intro .cafe-intro .intro-box li .box {
+        position: relative;
+        
+    }
+
+    .intro .cafe-intro .intro-box li .box .img-box {
+        
+    }
+
+
+
+    .intro .cafe-intro .intro-box li .box .caption {
+
+        font-family: "Outfit", sans-serif;
+        text-transform: uppercase;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        text-align: center;
+        border-radius: 30px;
+        padding: 20px 10px 0;
+        box-sizing: border-box;
+
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        left: 0;
+
+        transition: all 0.5s;
+
+        cursor: zoom-in;
+    }
+
+    .intro .cafe-intro .intro-box li .box .caption {
+        top: 0;
+        opacity: 0;
+        
+
+    }
+
+    .intro .cafe-intro .intro-box li .box .caption h2 {
+        font-size: 48px;
+        margin-bottom: 20px;  
+
+    }
+    .intro .cafe-intro .intro-box li .box .caption p {
+        font-size: 24px;
+    }
+
+    .intro .cafe-intro .intro-box li .box:hover .caption {
+        opacity: 0.7;
+    }
+
+
+
+    .intro .cafe-intro .intro-box li a {
+        display: block;
+        color: #333;
+    }
+
+    .intro .cafe-intro .intro-box li~li {
+        margin-left: 2%;
+
+    }
+
+    .intro .cafe-intro .intro-box li .img-box {
+        border-radius: 30px;
+        overflow: hidden;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+
+    }
+
+    /* .intro .cafe-intro .intro-box li:hover.img-box {
+        
+    } */
+
+    /* .intro .cafe-intro .intro-box li .img-box a img {
+        transition: all 0.7s;
+    }
+
+    .intro .cafe-intro .intro-box li .img-box:hover a img {
+        
+        transform: scale(1.5);
+        cursor: zoom-in;
+    } */
+
+
+    .intro .cafe-intro .intro-box li img {
+        width: 100%;
+        display: block;
+    }
+
+    .intro .cafe-intro .intro-box li .des-box {
+        text-align: center;
+        font-family: "Outfit", sans-serif;
+
+        border: 2px solid #eee;
+        border-radius: 30px;
+        box-sizing: border-box;
+    }
+
+    .intro .cafe-intro .intro-box li .des-box h2 {
+        font-size: 60px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .intro .cafe-intro .intro-box li .des-box p {
+        margin-bottom: 10px;
+    }
+
+    .intro .content .content-box {
+        width: 100%;
+        border-radius: 30px;
+        overflow: hidden;
+        margin-bottom: 40px;
+
+    }
+
+    .intro .content .content-box .box {
+        text-align: left;
+        position: relative;
+    }
+
+    .intro .content .content-box .box .content-img video {
+        width: 100%;
+        filter: brightness(0.8);
+        display: block;
+        
+    }
+
+    .intro .content .content-box .box .content-intro {
+        font-family: "Outfit", sans-serif;
+        color: #fff;
+        position: absolute;
+        left: 7%;
+        bottom: 20%;
+
+        transform: translateX(-7%);
+        transform: translateY(-20%);
+        
+    }
+
+    .intro .content .content-box .box .content-intro h2 {
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .intro .content .content-box .box .content-intro p {
+        margin-bottom: 10px;
+    }
+
+    .intro .content .bottom-logo {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .intro .content .bottom-logo p {
+        font-size: 10rem;
+        font-weight: 600;
+        color: #333;
+        font-family: "Outfit", sans-serif;
+        text-transform: uppercase;
+
+    }
+
+
+    .intro .content .content-menu li {
+        width: 23.5%;
+        float: left;
+        border-radius: 30px;
+        overflow: hidden;
+
+        position: relative;
+    }
+
+    .intro .content .content-menu li~li {
+        margin-left: 2%;
+    }
+
+    .intro .content .content-menu li img {
+        width: 100%;
+        display: block;
+    }
+
+    .intro .content .content-menu li .caption {
+
+        font-family: "Outfit", sans-serif;
+        text-transform: uppercase;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        text-align: center;
+
+        padding: 20px 10px 0;
+        box-sizing: border-box;
+
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        left: 0;
+
+        transition: all 0.7s;
+
+        cursor: zoom-in;
+    }
+
+    .intro .content .content-menu li.menu .caption {
+        top: 0;
+        opacity: 0;   
+    }
+
+    .intro .content .content-menu li.menu .caption h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+
+    }
+    .intro .content .content-menu li.menu .caption p {}
+
+    .intro .content .content-menu li.menu:hover .caption {
+        opacity: 0.7;
+    }
+
+    footer {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto 90px;
+    }
+
+    footer .info {
+        font-family: "Outfit", sans-serif;
+        text-transform: uppercase;
+        box-sizing: border-box;
+        padding: 40px 0;
+        border-top: 2px solid #eee;
+
+        color: #333;
+
+
+    }
+
+    footer .info .copy {
+        font-size: 16px;
+        padding: 20px 0;
+        float: left;
+    }
+
+    footer .info .copy p{
+    }
+
+    footer .info .copy p:first-child {
+        font-size: 3rem;
+        font-weight: 700;
+    }
+
+    footer .info .copy p:last-child {
+        font-size: 24px;
+    }
+
+    footer .info .details {
+        font-size: 16px;
+
+        float: right;
+    }
+
+    footer .info .details .cafe_name {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    footer .info .details .ceo_name {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    footer .info .details .sns {
+        font-weight: 700;
+    }
 
 
 
