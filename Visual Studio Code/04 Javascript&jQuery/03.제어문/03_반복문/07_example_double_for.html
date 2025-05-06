@@ -9,6 +9,25 @@
         
         //중첩 for문을 이용해서 5행 5열 표를 만들고, 데이터가 1부터 25까지 출력되도록 작성하시오.
         
+        // 1. 행 초깃값 설정 i=1  i<=25 i++ 
+        // 2. tr 태그 5개 td 태그 5개씩 총 25개
+        // 3. tr 태그 용으로 i=1 i<=5 i++
+        // 4. 실행코드 document.write('<table><tr>')
+        // 5. td 태그 용으로 k=1 k<=5 k++ 
+        // 6. 실행코드 document.write('<td>' + k + '</td>')
+        // 7. 실행코드 document.write('</tr>')
+
+        var num = 1;
+        document.write('<table border="1">')
+        for (i=1;i<=5;i++) {
+            document.write('<tr>');
+            
+            for (k=1;k<=5;k++) {
+                document.write('<td>' + num + '</td>');
+                num++;
+            }
+            document.write('</tr>');
+        } document.write('</table>')
         
         
     </script>
