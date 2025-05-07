@@ -17,8 +17,8 @@
         // 6. 실행코드 document.write('<td>' + k + '</td>')
         // 7. 실행코드 document.write('</tr>')
 
-        var num = 1;
-        document.write('<table border="1">')
+     /*    var num = 1;
+        document.write('<table border="1">');
         for (i=1;i<=5;i++) {
             document.write('<tr>');
             
@@ -27,7 +27,38 @@
                 num++;
             }
             document.write('</tr>');
-        } document.write('</table>')
+        } 
+        document.write('</table>'); */
+
+        /*  
+        내가 사용할 변수!!
+        1) <tr> 을 반복할 변수 >> i
+        2) <td> 을 반복할 변수 >> k
+        3) 테이블을 담을 변수 >> table *예약어 : 기능이 있는 단어는 쓰면 안됨!!
+        4) td안에 들어갈 숫자를 담을 변수
+                
+        */
+
+        var table = '<table border="1">';
+        var num = 1;
+
+        for (var i=1; i<=5 ; i++) { // 바깥쪽 for 문 -> tr 반복실행!
+
+            table += '<tr>';
+            
+            for (var k=1; k<=5 ; k++) { // 안쪽for 문 -> td 반복실행!
+                table += '<td>' + num + '</td>';
+                num++;
+            
+            }
+            table += '</tr>';
+        }
+
+        table += '</table>';
+
+        document.write(table);
+
+        
         
         
     </script>
