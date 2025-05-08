@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+
+        var num = 1;
+
+        //이전 또는 다음 버튼을 눌렀을 때 > click 이벤트 발생
+        //이미지 경로 변경 >> src 속성값을 변경 >> setAttribute()
+
+        function next() {
+
+            if (num == 8) {
+                alert('마지막 이미지입니다');
+                return false;
+            }
+
+            num++;
+
+            if (num >= 9) {
+                alert('마지막 이미지입니다');
+                num = 8;
+            }
+
+            document.getElementById('photo').setAttribute('src', 'images/pic_' + num + '.jpg');
+        }
+
+        function prev() {
+
+            if (num == 1) {
+                alert('첫번째 이미지입니다!');
+                return false;
+            }
+
+            num--;
+            console.log(num);
+
+            /*  if(num <= 0) {
+                 num = 1;
+                 console.log('prev() 함수의 if문 실행!!!');
+             } */
+
+            document.getElementById('photo').setAttribute('src', 'images/pic_' + num + '.jpg');
+
+
+        }
+
+
+
+           function gallery(direction) {
+   
+               // 다음 버튼을 누르면 num++ >> true
+               // 이전 버튼을 누르면 num-- >> false
+   
+               if (direction) {
+   
+                   if (num == 8) return false;
+                   num++;
+               } else {
+   
+                   if (num == 1) return false;
+                   num--;
+                   
+               }
+
+               document.getElementById('photo').setAttribute('src', 'images/pic_' + num + '.jpg');
+           }
+
+    </script>
+
+    <style>
+        #galleryZone {
+            text-align: center;
+        }
+
+        .img-box {
+            margin-bottom: 20px;
+        }
+
+        .img-box img {
+            width: 500px;
+        }
+
+        button {
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="galleryZone">
+        <div class="img-box">
+            <img src="images/pic_1.jpg" alt="" id="photo">
+        </div>
+
+        <div class="btngrp">
+            <button onclick="prev();">이전</button>
+            <button onclick="next();">다음</button>
+
+            <button onclick="gallery(0)">이전</button>
+            <button onclick="gallery(1)">다음</button>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
