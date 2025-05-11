@@ -318,7 +318,7 @@ section .content-top .menu-box li .info p {
 .content-bottom {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 100px;
 }
 
 .content-bottom .content-intro {
@@ -395,6 +395,20 @@ section .content-top .menu-box li .info p {
     color: #fff;
 }
 
+.content-bottom .content-news {
+    width: 870px;
+    height: 370px;
+    padding: 50px 50px;
+}
+
+.content-bottom .content-news .news {
+    float: left;
+    margin-right: 50px;
+}
+
+.content-bottom .content-news .info {
+    float: left;
+}
 
 
 
