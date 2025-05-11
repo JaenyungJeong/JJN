@@ -1,0 +1,402 @@
+@charset "UTF-8";
+
+
+/* 
+
+구글웹폰트
+
+1) Noto Sans Kr (font-weight: 100~900)
+font-family: "Noto Sans KR", sans-serif;
+
+2) Fredoka (font-weight: 300~700)
+font-family: "Fredoka", sans-serif;
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+.clear::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    overflow-x: hidden;
+}
+
+header {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header .header-top {
+    width: 1200px;
+    padding: 20px 0;
+    height: 80px;
+    box-sizing: border-box;
+    outline: 2px solid blue;
+    text-align: center;
+    position: relative;
+}
+header .header-top h1 {
+    
+    
+}
+
+header .header-top h1 a img {
+
+}
+
+header .header-top ul {
+    position: absolute;
+    right: 0;
+    top: 20px;
+}
+header .header-top ul li {
+    float: left;
+    margin-left: 15px;
+    padding: 5px 0;
+    line-height: 30px;
+    vertical-align: middle;
+
+}
+
+header .header-top ul li a {
+    font-size: 13px;
+    color: #555;
+    
+}
+
+header .header-top ul li a img {
+    display: block;
+}
+
+header .header-bottom {
+    width: 1200px;
+    padding: 20px 80px;
+    box-sizing: border-box;
+    text-align: center;
+    outline: 1px solid blue;
+}
+header .header-bottom .gnb {}
+header .header-bottom .gnb li{
+    font-weight: 700;
+    display: inline-block;
+    margin: 0 45px;
+}
+
+header .header-bottom .gnb li a {
+    color: #333;
+}
+
+main {
+    
+    margin-bottom: 100px;
+
+}
+
+main .main-content .content {
+
+    position: relative;
+    outline: 1px solid blue;
+
+}
+
+main .main-content .content img {
+    display: block;
+}
+
+main .main-content .content .btn-more {
+    border: 2px solid darkblue;
+    width: 100px;
+    height: 30px;
+    padding: 3px 5px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 20px;
+    position: absolute;
+    left: 20%;
+    bottom: 20%;
+    opacity: 0;
+}
+
+main .main-content .content .btn-more a {
+    /* line-height: 100px; */
+}
+
+main .main-content .content .quick-link {
+    
+    position: absolute;
+    right: 360px;
+    bottom: -36px;
+
+}
+main .main-content .content .quick-link li {
+    float: left;
+    width: 300px;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    
+}
+
+main .main-content .content .quick-link li:first-child{
+    background-color: #ffc20d;
+    background-image: url(image/icon_map.png);
+    background-repeat: no-repeat;
+    background-position: 25% 50% ;
+    border-top-left-radius: 30px;
+}
+main .main-content .content .quick-link li:last-child{
+    background-color: #009132;
+    background-image: url(image/icon_franchise.png);
+    background-repeat: no-repeat;
+    background-position: 20% 50% ;
+    border-bottom-right-radius: 30px;
+}
+main .main-content .content .quick-link li a{
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    outline: 1px solid blue;
+}
+
+main .main-content .content .quick-link li img {
+    /* display: block; */
+    outline: 1px solid blue;
+}
+
+.subway-menu {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 100px;
+}
+
+
+section .menu .menu-title {
+    font-family: "Fredoka", sans-serif;
+    font-size: 2.7rem;
+    font-weight: 600;
+
+    line-height: 60px;
+    background-image: url(image/bul_tit.png);
+    background-repeat: no-repeat;
+    padding-left: 30px;
+
+    float: left;
+}
+section .menu .tab-btn {
+    float: right;
+    
+}
+section .menu .tab-btn li {
+    display: inline-block;
+    line-height: 60px;
+    position: relative;
+}
+
+section .menu .tab-btn li~li {
+    margin-left: 30px;
+}
+
+section .menu .tab-btn li:after{
+    content: "";
+    display: block;
+    width: 1px;
+    height: 14px;
+    background-color: #b2b2b2;
+    position: absolute;
+    left: -18px;
+    top: 24px;
+}
+
+section .menu .tab-btn li:first-child::after {
+    display: none;
+}
+
+section .menu .tab-btn li a {
+    color: #b2b2b2;
+}
+
+section .content-top {
+    position: relative;
+    outline: 1px solid blue;
+}
+section .content-top .btn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    outline: 1px solid blue;
+
+
+}
+
+section .content-top .btn.prev {
+    left: -80px;
+}
+section .content-top .btn.next {
+    right: -80px;
+}
+
+section .content-top .btn a {
+    font-size: 0;
+    display: block;
+    height: 100%;
+    background-image: url(image/icon_event_slider_arr.png);
+    background-repeat: no-repeat;
+}
+
+section .content-top .prev a:hover {
+    background-position: left bottom;
+}
+
+section .content-top .next a {
+    background-position: right top;
+}
+
+section .content-top .next a:hover {
+    background-position: right bottom;
+}
+
+section .content-top .menu-box  {
+    width: 100%;
+    text-align: center;
+}
+section .content-top .menu-box li {
+    width: 25%;
+    float: left;
+}
+
+section .content-top .menu-box li img {
+    width: 100%;
+}
+
+section .content-top .menu-box li a {
+    display: block;
+}
+
+section .content-top .menu-box li .info {
+    padding: 0 20px;
+}
+
+section .content-top .menu-box li .info h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px ;
+}
+
+section .content-top .menu-box li .info p {
+    letter-spacing: -0.6px;
+    word-break: keep-all;
+    line-height: 1.4;
+    color: #888;
+}
+
+.content-bottom {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-bottom .content-intro {
+    
+}
+
+.content-bottom .content-intro .img-left {
+    width: 400px;
+    height: 300px;
+    background-image: url(image/bg_utilization.png);
+    background-repeat: no-repeat;
+    float: left;
+    position: relative;
+    box-sizing: border-box;
+    
+    
+}
+
+.content-bottom .content-intro .img-right {
+    float: left;
+    width: 800px;
+    position: relative;
+}
+
+.content-bottom .content-intro li img {
+    
+}
+
+.content-bottom .content-intro li .fun {
+    font-size: 28px;
+    font-weight: 600;
+    position: absolute;
+    left: 40px;
+    top: 50px;
+    color: #fff;
+}
+
+.content-bottom .content-intro li .btn-left {
+    width: 100px;
+    height: 30px;
+    padding: 3px 5px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 20px;
+    border: 2px solid #fff;
+    position: absolute;
+    left: 40px;
+    bottom: 50px;
+
+    color: #fff;
+}
+
+.content-bottom .content-intro li .history {
+    font-size: 28px;
+    font-weight: 600;
+    position: absolute;
+    right: 100px;
+    top: 50px;
+    color: #fff;
+}
+
+.content-bottom .content-intro li .btn-right {
+    width: 100px;
+    height: 30px;
+    padding: 3px 5px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 20px;
+    border: 2px solid #fff;
+    position: absolute;
+    right: 300px;
+    bottom: 50px;
+
+    color: #fff;
+}
+
+
+
+
+
+
