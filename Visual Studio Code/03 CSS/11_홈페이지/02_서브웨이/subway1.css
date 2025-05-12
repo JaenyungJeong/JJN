@@ -398,16 +398,54 @@ section .content-top .menu-box li .info p {
 .content-bottom .content-news {
     width: 870px;
     height: 370px;
-    padding: 50px 50px;
+    padding: 50px 40px;
+    outline: 1px solid blue;
 }
 
 .content-bottom .content-news .news {
     float: left;
-    margin-right: 50px;
+    margin-right: 160px;
+
+    text-align: center;
 }
 
+.content-bottom .content-news .news li:first-child{
+    font-family: "Fredoka", sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+
+    line-height: 60px;
+    background-image: url(image/bul_tit.png);
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    
+}
+
+.content-bottom .content-news .news li:last-child {
+    color: #333;
+    outline: 1px solid blue;
+}
+
+
+
 .content-bottom .content-news .info {
+    text-align: left;
     float: left;
+
+    outline: 1px solid blue;
+
+}
+
+.content-bottom .content-news .info li {}
+.content-bottom .content-news .info li a {
+    color: #333;
+}
+
+.content-bottom .ad-img {
+    float: right;
+    outline: 1px solid blue;
+
 }
 
 
