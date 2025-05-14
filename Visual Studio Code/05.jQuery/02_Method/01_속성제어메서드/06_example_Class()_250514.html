@@ -7,35 +7,31 @@
     <script src="jquery-1.7.2.min.js"></script>
 
     <script>
-
-        //클릭된 탭메뉴(li)에 활성화된 디자인을 적용하고  >> .active 추가!
+        //클릭된 탭메뉴(li)에 활성화된 디자인을 적용하고 >> .active 추가!
         //나머지 메뉴는 기본 디자인 적용 >> 나머지 메뉴는 .active 제거!
 
         $(document).ready(function(){
+
             /* $('.gnb li').click(function(){
+
                 $(this).addClass('active').siblings().removeClass('active');
+
             }); */
 
-            //만약 클릭의 대상이 a태그라면?
-            /* $('.gnb li a').click(function(){
 
-                $(this).parent().addClass('active').siblings().removeClass('active');
-            }); */
-        });
-
-        $(function(){
-            $('.gnb li').click(function(){
-                // $(this).addClass('active').siblings().removeClass('active');
-
-            });
-
+            //만약 클릭의 대상이 a태그라면????
             $('.gnb li a').click(function(){
+
                 $(this).parent().addClass('active').siblings().removeClass('active');
             });
+
+
         });
+
     </script>
 </head>
 <body>
+
     <div class="top">
         <h1>그린컴퓨터 아카데미</h1>
 
@@ -51,22 +47,6 @@
         </nav>
     </div>
 
-    <div class="top">
-        <h1>그린컴퓨터 아카데미</h1>
-
-        <nav class="gnb">
-            <ul>
-                <li class="active"><a href="#">웹디자이너</a></li>
-                <li><a href="#">웹퍼블리셔</a></li>
-                <li><a href="#">Auto CAD</a></li>
-                <li><a href="#">Frond_End-Programmer</a></li>
-                <li><a href="#">Back_End-Programmer</a></li>
-                <li><a href="#">전산세무회계</a></li>
-                <li><a href="#">정보처리기사</a></li>
-            </ul>
-        </nav>
-    </div>
-    
     <style>
 
         ul, li {
@@ -80,18 +60,16 @@
             display: block;
         }
 
+        
         .top {
             text-align: center;
-            margin: 50px 0;
+            margin-top: 100px;
         }
-
         nav.gnb ul li {
             border: 1px solid #ccc;
             display: inline-block;
             border-radius: 50px;
-            
         }
-
         nav.gnb ul li~li {
             margin-left: 10px;
         }
@@ -102,21 +80,18 @@
             color: #777;
         }
 
-
-
-        /* 선택된 메뉴에 적용될 디자인!  한개 선택하면 나머지 요소 취소해 -> 형제관계이용*/
-
+        /* 선택된 메뉴에 적용될 디자인! */
         nav.gnb ul li.active {
             background-color: #41b3a2;
             border-color: #41b3a2;
         }
-
         nav.gnb ul li.active a {
             color: #fff;
         }
+
+
+
     </style>
-
-
     
 </body>
 </html>
