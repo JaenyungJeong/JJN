@@ -18,7 +18,7 @@ $(document).ready(function () {
     //다음 버튼을 클릭했을 때!
     $('.next').click(function () {
         $('.slider ul').animate({
-            marginLeft: '-=' + liW
+            marginLeft: '-=' + liW //클릭했을 때 마진 -1800이 되어야함 
         }, 800, function () {
             //다음(두번째 클릭)을 위한 준비!
             //1)첫번째 li(슬라이드)를 맨 뒤로 보내기 >> append()
@@ -27,5 +27,16 @@ $(document).ready(function () {
             $('.slider ul').css('margin-left', -liW);
         });
 
+    });
+
+    //이전 버튼을 클릭했을 때
+    $('.prev').click(function(){
+        $('.slider ul').animate({
+            marginLeft : '+=' + liW //클릭했을 때 마진 0이 되어야함 
+        },800, function(){
+            //다음을 위한 준비!!
+            $('.slider ul li:last').prependTo('.slider ul');
+            $('.slider ul').css('margin-left', -liW);
+        }); 
     });
 });
