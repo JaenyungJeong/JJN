@@ -15,7 +15,10 @@ $(document).ready(function(){
     $('.slider ul').css('margin-left',-liW);
 
     //다음 버튼을 클릭했을 때!
-    $('.next').click(function (){
+    $('.next a').click(function (evt){
+
+        evt.preventDefault(); //a 태그의 기본기능을 막아줘  이벤트 사용 슬라이드 구현의 마지막 작업
+
 
         $('.slider ul').animate({
             marginLeft: '-=' + liW
@@ -30,8 +33,9 @@ $(document).ready(function(){
     });
 
     //이전 버튼을 클릭했을 때 
-    $('.prev').click(function(){
+    $('.prev a').click(function(evt){
 
+        evt.preventDefault(); //a 태그의 기본기능을 막아줘  이벤트 사용
         $('.slider ul').animate({
             marginLeft: '+=' + liW
         }, 800, function (){
