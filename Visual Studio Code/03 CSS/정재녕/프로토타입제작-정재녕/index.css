@@ -159,6 +159,7 @@
         font-size: 40px;
         font-weight: 700;
         margin-bottom: 20px;
+        
     }
 
     main .main-content .main-intro p {
@@ -368,6 +369,11 @@
     .intro .content .content-box .box .content-intro p {
         margin-bottom: 10px;
     }
+
+    .intro .content .content-box .box .content-intro .bigtxt {
+        font-size: 24px;
+    }
+
 
     .intro .content .bottom-logo {
         text-align: center;
