@@ -12,6 +12,12 @@
     font-family: "Outfit", sans-serif;
     font-weight : 100 ~ 900;
 
+    font-family: "Special Elite", system-ui;
+    font-weight : 400;
+
+    font-family: "Black Ops One", system-ui;
+    font-weight: 400;
+
     */
 
     * {
@@ -76,7 +82,7 @@
         margin: 0 auto;
         font-size: 16px;
         font-weight: 500;
-        font-family: "Outfit", sans-serif;
+        font-family: "Special Elite", system-ui;    
         box-sizing: border-box;
     }
 
@@ -170,7 +176,7 @@
 
     main .main-content .main-logo_title {
 
-        font-family: "Outfit", sans-serif;
+        font-family: "Special Elite", system-ui;
         color: #fff;
         text-align: left;
         text-transform: uppercase;
@@ -310,7 +316,8 @@
 
     .intro .cafe-intro .intro-box li .des-box {
         text-align: center;
-        font-family: "Outfit", sans-serif;
+        font-family: "Special Elite", system-ui;
+        color: #333;
 
         border: 2px solid #eee;
         border-radius: 30px;
@@ -360,6 +367,7 @@
     }
 
     .intro .content .content-box .box .content-intro h2 {
+        font-family: "Special Elite", system-ui;
         font-size: 40px;
         font-weight: 700;
         margin-bottom: 20px;
