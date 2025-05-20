@@ -18,6 +18,9 @@
     font-family: "Black Ops One", system-ui;
     font-weight: 400;
 
+    font-family: "IM Fell English SC", serif;
+    font-weight: 400;
+
     */
 
     * {
@@ -82,7 +85,6 @@
         margin: 0 auto;
         font-size: 16px;
         font-weight: 500;
-        font-family: "Special Elite", system-ui;    
         box-sizing: border-box;
     }
 
@@ -98,6 +100,7 @@
 
 
     header .cafe-header .gnb {
+        font-family: "IM Fell English SC", serif;
         float: right;
         line-height: 90px;
 
@@ -176,7 +179,8 @@
 
     main .main-content .main-logo_title {
 
-        font-family: "Special Elite", system-ui;
+        
+        font-family: "IM Fell English SC", serif;
         color: #fff;
         text-align: left;
         text-transform: uppercase;
@@ -188,13 +192,18 @@
         transform: translateY(-25%);
     }
 
+    main .main-content .main-logo_title h2 .number {
+        font-family: "Special Elite", system-ui;
+        font-size: 5rem;
+    }
+
     main .main-content .main-logo_title h2 {
         font-size: 5rem;
         font-weight: 700;
     }
 
     main .main-content .main-logo_title p {
-        font-size: 24px;
+        font-size: 27px;
     }
 
 
@@ -316,7 +325,7 @@
 
     .intro .cafe-intro .intro-box li .des-box {
         text-align: center;
-        font-family: "Special Elite", system-ui;
+        
         color: #333;
 
         border: 2px solid #eee;
@@ -325,6 +334,7 @@
     }
 
     .intro .cafe-intro .intro-box li .des-box h2 {
+        font-family: "IM Fell English SC", serif;
         font-size: 60px;
         font-weight: 600;
         text-transform: uppercase;
@@ -367,7 +377,7 @@
     }
 
     .intro .content .content-box .box .content-intro h2 {
-        font-family: "Special Elite", system-ui;
+        font-family: "IM Fell English SC", serif;
         font-size: 40px;
         font-weight: 700;
         margin-bottom: 20px;
