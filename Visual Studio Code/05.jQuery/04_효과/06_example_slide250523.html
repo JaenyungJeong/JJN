@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>06_example_slide</title>
+
+    <script src="jquery-1.12.4.min.js"></script>
+
+    <script>
+
+        /* 
+        1) 마우스 온 했을 때 이미지 보이고 
+           마우스 오프 했을 때 이미지 사라짐
+
+        2) 처음 디스플레이 논으로 이미지 안보이게 해놓기
+
+        3) h1 에 마우스 올렸을 때 메소드 작동
+        4) h1 에 아우스 떠났을 때 메소드 작동 
+        
+        */
+
+        $(function(){
+            $('.title').on('mouseout', function(){
+                $('.img-box').slideToggle(1000, 'linear');
+                
+                });
+                $('.title').on('mouseover', function(){
+                    $('.img-box').slideToggle(1000, 'linear');
+
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div class="content-box">
+
+        <h1 class="title">여기에 마우스를 올려보세요!</h1>
+
+        <div class="img-box">
+            <img src="image/suzy.jpg" alt="">
+        </div>
+
+    </div>
+
+    <style>
+
+        .content-box { 
+            width: 500px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .title {
+            background-color: aquamarine;
+            cursor: pointer;
+        }
+
+        .img-box {
+            display: none;
+
+        }
+
+        .img-box img {
+            width: 100%;
+            
+        }
+    </style>
+    
+</body>
+</html>
