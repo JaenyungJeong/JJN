@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <title>slideChange</title>
 
+    <!-- 구글웹폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/slideChange250526.css">
+
+    <link rel="stylesheet" href="css/slideChange_250526.css">
 
     <script src="js/jquery-1.7.2.min.js"></script>
-    <script src="js/slideChange250526.js"></script>
-
-
-
+    <script src="js/slideChange_250526.js"></script>
 </head>
-<body>
-    
-    <header>
 
+<body>
+    <header>
         <div class="inner">
             <h1 class="logo"><a href="#"><img src="img/amorepacific.png" alt="아모레퍼시픽"></a></h1>
 
             <nav class="gnb">
-
                 <ul>
                     <li class="on"><a href="#brand1">라네즈</a></li>
                     <li><a href="#brand2">이니스프리</a></li>
@@ -29,15 +27,16 @@
                     <li><a href="#brand4">마몽드</a></li>
                     <li><a href="#brand5">아이오페</a></li>
                     <li><a href="#brand6">한율</a></li>
-                    <!-- 클래스는 링크등록x -->
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- 슬라이드 페이지 -->
-    <!-- section#brand$.page*6>img.logo $ 1번~n번-->
-    <section id="brand1" class="page"><img src="img/logo_laneige.png" alt="라네즈" class="b-logo"></section>
+    <!-- 슬라이드 페이지! -->
+    <!-- section#brand$.page*6>img.b-logo -->
+    <section id="brand1" class="page">
+        <img src="img/logo_laneige.png" alt="라네즈" class="b-logo">
+    </section>
     <section id="brand2" class="page"><img src="img/logo_innisfree.png" alt="이니스프리" class="b-logo"></section>
     <section id="brand3" class="page"><img src="img/logo_primera.png" alt="프리메라" class="b-logo"></section>
     <section id="brand4" class="page"><img src="img/logo_mamonde.png" alt="마몽드" class="b-logo"></section>
@@ -45,7 +44,6 @@
     <section id="brand6" class="page"><img src="img/logo_hanyul.png" alt="한율" class="b-logo"></section>
 
     <!-- 페이저 내비게이션 -->
-
     <nav class="side-pager">
         <ul>
             <li class="on"><a href="#brand1"><span>라네즈</span></a></li>
@@ -57,10 +55,12 @@
         </ul>
     </nav>
 
-    <footer class="page">
+    <!-- <footer>
         <p>&copy; Copyright 2025</p>
-    </footer>
+    </footer> -->
+
 
 
 </body>
+
 </html>

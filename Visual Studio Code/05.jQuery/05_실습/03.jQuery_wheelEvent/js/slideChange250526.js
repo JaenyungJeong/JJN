@@ -18,16 +18,22 @@
 ////  전역변수 설정/////////////////////////////////////
 
 var pageCount = 0; // 현재 페이지 번호! (첫 페이지 0 = 초깃값)
-// var total; // 총 페이지 갯수
+var total; // 총 페이지 갯수, 페이지 갯수가 유동적으로 변경되어야 한다면 변수로 사용!
 
 //총 페이지 수가 고정된 값이라면 상수 선언가능! 상수는 값의 재할당 (변경) 불가!
-const total = 6;
+// const total = 7;
+// footer 까지 포함 해서 총 7로 변경
 
 var stat = 0; // 스크롤 상태변경(0-실행전/허용, 1-실행중/잠금)
 
 /////////////////////////////////////////////////////////
 
 $(document).ready(function(){
+
+    //총 페이지 갯수 읽어오기!
+    total = $('.page').length;
+    console.log('총 페이지 갯수: ' + total);
+
     $(document).on('mousewheel DOMMouseScroll', function(){
         // console.log('휠 움직이는 중~');
 
@@ -95,7 +101,7 @@ $(document).ready(function(){
         if(delta < 0){
             //음수, 아랫방향, 다음 페이지
             pageCount++;
-            if(pageCount === 6) pageCount = 5;
+            if(pageCount === total) pageCount = total-1;
             // 총페이지 0~5 까지 6개이므로 total, total-1로 변경가능 
 
         } else {
@@ -103,6 +109,8 @@ $(document).ready(function(){
             pageCount--;
             if(pageCount === -1) pageCount = 0;
         }
+
+        console.log('현재 페이지번호: ' + pageCount);
 
         //if else 문을 통해 이동할 페이지 순번 반환!
         //이동할 페이지 위치 확인 -> 스크롤의 위치값으로 사용!
@@ -116,8 +124,56 @@ $(document).ready(function(){
             stat = 0; //스크롤 허용 상태로 변경
         });
 
+        //메뉴변경 - 미리 만들어둔함수호출!
+        // menuChg();
+        menuChg2(pageCount);
+
+    }); //mouseWheel 이벤트
+
+    $('.gnb a, .side-pager a').on('click', function(e){
+        //휠 이동 중간에 클릭이동하면 콘솔 상 페이지번호는 변경 안되어있는 문제 해결 -> a 이동 막고 -> href 기능 필요
+        //a 의 기본기능 막기!
+        e.preventDefault();
+
+        //클릭된 메뉴와 현재 페이지 번호 일치시키기!
+        //클릭 이후에 휠 이벤트가 발생할 경우, 현재 페이지를 기준으로 이동하므로 실제 보여지는 페이지와 현재 페이지 번호를 일치시켜주는 것이 필요!
+
+        //현재 페이지 번호 = gnb 메뉴 인덱스 = side-pager 메뉴 인덱스
+
+        var idx = $(this).parent().index();
+        console.log('클릭한 a의 부모(li) index값: ' + idx);
+
+        pageCount = idx;
+        console.log('변경된 page번호: ' + pageCount);
+
+        //스크롤 이동거리구하기2 - pageCount 사용
+        var pageTop = $('.page').eq(pageCount).offset().top;
+        // var pageTop = $('.page').eq(idx).offset().top;
+
+
+
+        //스크롤 이동거리구하기1 - 클릭된 A의 href값 활용하기!
+        /* var pid = $(this).attr('href');
+        console.log(pid);
+
+        var pageTop = $(pid).offset().top;
+        console.log('페이지가 문서로부터 떨어진 거리: ' + pageTop); */
+
+        //이동!
+        $('html, body').animate({
+            scrollTop : pageTop
+        }, 800);
+
+        //메뉴변경 - 함수 호출!
+        // menuChg();
+        menuChg2(pageCount);
+
+
     });
+
 });
+
+
 
 /* 휠이동거리, 이동방향 -> 휠 델타값
     - wheelDelta(구글, 엣지, 사파리)
@@ -126,3 +182,24 @@ $(document).ready(function(){
     >> 브라우저 구분이 필요!
     >> 브라우저 객체 모델
 */
+
+/*//////////////////////////////////////////
+  함수명 : menuChg() 
+    기능 : .gnb와 .side-pager 메뉴 동시변경
+////////////////////////////////////////////*/
+
+function menuChg (){
+    $('.gnb li').eq(pageCount).addClass('on').siblings().removeClass('on');
+    $('.side-pager li').eq(pageCount).addClass('on').siblings().removeClass('on');
+}
+
+/*//////////////////////////////////////////
+  함수명 : menuChg2() 
+    기능 : .gnb와 .side-pager 메뉴 동시변경, 매개변수 사용!
+////////////////////////////////////////////*/
+
+function menuChg2 (n){
+    $('.gnb li').eq(n).addClass('on').siblings().removeClass('on');
+    $('.side-pager li').eq(n).addClass('on').siblings().removeClass('on');
+}
+

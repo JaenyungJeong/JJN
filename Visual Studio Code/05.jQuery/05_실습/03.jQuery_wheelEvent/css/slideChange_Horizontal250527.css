@@ -1,98 +1,92 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
+/* reset */
 
 /* font-family: "Noto Sans KR", sans-serif;
    font-weight: 100~900;
 
 */
 
-/* reset */
-
-* {
+*{
     margin: 0;
     padding: 0;
 }
 
-ul,
-ol,
-li {
+ul, ol, li {
     list-style: none;
 }
 
-ul::after,
-li::after {
+a {
+    text-decoration: none;
+    display: block;
+    color: #fff;
+}
+
+/* 보이는 화면 기준 크기 설정! */
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+body {
+    background-color: darkseagreen;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+/* float 해제를 위한 공통클래스 */
+
+.clearfix::after {
     content: "";
     display: block;
     clear: both;
 }
 
-li {
-    float: left;
-}
-
-a {
-    display: block;
-    text-decoration: none;
-    color: #ccc;
-}
-
-
-/* 보이는 화면 기준 크기 설정! */
-
-html,
-body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-body {
-    font-family: "Noto Sans KR", sans-serif;
-    background-color: navy;
-}
-
-/* header */
-
 header {
     width: 100%;
     height: 100px;
     background-color: rgba(0,0,0,0.6);
+
     position: fixed;
     left: 0;
     top: 0;
 
     z-index: 999;
-    
 }
-
 header .inner {
+    /* width: calc(100% - 200px); */ /* 너비 - 200px */
     width: 100%;
-    max-width: 1720px;
-    margin: 0 auto;
-    height: 100%;
-
-    /* outline: 1px solid greenyellow; */
+    padding: 0 100px;
+    box-sizing: border-box;
+    height: 100%; /* float 자동해제 */
+    /* outline: 2px solid red; */
 }
 
 header .logo {
     float: left;
-    margin-left: 50px;
 }
-
+header .logo a {}
 header .logo a img {
-    height: 30px;
     display: block;
+    height: 30px;
     margin-top: 35px;
+    /* outline: 1px solid red; */
 }
 
 header .gnb {
     float: right;
-    margin-right: 50px;
 }
-
-header .gnb ul {}
-header .gnb ul li~li {
-    margin-left: 20px;
+header .gnb ul::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+header .gnb ul li {
+    float: left;
+    padding: 0 15px;
+    /* outline: 1px solid greenyellow; */
 }
 header .gnb ul li a {
     line-height: 100px;
@@ -100,34 +94,44 @@ header .gnb ul li a {
     font-weight: 600;
 }
 
-header .gnb ul li a:hover {
+header .gnb ul li:hover {
+    background-color: rgba(255,255,255,0.8);
+}
+header .gnb ul li:hover a {
     color: #ff748b;
     text-decoration: underline;
 }
 
-header .gnb ul li.on {}
-header .gnb ul li.on a{
+/* header .gnb ul li a:hover {
+    color: #ff748b;
+    text-decoration: underline;
+} */
+
+/* 선택된 gnb 메뉴 디자인 */
+header .gnb li.on a {
     color: #ff748b;
     text-decoration: underline;
 }
 
-/* 섹션 디자인 */
-
+/* 각 페이지 디자인 */
 /* 
-.page를 가진 section의 부모는 body!
-body가 가진 width, height 를 100% 모두 사용하겠다!
->> 보이는 화면 기준으로 각 섹션이 한 페이지씩 공간을 사용할 수 있어요
-
+body : 실제 페이지(슬라이드)가 보여지는 공간
+#content : 전체를 담는 부모!
+#content .page : 각 페이지(슬라이드)
 
 */
 
-.page {
-    width: 100%;
+#content {
+    width: 600%;
     height: 100%;
-    position: relative; 
-    /* .b-logo 의 기준 */
 
-    outline: 3px solid red;
+    /* overflow: hidden; */
+}
+.page {
+    width: 16.66%;
+    height: 100%;
+    float: left;
+    position: relative; /* .b-logo의 기준! */
 }
 
 .page .b-logo {
@@ -135,10 +139,9 @@ body가 가진 width, height 를 100% 모두 사용하겠다!
     height: 60px;
 
     position: absolute;
-    left: 50%;
-
-    transform: translateX(-50%);
     top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #brand1 {background: url(../img/brands_img_laneige.jpg) no-repeat top/cover;}
@@ -148,20 +151,20 @@ body가 가진 width, height 를 100% 모두 사용하겠다!
 #brand5 {background: url(../img/brands_img_iope.jpg) no-repeat top/cover;}
 #brand6 {background: url(../img/brands_img_hanyul.jpg) no-repeat top/cover;}
 
+
 /* 페이저 내비게이션 */
 
 .side-pager {
-    /* outline: 2px solid plum; */
+    position: fixed;
+    /* outline: 2px solid blue; */
 
-    position: fixed; 
-    /* 항상 보이는 화면 기준으로 고정 */
     top: 50%;
     transform: translateY(-50%);
     left: 5%;
 }
 .side-pager ul {}
+.side-pager ul {}
 .side-pager ul li {
-    float: none;
     margin: 10px 0;
 }
 .side-pager ul li a {
@@ -169,52 +172,35 @@ body가 가진 width, height 를 100% 모두 사용하겠다!
     height: 10px;
     border: 1px solid #fff;
     border-radius: 50%;
-    box-sizing: border-box;
 
     position: relative; /* span의 기준 */
 }
 .side-pager ul li a span {
-    /* 메뉴글자를 담은 요소 */
     display: block;
-    font-size: 14px;
-    font-weight: 300;
-
     width: 100px;
-    /* span 태그를 블록 요소로 바꿔줘서 너비 설정가능! */
     letter-spacing: 2px;
+    
     position: absolute;
     left: 200%;
-    top: -6px;
+    top: -7px;
 
     display: none;
 
-    /* outline: 1px solid red; */
-    
-
 }
 
-.side-pager ul li:hover a {}
-.side-pager ul li:hover a span {
+.side-pager ul li a:hover {
+    background-color: #fff;
+}
+
+.side-pager ul li a:hover span {
+    display: block;
 }
 
 /* 선택된 페이저 디자인 */
 
 .side-pager ul li.on a {
-
     background-color: #fff;
 }
 .side-pager ul li.on a span {
     display: block;
-    
-}
-
-footer {
-    width: 100%;
-    padding: 60px 0;
-    background-color: #b6a28e;
-    color: rgba(255,255,255,0.7);
-    text-align: center;
-
-    height: 150px !important; /* 우선순위 적용하지 않고 무조건 적용 */
-    box-sizing: border-box;
 }
