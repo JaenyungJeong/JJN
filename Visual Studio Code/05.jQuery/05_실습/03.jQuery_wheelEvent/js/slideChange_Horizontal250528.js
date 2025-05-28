@@ -84,6 +84,24 @@ $(document).ready(function(){
         var idx = $(this).parent().index();
         console.log(idx);
 
+        //클릭된 메뉴와 현재 페이지를 일치!
+        pageCount = idx;
+
+        //페이지 이동거리 구하기
+        var pid = $(this).attr('href');
+        console.log('클릭된 a의 href값: ' + pid)
+
+        var pageLeft = $(pid).offset().left;
+
+        //이동!
+        $('html, body').animate({
+            scrollLeft : pageLeft
+        },800);
+
+        //메뉴변경
+        menuChg();
+
+
     });
 
 });

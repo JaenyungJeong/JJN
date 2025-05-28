@@ -131,7 +131,7 @@ $(document).ready(function(){
     }); //mouseWheel 이벤트
 
     $('.gnb a, .side-pager a').on('click', function(e){
-        //휠 이동 중간에 메뉴 클릭이동하면 페이지번호는 변경 안되어있는 문제(콘솔 상에서 확인) 해결 -> a 이동 막고(이동할 페이지의 id값도 사용 가능할때 ) -> href 기능 필요
+        //휠 이동 중간에 메뉴 클릭이동하면 페이지번호는 변경 안되어있는 문제(콘솔 상에서 확인) 해결 -> a 이동 막고(이동할 페이지의 id값도 사용 가능할때 a태그 이용) -> href 기능 필요
         //a 의 기본기능 막기!
         e.preventDefault();
 
