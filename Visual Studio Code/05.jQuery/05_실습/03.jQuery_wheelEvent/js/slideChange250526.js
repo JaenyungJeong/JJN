@@ -56,7 +56,7 @@ $(document).ready(function(){
         wheelDelta 속성
         - chrome, ie/Edge 에서 사용
         - 오페라, 파이어폭스 브라우저는 detail 사용
-        - 마우스휠 이빈테 발생시, 스크롤 이동방향, 이동거리를 리턴해 주는 속성
+        - 마우스휠 이벤트 발생시, 스크롤 이동방향, 이동거리를 리턴해 주는 속성
         - 양수(+)는 윗 방향, 음수(-)는 아랫방향으로 휠 이동
         - click 이벤트에서 wheelDelta 를 적용하면 클릭된 횟수 리턴!
         
@@ -131,7 +131,7 @@ $(document).ready(function(){
     }); //mouseWheel 이벤트
 
     $('.gnb a, .side-pager a').on('click', function(e){
-        //휠 이동 중간에 클릭이동하면 콘솔 상 페이지번호는 변경 안되어있는 문제 해결 -> a 이동 막고 -> href 기능 필요
+        //휠 이동 중간에 메뉴 클릭이동하면 페이지번호는 변경 안되어있는 문제(콘솔 상에서 확인) 해결 -> a 이동 막고(이동할 페이지의 id값도 사용 가능할때 ) -> href 기능 필요
         //a 의 기본기능 막기!
         e.preventDefault();
 
