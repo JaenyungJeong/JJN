@@ -77,12 +77,14 @@ header .inner {
 header .logo {
     float: left;
     margin-left: 50px;
+    
 }
 
 header .logo a img {
     height: 30px;
     display: block;
     margin-top: 35px;
+    
 }
 
 header .gnb {
