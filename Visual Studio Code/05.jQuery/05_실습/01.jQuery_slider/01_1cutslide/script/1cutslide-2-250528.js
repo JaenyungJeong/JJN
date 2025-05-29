@@ -28,6 +28,8 @@
 
 $(function(){
 
+
+
     //슬라이드 하나의 너비 구하기
 
     var imgWidth = $('#gallery img').width(); //1200
@@ -48,9 +50,17 @@ $(function(){
             marginLeft : -(100*idx) + '%'
             // left : -(100*idx) + '%'
         },800);
+
+        //페이저 변경!
+        $(this).addClass('active').siblings().removeClass('active');
+        // menuChg(idx);
     });
 });
 
+
+/* function menuChg (idx){
+    $('#pager li').eq(idx).addClass('active').siblings().removeClass('active');
+} */
 
 
 
