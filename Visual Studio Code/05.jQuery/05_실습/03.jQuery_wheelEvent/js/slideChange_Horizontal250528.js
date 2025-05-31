@@ -77,7 +77,7 @@ $(document).ready(function(){
 
     $('.gnb a, .side-pager a').on('click', function(e){
         e.preventDefault();
-
+        //a페이지 순간적인 이동이 아닌 부드러운 스크롤 구현
         //현재 보고 있는 페이지와 pageCount 값 일치시키기
         //현재 보고 있는 페이지는? -> 내가 클릭한 메뉴 페이지
 
