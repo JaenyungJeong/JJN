@@ -22,6 +22,11 @@
             //좋아하는 계절을 클릭하면
             //계절에 대한 설명으로 내용을 바꾸고 css 변경
 
+            var season = $('.list li').attr('id');
+            console.log(season);
+
+            
+
             $('#spring').click(function(){
 
                 $(this).text('예쁜 꽃이 만발한 봄이예요!').css({
