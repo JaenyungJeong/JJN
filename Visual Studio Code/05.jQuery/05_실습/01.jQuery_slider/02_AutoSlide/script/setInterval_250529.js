@@ -1,4 +1,6 @@
-//setInterval_250529.js
+//setInterval_250529.js  Loop Carousel 무한 (캐러셀)슬라이드 효과 
+
+
 
 $(document).ready(function(){
 

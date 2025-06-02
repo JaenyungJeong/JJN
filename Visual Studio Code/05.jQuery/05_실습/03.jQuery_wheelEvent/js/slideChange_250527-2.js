@@ -7,7 +7,7 @@ var total;
 
 var stat = 0;
 
-$(document).ready(function () {
+/* $(document).ready(function () {
 
     total = $('.page').length;
     console.log('총 페이지 갯수: ' + total);
@@ -70,7 +70,35 @@ $(document).ready(function () {
 
             menuChg();
         });
+}); */
+
+$(document).ready(function(){
+
+    /*   
+    
+    mousewheel 이벤트
+    1. 총 페이지 갯수 읽어오기
+    2. 휠 이벤트 핸들러 제어하기 - 입장확인
+    3. 브라우저 구분하기 - 발생한 이벤트 객체확인
+    4. wheelDelta 값 구하기 - 브라우저별로 구분해서 값 반환하기
+    5. 파이어폭스 브라우저를 위한 처리
+    6. 마우스휠 이벤트로 페이지 이동하기
+    7. 이동한 페이지 위치 확인 -> 스크롤의 위칫값으로 확인
+    8. 페이지 이동
+    9. 함수 호출
+
+    click 이벤트
+
+    1. a의 기본기능 막기
+    2. 클릭된 메뉴와 현재 페이지 번호 일치시키기
+    3. 스크롤 이동거리 구하기
+    4. 페이지 이동
+    5. 함수 호출
+
+    */
+    
 });
+
 
 function menuChg (){
     $('.gnb li').eq(pageCount).addClass('on').siblings().removeClass('on');

@@ -117,10 +117,11 @@
 
                 //1번 - 현재 보여지는 슬라이드, 첫 번째 슬라이드
                 var firstSlide = $('.viewer .slide').first();
-
+                // console.log('첫번째 슬라이드: ' + firstSlide);
                 //2번 - 현재 보여지는 슬라이드의 '다음' 슬라이드
 
                 var nextSlide = firstSlide.next();
+                // console.log('다음 슬라이드: ' + nextSlide);
 
                 nextSlide.hide().addClass('active').fadeIn(800, function(){
                     //다음을 위한 준비!
