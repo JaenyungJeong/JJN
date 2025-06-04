@@ -7,7 +7,7 @@ var total;
 
 var stat = 0;
 
-/* $(document).ready(function () {
+$(document).ready(function () {
 
     total = $('.page').length;
     console.log('총 페이지 갯수: ' + total);
@@ -70,7 +70,7 @@ var stat = 0;
 
             menuChg();
         });
-}); */
+});
 
 $(document).ready(function(){
 
