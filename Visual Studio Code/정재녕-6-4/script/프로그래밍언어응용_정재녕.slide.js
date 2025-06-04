@@ -38,9 +38,13 @@ function topmove() {
 
 
     $('.pager li').css('color', 'black');
-    $('#btn' + page).css('color', 'green')
+    // $('#btn' + page).css('color', 'green');
+    $('.pager li').eq(page).css('color', 'green');
 
     if(page === 3) {
-        $('#btn0').css('color','green');
+        // $('#btn0').css('color','green');
+        $('.pager li').first().css('color', 'green');
     }
+
+    // append 를 이용한 설정도 만들어보기
 }
