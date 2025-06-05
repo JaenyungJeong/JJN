@@ -18,12 +18,27 @@
             background-size: cover;/* css순서 중요 */
         }
 
-        @media screen and (max-width:1024px){
+        /* max-width 는 큰 수치에서 작은 수치 순서로 작성! */
+        @media screen and (max-width:1024px){ /* 최대너비 1024px 부터는~줄어들면서~  max-width 는 큰 값부터 작은값으로 작성순서 중요! PC버전 만들시 부터 시작*/
             body {
                 background: url(images/bg1.jpg) no-repeat fixed;
                 background-size: cover;
             }
         } 
+
+        @media all and (max-width:768px) {
+            body {
+                background: url(images/bg2.jpg) no-repeat fixed;
+                background-size: cover;
+            }
+        }
+
+        @media all and (max-width:360px){
+            body {
+                background: url(images/bg3.jpg) no-repeat fixed;
+                background-size: cover;
+            }
+        }
     </style>
 </head>
 <body>
