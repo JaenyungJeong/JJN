@@ -1,0 +1,48 @@
+@charset 'UTF-8';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+main {
+    width: 100%;
+}
+
+.main .slide-box {
+    width: 960px;
+    height: 400px;
+    margin: 100px auto;
+    /* outline: 1px solid blue; */
+    overflow: hidden;
+    position: relative;
+
+}
+
+.main .slide-box .bakery {
+    position: relative;
+}
+.main .slide-box .bakery li {}
+.main .slide-box .bakery li img {
+    width: 100%;
+    display: block;
+}
+
+
+.main .slide-box .pager {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5%;
+}
+.main .slide-box .pager li {
+    display: inline-block;
+    font-size: 20px;
+}
+.main .slide-box .pager li~li {
+    margin-left: 10px;
+}
