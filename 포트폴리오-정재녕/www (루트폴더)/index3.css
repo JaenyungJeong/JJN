@@ -56,13 +56,8 @@
         clear: both;
     }
 
-    html, body {
-        width: 100%;
-        height: 100%;
-    }
-
     body {
-        /* background-color: #ece4de; */
+        background-color: #ece4de;
         /* background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -78,7 +73,8 @@
         position: fixed;
         left: 0;
         top: 0;
-        background-color: rgba(0,0,0,0.1);
+        opacity: 0.8;
+        background-color: #ece4de;
         z-index: 9999;
     }
 
@@ -98,21 +94,11 @@
 
 
 
-
-
     header .cafe-header .logo {
         float: left;
-        line-height: 90px;
-        margin-left: 30px;
-        font-size: 40px;
-        font-weight: 700;
-        
     }
 
     header .cafe-header .logo a {
-        color: #fff;
-        font-family: "IM Fell English SC", serif;
-        
     }
 
 
@@ -130,47 +116,42 @@
     }
 
     header .cafe-header .gnb .header-menu li a {
-        color: #fff;
+        color: #333;
     }
 
     header .cafe-header .gnb .header-menu li a:hover {
-        color: #113829;
+        color: #fcbd00;
         text-decoration: underline;
     }
 
     main {
-        background-image: url(../img/main/main-img2.jpg);
+
         width: 100%;
-        height: 100%;
-        /* max-width: 1440px; */
-        margin: 0 auto 100px;
-        /* border-radius: 30px; */
+        max-width: 1440px;
+        margin: 90px auto;
+        border-radius: 30px;
     }
 
 
 
     main .main-content {
-        width: 100%;
-        height: 100%;
-        max-width: 1440px;
         margin: 0 auto;
         position: relative;
         text-align: left;
-
 
     }
 
     main .main-content .main-img {
         width: 100%;
         margin: 0 auto;
-        /* border-radius: 30px; */
+        border-radius: 30px;
         overflow: hidden;
     }
 
     main .main-content .main-img img {
         width: 100%;
         display: block;
-        filter: brightness(0.6);
+        filter: brightness(0.8);
     }
 
     main .main-content .main-intro {
@@ -201,18 +182,17 @@
 
     main .main-content .main-logo_title {
 
-        width: 100%;
-        max-width: 1440px;
+        
         font-family: "IM Fell English SC", serif;
         color: #fff;
         text-align: left;
         text-transform: uppercase;
         position: absolute;
-        left: 0;
-        top: 40%;
-        transform: translateY(-40%);
+        left: 7%;
+        top: 25%;
 
-
+        transform: translateX(-7%);
+        transform: translateY(-25%);
     }
 
     main .main-content .main-logo_title h2 .number {
@@ -229,33 +209,10 @@
         font-size: 27px;
     }
 
-    main .main-content .main-logo_title p.bigpont {
-        font-size: 40px;
-
-        font-family: "Special Elite", system-ui;
-        font-weight : 600;
-
-    /* font-family: "Black Ops One", system-ui;
-    font-weight: 400; */
-    }
-    main .main-content .main-logo_title p.smallpont {
-        font-size: 24px;
-        font-family: "Special Elite", system-ui;
-    }
-
-    main .main-content .main-logo_title .main-intro {
-        width: 100%;
-
-        outline: 3px solid red;
-        
-        left: 0;
-        bottom: 0;
-    }
-
 
     .intro {
         width: 100%;
-        max-width: 1720px;
+        max-width: 1440px;
         margin: 0 auto 90px;
 
     }
@@ -264,24 +221,16 @@
         margin-bottom: 90px;
     }
 
-    .intro .cafe-intro .intro-title {
-        margin-bottom: 40px;
-        padding: 10px 20px;
-        outline: 2px solid blue;
-    }
-
-    .intro .cafe-intro .intro-title p {}
-    .intro .cafe-intro .intro-title h3 {}
-
     .intro .cafe-intro .intro-box {
         margin-bottom: 40px;
-        
     }
-    
 
     .intro .cafe-intro .intro-box li {
         width: 32%;
-        float: left;      
+        float: left;
+
+        
+
     }
 
     .intro .cafe-intro .intro-box li .box {
