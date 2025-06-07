@@ -1,290 +1,693 @@
-@charset "UTF-8";
+    @charset "UTF-8";
 
-/* Google Fonts */
-/*
-font-family: "Noto Sans KR", sans-serif;
-font-weight : 100 ~ 900;
 
-font-family: "Outfit", sans-serif;
-font-weight : 100 ~ 900;
-*/
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    /* 
 
-h1, h2, h3, h4, h5, h6 {
-    font-size: 100%;
-    font-weight: normal;
-}
+    구글웹폰트
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight : 100 ~ 900;
 
-ul, ol {
-    list-style: none;
-}
-
-.clear::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-body {
-    background-color: #ece4de;
     font-family: "Outfit", sans-serif;
-}
+    font-weight : 100 ~ 900;
 
-header {
-    width: 100%;
-    height: 90px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    opacity: 0.8;
-    background-color: #ece4de;
-    z-index: 9999;
-}
+    font-family: "Special Elite", system-ui;
+    font-weight : 400;
 
-header .cafe-header {
-    max-width: 1440px;
-    height: 90px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    font-size: 16px;
-}
+    font-family: "Black Ops One", system-ui;
+    font-weight: 400;
 
-header .logo a {
-    color: #333;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
+    font-family: "IM Fell English SC", serif;
+    font-weight: 400;
 
-header .gnb ul {
-    display: flex;
-    gap: 30px;
-}
+    font-family: "Rubik Dirt", system-ui;
+  font-weight: 400;
 
-header .gnb a {
-    color: #333;
-}
+    */
 
-header .gnb a:hover {
-    color: #fcbd00;
-    text-decoration: underline;
-}
-
-main {
-    width: 100%;
-    max-width: 1440px;
-    margin: 90px auto 0;
-    padding: 20px;
-}
-
-.main-content {
-    position: relative;
-    border-radius: 30px;
-    overflow: hidden;
-    text-align: left;
-}
-
-.main-content .main-img img {
-    width: 100%;
-    display: block;
-    border-radius: 30px;
-}
-
-.main-content .main-intro,
-.main-content .main-logo_title {
-    position: absolute;
-    color: #fff;
-    left: 5%;
-}
-
-.main-content .main-intro {
-    bottom: 15%;
-}
-
-.main-content .main-logo_title {
-    top: 15%;
-}
-
-.main-intro h2, .main-logo_title h2 {
-    font-size: 2rem;
-}
-
-.main-intro p, .main-logo_title p {
-    font-size: 1rem;
-}
-
-.intro {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.intro .intro-box {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2%;
-    margin-bottom: 90px;
-    justify-content: space-between;
-}
-
-.intro-box li {
-    flex: 1 1 calc(33.333% - 2%);
-    margin-bottom: 40px;
-}
-
-.intro-box .img-box {
-    border-radius: 30px;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-
-.intro-box img {
-    width: 100%;
-    display: block;
-}
-
-.intro-box .des-box {
-    text-align: center;
-    border: 2px solid #eee;
-    border-radius: 30px;
-    padding: 20px;
-}
-
-.des-box h2 {
-    font-size: 2rem;
-    text-transform: uppercase;
-}
-
-.des-box p {
-    margin-top: 10px;
-}
-
-.content-box {
-    border-radius: 30px;
-    overflow: hidden;
-    margin-bottom: 40px;
-}
-
-.content-box .box {
-    position: relative;
-    text-align: left;
-}
-
-.content-img img {
-    width: 100%;
-    display: block;
-}
-
-.content-intro {
-    position: absolute;
-    left: 5%;
-    bottom: 15%;
-    color: #fff;
-}
-
-.content-intro h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.content-intro p {
-    margin-bottom: 10px;
-}
-
-.bottom-logo {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.bottom-logo p {
-    font-size: 4rem;
-    color: #333;
-}
-
-.content-menu {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2%;
-}
-
-.content-menu li {
-    flex: 1 1 calc(25% - 2%);
-    border-radius: 30px;
-    overflow: hidden;
-}
-
-.content-menu img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-footer {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 20px;
-    font-size: 0.8rem;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-footer .info {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.copy, .details {
-    font-size: 1rem;
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-    .main-content .main-intro h2, .main-content .main-logo_title h2 {
-        font-size: 1.5rem;
+    * {
+        margin: 0;
+        padding: 0;
     }
 
-    .main-content .main-intro p, .main-content .main-logo_title p,
-    .content-intro h2, .content-intro p {
-        font-size: 0.9rem;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 100%;
+        font-weight: normal;
     }
 
-    .intro-box li,
-    .content-menu li {
-        flex: 1 1 100%;
+    a {
+        text-decoration: none;
     }
 
-    .header .cafe-header {
-        flex-direction: column;
-        height: auto;
+    ul,
+    ol {
+        list-style: none;
     }
 
-    header .gnb ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        line-height: 1.5;
+    .clear::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    /* html,
+    body {
+        width: 100%;
+        height: 100%;
+    } */
+
+    body {
+        /* background-color: #ece4de; */
+        /* background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; */
+    }
+
+    header {
+
+        width: 100%;
+        height: 90px;
+        text-transform: uppercase;
+
+        position: fixed;
+        left: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+    }
+
+
+
+    header .cafe-header {
+        width: 100%;
+        max-width: 1440px;
+        height: 90px;
+        overflow: hidden;
+        margin: 0 auto;
+        font-size: 16px;
+        font-weight: 500;
+        box-sizing: border-box;
+    }
+
+
+
+
+
+
+    header .cafe-header .logo {
+        float: left;
+        line-height: 90px;
+        margin-left: 30px;
+        font-size: 40px;
+        font-weight: 700;
+
+    }
+
+    header .cafe-header .logo a {
+        color: #fff;
+        font-family: "IM Fell English SC", serif;
+
+    }
+
+
+    header .cafe-header .gnb {
+        font-family: "IM Fell English SC", serif;
+        float: right;
+        line-height: 90px;
+
+    }
+
+    header .cafe-header .gnb .header-menu li {
+
+        float: left;
+        margin: 0 30px;
+    }
+
+    header .cafe-header .gnb .header-menu li a {
+        color: #fff;
+    }
+
+    header .cafe-header .gnb .header-menu li a:hover {
+        color: #113829;
+        text-decoration: underline;
+    }
+
+    main {
+        /* background-image: url(../img/main/main-img2.jpg); */
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 100px;
+    }
+
+
+
+
+
+    main .main-content {
+        width: 100%;
+        height: 100%;
+        max-width: 1920px;
+        margin: 0 auto;
+        position: relative;
+        text-align: left;
+
+    }
+
+    main .main-content .main-img {
+        width: 100%;
+
+    }
+
+    main .main-content .main-img img {
+        width: 100%;
+        display: block;
+        filter: brightness(0.6);
+    }
+
+    main .main-content .main-intro {
+        position: absolute;
+        left: 7%;
+        bottom: 20%;
+
+        transform: translateX(-7%);
+        transform: translateY(-20%);
+
+        font-family: "Outfit", sans-serif;
+        color: #fff;
+
+    }
+
+    main .main-content .main-intro h2 {
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 20px;
+
+    }
+
+    main .main-content .main-intro p {
+        font-size: 16px;
+        margin-bottom: 10px;
+
+    }
+
+    main .main-content .main-logo_title {
+
+        width: 100%;
+        max-width: 1440px;
+        font-family: "IM Fell English SC", serif;
+        color: #fff;
+        text-align: left;
+        text-transform: uppercase;
+        position: absolute;
+        left: 10%;
+        top: 35%;
+        transform: translateY(-35%);
+
+    }
+
+    main .main-content .main-logo_title h2 .number {
+        font-family: "Special Elite", system-ui;
+        font-size: 5rem;
+    }
+
+    main .main-content .main-logo_title h2 {
+        font-size: 5rem;
+        font-weight: 700;
+    }
+
+    main .main-content .main-logo_title p {
+        font-size: 27px;
+    }
+
+    main .main-content .main-logo_title p.bigpont {
+        font-size: 40px;
+
+        font-family: "Special Elite", system-ui;
+        font-weight: 600;
+
+        /* font-family: "Black Ops One", system-ui;
+    font-weight: 400; */
+    }
+
+    main .main-content .main-logo_title p.smallpont {
+        font-size: 24px;
+        font-family: "Special Elite", system-ui;
+    }
+
+    main .main-content .main-logo_title .main-intro {
+        width: 100%;
+
+        outline: 3px solid red;
+
+        left: 0;
+        bottom: 0;
+    }
+
+    .intro {
+        width: 100%;
+        max-width: 1720px;
+        margin: 0 auto 90px;
+    }
+
+    .intro .cafe-intro {
+        margin-bottom: 90px;
+    }
+
+    .intro .cafe-intro .intro-title {
+        margin-bottom: 40px;
+        padding: 10px 20px;
+        /* outline: 2px solid blue; */
+    }
+
+    .intro .cafe-intro .intro-title p:first-child {
+        font-size: 32px;
+        font-family: "IM Fell English SC", serif;
+    }
+
+    .intro .cafe-intro .intro-title h3 {
+        font-family: "IM Fell English SC", serif;
+        font-size: 60px;
+        font-weight: 700;
+    }
+
+    .intro .cafe-intro .intro-title p:last-child {
+        font-family: "Special Elite", system-ui;
+        font-size: 24px;
+    }
+
+    .intro .cafe-intro .img-box {
+        width: 100%;
+        /* height: 700px; */
+        /* outline: 2px solid blue; */
+        margin-bottom: 40px;
+        border-radius: 30px;
+        overflow: hidden;
+        border: 10px solid #F6EBE3;
+        box-sizing: border-box;
+    }
+
+    .intro .cafe-intro .img-box img {
+        width: 100%;
+        display: block;
+    }
+
+    .intro .cafe-intro .intro-box li {
+        width: 32%;
+        float: left;
+
+
+    }
+
+    .intro .cafe-intro .intro-box li~li {
+        margin-left: 2%;
+        margin-bottom: 40px;
+    }
+
+
+    .intro .cafe-intro .intro-box li .des-box {
+        text-align: center;
+
+        color: #333;
+
+
+        border-radius: 30px;
+        border: 3px solid #F6EBE3;
+        box-sizing: border-box;
+
+    }
+
+    .intro .cafe-intro .intro-box li .des-box h2 {
+        font-family: "IM Fell English SC", serif;
+        font-size: 60px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .intro .cafe-intro .intro-box li .des-box p {
+        margin-bottom: 10px;
+    }
+
+    .intro .cafe-intro .box {
+        margin-bottom: 90px;
+    }
+
+    .intro .cafe-intro .box li {
+        width: 49%;
+        float: left;
+        border-radius: 30px;
+        overflow: hidden;
+        border: 10px solid #F6EBE3;
+        box-sizing: border-box;
+
+    }
+
+    .intro .cafe-intro .box li~li {
+        margin-left: 2%;
+    }
+
+    .intro .cafe-intro .box li .img-boxes a img {
+        width: 100%;
+        display: block;
+    }
+
+    .intro .cafe-intro .cta-btn {
+        font-family: "Outfit", sans-serif;
+        width: 200px;
+        height: 40px;
+        background-color: #113829;
+        display: block;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 20px;
+
+        margin: 0 auto;
+    }
+
+    .intro .cafe-intro .cta-btn a {
+
+        color: #fff;
+    }
+
+    .intro .cafe-intro .cta-btn a:hover{
+        display: block;
+        background-color: #fff;
+        color: #113829;
+        border: 1px solid #113829;
+        border-radius: 20px;
+        
+        
+    }
+
+    .intro .content .content-box {
+        margin-bottom: 90px;
+    }
+
+    .intro .content .content-box .intro-title {
+        margin-bottom: 40px;
+        padding: 10px 20px;
+        /* outline: 2px solid blue; */
+    }
+
+    .intro .content .content-box .intro-title p:first-child {
+        font-size: 32px;
+        font-family: "IM Fell English SC", serif;
+    }
+
+    .intro .content .content-box .intro-title h3 {
+        font-family: "IM Fell English SC", serif;
+        font-size: 60px;
+        font-weight: 700;
+    }
+
+    .intro .content .content-box .intro-title p:last-child {
+        font-family: "Special Elite", system-ui;
+        font-size: 24px;
+    }
+
+    .intro .content .content-box .box>div {
+        width: 48%;
+        float: left;
+        margin-bottom: 40px;
+    }
+
+    .intro .content .content-box .box>div~div {
+        margin-left: 2%;
+    }
+
+    .intro .content .content-box .box .content-img {
+        border-radius: 30px;
+        overflow: hidden;
+        border: 10px solid #F6EBE3;
+        box-sizing: border-box;
+    }
+
+    .intro .content .content-box .box .content-img video {
+        width: 100%;
+        filter: brightness(0.6);
+
+    }
+
+    .intro .content .content-box .box .content-intro {
+        font-family: "Special Elite", system-ui;
+        color: #333;
+        text-align: center;
+
+    }
+
+    .intro .content .content-box .box .content-intro h2 {
+        font-family: "IM Fell English SC", serif;
+        font-size: 40px;
+        font-weight: 700;
+        margin: 50px 0;
+        text-transform: uppercase;
+    }
+
+    .intro .content .content-box .box .content-intro p {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .intro .content .content-box .box .content-intro p.english {
+        font-family: "IM Fell English SC", serif;
+    }
+
+    .intro .content .content-box .box .content-intro .bigtxt {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .intro .content .content-box .box .content-intro {}
+
+    .intro .content .content-box .box .content-intro .cta-btn {
+        font-family: "Outfit", sans-serif;
+        width: 200px;
+        height: 40px;
+        background-color: #113829;
+        display: block;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 20px;
+
+    }
+
+    .intro .content .content-box .box .content-intro .cta-btn a {
+        color: #fff;
+    }
+
+    .intro .content .content-box .box .content-intro .cta-btn a:hover{
+        display: block;
+        background-color: #fff;
+        color: #113829;
+        border: 1px solid #113829;
+        border-radius: 20px;
+        
+        
+    }
+
+    .intro .content .favorite-des {
+        font-family: "Special Elite", system-ui;
+        padding: 10px 20px;
+    }
+
+    .intro .content .favorite-des p:first-child {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .intro .content .favorite-des p:last-child {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+
+    .intro .content .favorite-box {}
+
+    .intro .content .favorite-box li {
+        width: 15%;
+        border-radius: 30px;
+        overflow: hidden;
+        border: 10px solid #F6EBE3;
+        box-sizing: border-box;
+        margin-bottom: 40px;
+
+        float: left;
+
+
+    }
+
+    .intro .content .favorite-box li~li {
+        margin-left: 2%;
+    }
+
+    .intro .content .favorite-box li img {
+        width: 100%;
+        display: block;
+    }
+
+    .intro .content {
+        margin-bottom: 90px;
+    }
+
+    .intro .content .intro-title {
+        margin-bottom: 40px;
+        padding: 10px 20px;
+        /* outline: 2px solid blue; */
+    }
+
+    .intro .content .intro-title p:first-child {
+        font-size: 32px;
+        font-family: "IM Fell English SC", serif;
+    }
+
+    .intro .content .intro-title h3 {
+        font-family: "IM Fell English SC", serif;
+        font-size: 60px;
+        font-weight: 700;
+    }
+
+    .intro .content .intro-title p:last-child {
+        font-family: "Special Elite", system-ui;
+        font-size: 24px;
+    }
+
+
+    .intro .content .content-menu {}
+    .intro .content .content-menu li {
+        width: 23.5%;
+        float: left;
+
+        border-radius: 30px;
+        overflow: hidden;
+        border: 10px solid #F6EBE3;
+        box-sizing: border-box;
+        margin-bottom: 80px;
+
+    }
+
+    .intro .content .content-menu li~li {
+        margin-left: 2%;
+    }
+    .intro .content .content-menu li a {}
+    .intro .content .content-menu li a img{
+        width: 100%;
+        display: block;
+
+    }
+
+    .intro .content .content-menu li div {
+        text-align: center;
+    }
+    .intro .content .content-menu li div h3 {
+        font-family: "Outfit", sans-serif;
+        font-size: 24px;
+        padding: 10px;
+    }
+    .intro .content .content-menu li div p {
+        padding: 10px;
+    }
+
+
+    .intro .content .cta-btn {
+        font-family: "Outfit", sans-serif;
+        width: 200px;
+        height: 40px;
+        background-color: #113829;
+        display: block;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 20px;
+
+        margin: 0 auto 90px;
+    }
+
+    .intro .content .cta-btn a {
+        color: #fff;
+    }
+
+    .intro .content .cta-btn a:hover{
+        display: block;
+        background-color: #fff;
+        color: #113829;
+        border: 1px solid #113829;
+        border-radius: 20px;
+        
+        
+    }
+
+    .intro .content .bottom-logo {
+        text-align: center;
+    }
+    .intro .content .bottom-logo p:first-child {
+        font-family: "Outfit", sans-serif;
+        font-size: 160px;
+        font-weight: bold;
+        letter-spacing: 20px;
+    }
+    .intro .content .bottom-logo p:last-child {
+        font-family: "Outfit", sans-serif;
+        font-size: 60px;
     }
 
     footer {
-        flex-direction: column;
-        align-items: center;
-        font-size: 0.75rem;
+        width: 100%;
+        background-color: #113829;
+        padding: 90px 20px;
+        box-sizing: border-box;
     }
-}
+
+    footer .info {
+        width: 100%;
+        max-width: 1720px;
+        margin: 0 auto;
+    }
+
+    footer .info .copy {
+        float: left;
+    }
+
+    footer .info .copy {
+        color: #fff;
+    }
+
+    footer .info .copy p:first-child {
+        font-family: "Outfit", sans-serif;
+        font-size: 40px;
+        font-weight: bold;
+    }
+    footer .info .copy p:last-child {
+        font-family: "Outfit", sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    footer .info .inner {
+        color: #fff;
+        float: right;
+    }
+
+    footer .info .inner .inner-box {
+        float: left;
+    }
+
+    footer .info .inner .inner-box h3 {
+        font-family: "Outfit", sans-serif;
+        font-size: 24px;
+        margin-bottom: 20px;
+
+    }
+    footer .info .inner .inner-box h3 ul li{}
+    footer .info .inner .inner-box ul li a{
+        color: #fff;
+    }
+
+    
