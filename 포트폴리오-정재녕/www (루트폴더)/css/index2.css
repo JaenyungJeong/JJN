@@ -140,12 +140,12 @@
     }
 
     main {
-        /* background-image: url(../img/main/main-img2.jpg); */
+        /* background-image: url(../img/main/main-img2.jpg);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
         width: 100%;
-        height: 100%;
+        height: 100%; */
         margin-bottom: 100px;
     }
 
@@ -292,7 +292,7 @@
         margin-bottom: 40px;
         border-radius: 30px;
         overflow: hidden;
-        border: 10px solid #F6EBE3;
+        border: 5px solid #F6EBE3;
         box-sizing: border-box;
     }
 
@@ -346,7 +346,7 @@
         float: left;
         border-radius: 30px;
         overflow: hidden;
-        border: 10px solid #F6EBE3;
+        border: 5px solid #F6EBE3;
         box-sizing: border-box;
 
     }
@@ -378,14 +378,14 @@
         color: #fff;
     }
 
-    .intro .cafe-intro .cta-btn a:hover{
+    .intro .cafe-intro .cta-btn a:hover {
         display: block;
         background-color: #fff;
         color: #113829;
         border: 1px solid #113829;
         border-radius: 20px;
-        
-        
+
+
     }
 
     .intro .content .content-box {
@@ -427,7 +427,7 @@
     .intro .content .content-box .box .content-img {
         border-radius: 30px;
         overflow: hidden;
-        border: 10px solid #F6EBE3;
+        border: 5px solid #F6EBE3;
         box-sizing: border-box;
     }
 
@@ -468,31 +468,31 @@
 
     .intro .content .content-box .box .content-intro {}
 
-    .intro .content .content-box .box .content-intro .cta-btn {
-        font-family: "Outfit", sans-serif;
-        width: 200px;
-        height: 40px;
-        background-color: #113829;
-        display: block;
-        text-align: center;
-        line-height: 40px;
-        border-radius: 20px;
+    .intro .content .content-box .box .cta-btn {
+    font-family: "Outfit", sans-serif;
+    width: 200px;
+    height: 40px;
+    background-color: #113829;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 20px;
 
-    }
+    outline: 1px solid blue;
+    /* margin: 0 auto 90px; */
+}
 
-    .intro .content .content-box .box .content-intro .cta-btn a {
+    .intro .content .content-box .box .cta-btn a {
         color: #fff;
     }
 
-    .intro .content .content-box .box .content-intro .cta-btn a:hover{
-        display: block;
-        background-color: #fff;
-        color: #113829;
-        border: 1px solid #113829;
-        border-radius: 20px;
-        
-        
-    }
+    .intro .content .content-box .box .cta-btn a:hover {
+    display: block;
+    background-color: #fff;
+    color: #113829;
+    border: 1px solid #113829;
+    border-radius: 20px;
+}
 
     .intro .content .favorite-des {
         font-family: "Special Elite", system-ui;
@@ -516,7 +516,7 @@
         width: 15%;
         border-radius: 30px;
         overflow: hidden;
-        border: 10px solid #F6EBE3;
+        border: 5px solid #F6EBE3;
         box-sizing: border-box;
         margin-bottom: 40px;
 
@@ -562,13 +562,14 @@
 
 
     .intro .content .content-menu {}
+
     .intro .content .content-menu li {
         width: 23.5%;
         float: left;
 
         border-radius: 30px;
         overflow: hidden;
-        border: 10px solid #F6EBE3;
+        border: 5px solid #F6EBE3;
         box-sizing: border-box;
         margin-bottom: 80px;
 
@@ -577,8 +578,10 @@
     .intro .content .content-menu li~li {
         margin-left: 2%;
     }
+
     .intro .content .content-menu li a {}
-    .intro .content .content-menu li a img{
+
+    .intro .content .content-menu li a img {
         width: 100%;
         display: block;
 
@@ -587,11 +590,13 @@
     .intro .content .content-menu li div {
         text-align: center;
     }
+
     .intro .content .content-menu li div h3 {
         font-family: "Outfit", sans-serif;
         font-size: 24px;
         padding: 10px;
     }
+
     .intro .content .content-menu li div p {
         padding: 10px;
     }
@@ -614,26 +619,168 @@
         color: #fff;
     }
 
-    .intro .content .cta-btn a:hover{
+    .intro .content .cta-btn a:hover {
         display: block;
         background-color: #fff;
         color: #113829;
         border: 1px solid #113829;
         border-radius: 20px;
-        
-        
+
+
     }
 
-    .intro .content .bottom-logo {
+    .differ {
+        width: 100%;
+        max-width: 1720px;
+        margin: 0 auto;
+    }
+
+    .differ .differ-box h3 {
+        font-size: 32px;
+        font-weight: bold;
+        text-align: left;
+        margin-left: 20px;
+        padding: 30px 0 60px;
+    }
+
+
+
+    .differ>div>div {
+        background-color: #F6EBE3;
+        width: 23.5%;
+        height: 430px;
+        float: left;
+        text-align: center;
+        border: 1px solid #daa520;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* 수직 중앙 정렬 */
+        align-items: center;
+        /* 수평 중앙 정렬 */
+        padding: 20px;
+        line-height: 1.6;
+
+        margin-bottom: 90px;
+    }
+
+    .differ>div>div~div {
+        margin-left: 2%;
+    }
+
+    .differ .differ-box .differ-des p:first-child {
+        font-family: "Outfit", sans-serif;
+        font-size: 28px;
+        font-weight: bold;
+        margin: 30px 0;
+
+    }
+
+    .differ .differ-box .differ-des p:last-child {
+        font-family: "Special Elite", system-ui;
+        font-size: 24px;
+    }
+
+    .differ .cta-btn {
+        font-family: "Outfit", sans-serif;
+        width: 200px;
+        height: 40px;
+        background-color: #113829;
+        display: block;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 20px;
+
+        margin: 0 auto 90px;
+    }
+
+    .differ .cta-btn a {
+        color: #fff;
+    }
+
+    .differ .cta-btn a:hover{
+        display: block;
+        background-color: #fff;
+        color: #113829;
+        border: 1px solid #113829;
+        border-radius: 20px;
+    }
+
+    .insta {
+        width: 100%;
+        max-width: 1720px;
+        margin: 0 auto 90px;
+    }
+
+    .insta .insta-box {}
+    .insta .insta-box p {
+        font-size: 24px;
         text-align: center;
     }
-    .intro .content .bottom-logo p:first-child {
+    .insta .insta-box p a{
+        color: #777;
+    }
+    .insta .insta-box h3 {
+        font-size: 32px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 60px;
+    }
+    .insta .insta-box .insta-imgbox{}
+    .insta .insta-box .insta-imgbox .img {
+        width: 23.5%;
+        float: left;
+        margin-bottom: 10px;
+
+        position: relative;
+    }
+
+    .insta .insta-box .insta-imgbox .img .img-des {
+        text-align: center;
+        position: absolute;
+        right: 10%;
+        bottom: 10%;
+        color: #fff;
+    }
+
+    .insta .insta-box .insta-imgbox .img .img-des h4 {
+        font-family: "Outfit",sans-serif;
+        font-size: 24px;
+    }
+    .insta .insta-box .insta-imgbox .img .img-des p {
+        font-family: "Outfit",sans-serif;
+        font-size: 16px;
+    }
+
+    .insta .insta-box .insta-imgbox .img~.img {
+        margin-left: 2%;
+    }
+
+    .insta .insta-box .insta-imgbox .img:nth-child(4n+1){
+        margin-left: 0;
+    }
+    .insta .insta-box .insta-imgbox .img img{
+        width: 100%;
+        display: block;
+    }
+
+
+
+    .bottom-logo {
+        text-align: center;
+        margin-bottom: 90px;
+    }
+
+    .bottom-logo p:first-child {
         font-family: "Outfit", sans-serif;
         font-size: 160px;
         font-weight: bold;
         letter-spacing: 20px;
     }
-    .intro .content .bottom-logo p:last-child {
+
+    .bottom-logo p:last-child {
         font-family: "Outfit", sans-serif;
         font-size: 60px;
     }
@@ -664,6 +811,7 @@
         font-size: 40px;
         font-weight: bold;
     }
+
     footer .info .copy p:last-child {
         font-family: "Outfit", sans-serif;
         font-size: 24px;
@@ -685,9 +833,9 @@
         margin-bottom: 20px;
 
     }
-    footer .info .inner .inner-box h3 ul li{}
-    footer .info .inner .inner-box ul li a{
+
+    footer .info .inner .inner-box h3 ul li {}
+
+    footer .info .inner .inner-box ul li a {
         color: #fff;
     }
-
-    

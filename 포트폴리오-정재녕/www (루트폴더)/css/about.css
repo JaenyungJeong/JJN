@@ -1,0 +1,178 @@
+@charset 'utf-8';
+
+/* body {
+    overflow-x: hidden;
+} */
+
+.main {
+    margin-bottom: 100px;
+}
+
+.main .main-content {
+    width: 100%;
+    height: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    position: relative;
+    text-align: left;
+
+}
+
+/* .main .main-content .main-img {
+    width: 100%;
+    display: block;
+
+} */
+
+.main .main-content .main-logo_title {
+    color: #fff;
+
+    position: absolute;
+    left: 40%;
+    top: 35%;
+
+    transform: translateX(-40%);
+    transform: translateY(-35%);
+
+    text-align: center;
+
+}
+.main .main-content .main-logo_title h2 {
+    font-family: "Outfit",sans-serif;
+    font-size: 120px;
+    font-weight: bold;
+    margin-bottom: 40px;
+
+}
+.main .main-content .main-logo_title p {
+    font-family: "Outfit",sans-serif;
+    font-size: 24px;
+    margin-bottom: 40px;
+
+}
+.main .main-content .main-logo_title p.bigfont {
+    font-family: "Special Elite",system-ui;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.main .main-content .main-logo_title p.smallfont {
+    font-family: "Outfit",sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+
+}
+
+.about {
+    font-family: "Asta Sans", sans-serif;
+    text-align: center;
+    margin-bottom: 100px;
+}
+.about .about-des {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    
+}
+.about .about-des h3 {
+    font-family: "Outfit",sans-serif;
+    font-size: 45px;
+    font-weight: bold;
+
+    margin-bottom: 40px;
+}
+.about .about-des .bigfont {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+.about .about-des p:last-child {
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: left;
+    word-break: keep-all;
+}
+
+.history {
+    margin-bottom: 100px;
+}
+.history .history-content {
+    width: 100%;
+    max-width: 1920px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    margin: 0 auto 100px;
+
+}
+.history .history-content .history-img {}
+.history .history-content .history-img img{
+    display: block;
+}
+.history .history-content .history-des {
+    position: absolute;
+    left: 35%;
+    top: 50%;
+
+    transform: translateX(-35%);
+    transform: translateY(-50%);
+}
+
+.history .history-content .history-des h3 {
+    font-family: "Outfit",sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+.history .history-content .history-des p {
+    font-family: "Asta Sans", sans-serif;
+    font-size: 30px;
+
+}
+
+.history .history-intro {}
+.history .history-intro .intro-box {
+
+    max-width: 1720px;
+    border: 5px solid #F6EBE3;
+    box-sizing: border-box;
+    text-align: center;
+
+    margin: 0 auto 40px;
+}
+
+.history .history-intro .intro-box > div {
+    float: left;
+}
+
+.history .history-intro .intro-box .des {
+    width: 600px;
+
+}
+.history .history-intro .intro-box .des > div{
+
+    width: 200px;
+    height: 40px;
+    background-color: #D9D0C9;
+    color: #fff;
+    border: 1px solid #F6EBE3;
+    box-sizing: border-box;
+    border-radius: 20px;
+    line-height: 40px;
+    text-align: center;
+    display: block;
+
+    margin: 0 auto;
+
+    
+
+}
+.history .history-intro .intro-box .des > div p{}
+.history .history-intro .intro-box .des h4 {}
+.history .history-intro .intro-box .des p {}
+
+.history .history-intro .intro-box .intro-img {}
+.history .history-intro .intro-box .intro-img img {
+    width: 100%;
+    display: block;
+}
+
