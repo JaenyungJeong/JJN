@@ -775,39 +775,47 @@
 
     @keyframes slideLeft {
         0% {
-          transform: translateX(0);
+            transform: translateX(0);
         }
-        100% {
-          transform: translateX(-100%);
-        }
-      }
 
-    .bottom-logo_slide-wrap {
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .wrap {
         width: 100%;
         overflow: hidden;
         background-color: #F6EBE3;
-        margin-bottom: 100px;
         padding: 20px 0;
+    }
 
+    .bottom-logo_slide-wrap {
+        display: flex;
+        width: max-content;
+        animation: slideLeft 30s linear infinite;
     }
 
     .bottom-logo {
+        font-family: "Outfit", sans-serif;
+        font-size: 60px;
         text-align: center;
-        display: inline-flex;
+        letter-spacing: 10px;
         white-space: nowrap;
-        animation: slideLeft 10s linear infinite;
+        padding-right: 100px;
+
     }
 
     .bottom-logo p:first-child {
         font-family: "Outfit", sans-serif;
-        font-size: 160px;
+        font-size: 120px;
         font-weight: bold;
         letter-spacing: 20px;
     }
 
     .bottom-logo p:last-child {
         font-family: "Outfit", sans-serif;
-        font-size: 60px;
+        font-size: 30px;
     }
 
     footer {
