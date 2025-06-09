@@ -469,30 +469,30 @@
     .intro .content .content-box .box .content-intro {}
 
     .intro .content .content-box .box .cta-btn {
-    font-family: "Outfit", sans-serif;
-    width: 200px;
-    height: 40px;
-    background-color: #113829;
-    display: block;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 20px;
+        font-family: "Outfit", sans-serif;
+        width: 200px;
+        height: 40px;
+        background-color: #113829;
+        display: block;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 20px;
 
-    outline: 1px solid blue;
-    /* margin: 0 auto 90px; */
-}
+        outline: 1px solid blue;
+        /* margin: 0 auto 90px; */
+    }
 
     .intro .content .content-box .box .cta-btn a {
         color: #fff;
     }
 
     .intro .content .content-box .box .cta-btn a:hover {
-    display: block;
-    background-color: #fff;
-    color: #113829;
-    border: 1px solid #113829;
-    border-radius: 20px;
-}
+        display: block;
+        background-color: #fff;
+        color: #113829;
+        border: 1px solid #113829;
+        border-radius: 20px;
+    }
 
     .intro .content .favorite-des {
         font-family: "Special Elite", system-ui;
@@ -700,7 +700,7 @@
         color: #fff;
     }
 
-    .differ .cta-btn a:hover{
+    .differ .cta-btn a:hover {
         display: block;
         background-color: #fff;
         color: #113829;
@@ -715,20 +715,25 @@
     }
 
     .insta .insta-box {}
+
     .insta .insta-box p {
         font-size: 24px;
         text-align: center;
     }
-    .insta .insta-box p a{
+
+    .insta .insta-box p a {
         color: #777;
     }
+
     .insta .insta-box h3 {
         font-size: 32px;
         font-weight: bold;
         text-align: center;
         margin-bottom: 60px;
     }
-    .insta .insta-box .insta-imgbox{}
+
+    .insta .insta-box .insta-imgbox {}
+
     .insta .insta-box .insta-imgbox .img {
         width: 23.5%;
         float: left;
@@ -746,11 +751,12 @@
     }
 
     .insta .insta-box .insta-imgbox .img .img-des h4 {
-        font-family: "Outfit",sans-serif;
+        font-family: "Outfit", sans-serif;
         font-size: 24px;
     }
+
     .insta .insta-box .insta-imgbox .img .img-des p {
-        font-family: "Outfit",sans-serif;
+        font-family: "Outfit", sans-serif;
         font-size: 16px;
     }
 
@@ -758,19 +764,38 @@
         margin-left: 2%;
     }
 
-    .insta .insta-box .insta-imgbox .img:nth-child(4n+1){
+    .insta .insta-box .insta-imgbox .img:nth-child(4n+1) {
         margin-left: 0;
     }
-    .insta .insta-box .insta-imgbox .img img{
+
+    .insta .insta-box .insta-imgbox .img img {
         width: 100%;
         display: block;
     }
 
+    @keyframes slideLeft {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
 
+    .bottom-logo_slide-wrap {
+        width: 100%;
+        overflow: hidden;
+        background-color: #F6EBE3;
+        margin-bottom: 100px;
+        padding: 20px 0;
+
+    }
 
     .bottom-logo {
         text-align: center;
-        margin-bottom: 90px;
+        display: inline-flex;
+        white-space: nowrap;
+        animation: slideLeft 10s linear infinite;
     }
 
     .bottom-logo p:first-child {
