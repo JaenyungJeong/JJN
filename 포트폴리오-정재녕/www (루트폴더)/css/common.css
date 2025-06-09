@@ -34,19 +34,21 @@ box-sizing: border-box; */
     line-height: 40px;
     border-radius: 20px;
 
-    margin: 0 auto 90px;
 }
 
 .cta-btn a {
     color: #fff;
 }
-
-.cta-btn a:hover {
-    display: block;
+.cta-btn:hover {
     background-color: #fff;
-    color: #113829;
+
     border: 1px solid #113829;
+    box-sizing: border-box;
     border-radius: 20px;
+}
+
+.cta-btn:hover a {
+    color: #113829;
 }
 
 
