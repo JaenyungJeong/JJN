@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*실제 슬라이드가 보여지는 부분*/
+.slider_box {
+    width: 960px;
+    height: 400px;
+    margin: 50px auto;
+    border: 3px inset darkseagreen;
+    overflow: hidden;
+}
+
+/*슬라이드 전체를 담아주는 부모요소*/
+.slider_box .slider {
+    width: 100%;
+    height: 300%;
+    position: relative;
+}
+
+/* 각 슬라이드 */
+.slider_box .slider .slide {
+    width: 100%;
+    height: 33.33%;
+}
+.slider_box .slider .slide img {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

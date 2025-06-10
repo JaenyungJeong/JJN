@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>fadeSlide</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            line-height: 100px;
+            text-align: center;
+        }
+
+        /* .viewer - 실제 슬라이드가 보여지는 공간!!! + 전체 슬라이드를 담는 부모! */
+        .viewer {
+            width: 960px;
+            height: 400px;
+            margin: 60px auto;
+            overflow: hidden;
+
+            position: relative;
+            /* outline: 2px solid red; */
+        }
+
+        /* 각 슬라이드! */
+        .viewer .slide {
+            width: 100%;
+            position: absolute;
+        }
+        .viewer .slide img {
+            width: 100%;
+            display: block;
+        }
+
+        .viewer .active {
+            z-index: 1;
+        }
+
+    </style>
+
+    <script src="script/jquery-1.12.3.js"></script>
+    <script src="script/fadeSlide.js"></script>
+</head>
+<body>
+
+    <h1>fadeSlide 구현</h1>
+
+    <div class="viewer">
+        <div class="slide active"><img src="image/slide1.jpg" alt=""></div>
+        <div class="slide"><img src="image/slide2.jpg" alt=""></div>
+        <div class="slide"><img src="image/slide3.jpg" alt=""></div>
+    </div>
+
+    <!-- 
+    fade효과를 적용한 slide 구현은 
+    실제 슬라이드가 보여지는 영역이 슬라이드 전체를 담는 역할을 대신할 수 있다!
+    -->
+    
+</body>
+</html>

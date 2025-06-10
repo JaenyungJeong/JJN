@@ -1,0 +1,167 @@
+@charset 'utf-8';
+
+
+.clear::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+.training {
+    width: 1024px;
+    margin: 0 auto;
+    color: #777;
+}
+.training .title {
+    width: 100%;
+}
+
+.training .title h2 {
+    color: #00a0c6;
+    outline: 1px solid blueviolet;
+}
+.training .title p {
+    font-size: 12px;
+}
+.training .curriculum {
+    font-size: 14px;
+    
+}
+.training .curriculum .course {}
+.training .curriculum .course ul {
+    float: left;
+}
+
+.training .curriculum .course ul li {
+    margin-bottom: 8px;
+
+}
+.training .search .input-box {
+    background-color: #eee;
+    width: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+    outline: 2px solid darkcyan;
+}
+
+.training .search .input-box ul {
+    
+}
+
+.training .search .input-box ul li { 
+    display: inline-block;
+    /* outline: 2px solid tomato; */
+}
+
+.training .search .input-box ul li input {
+    /* border: 0; */
+    /* outline: 2px solid tomato; */
+}
+.training .search .input-box ul li .box1 {
+    display: block;
+    width: 80px;
+    height: 40px;
+    border: 3px solid #3ea133;
+}
+
+.training .search .input-box ul li .box2 {
+    display: block;
+    width: 300px;
+    height: 40px;
+    border: 3px solid #3ea133;
+}
+
+.training .search .input-box ul .btn-box {
+    position: relative;
+}
+
+.training .search .input-box ul .btn-box .btn {
+    position: absolute;
+    right: 15px;
+    top: 11px;
+}
+
+.training .search .input-box ul .refresh-btn {}
+.training .search .input-box ul .refresh-btn a {
+    width: 30px;
+    height: 30px;
+    display: block;   
+}
+
+.training .search{
+    width: 1024px;
+}
+
+.training .search .input-box ul .refresh-btn a img {
+    width: 100%;
+    display: block;
+}
+
+.training .search .keyword {
+    /* outline: 2px solid #00a0c6; */
+}
+
+.training .search .keyword .keyword-box p {
+    line-height: 2;
+}
+.training .search .keyword .keyword-box ul li{
+    float: left;
+}
+.training .search .keyword .keyword-box ul li{
+    font-size: 12px;
+    line-height: 2;
+    margin: 10px;
+}
+
+.training .search .keyword .keyword-box .keyword-title li {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.7;
+}
+
+
+.training .search .keyword .keyword-box ul li.bold {
+    
+}
+
+@media all and (max-width:767px){
+    .training {
+
+    }
+
+    .training .title {
+        word-break: keep-all;
+    }
+
+    .training .curriculum .course ul {
+        float: none;
+        margin: 0;
+        /* outline: 2px solid blue; */
+    }
+
+    .training .search .input-box {
+        padding:10px 20px;
+        box-sizing: border-box;
+    }
+
+    .training .search .input-box ul li { 
+        display: block;
+        ;
+        /* outline: 2px solid tomato; */
+    }
+    
+    .training .search .input-box ul li .box1 {
+        width: 100%;
+    }
+
+    .training .search .keyword {
+        margin-left: none;
+        /* outline: 2px solid #00a0c6; */
+    }
+    
+
+}
+
+
+

@@ -22,7 +22,7 @@
     color: #fff;
 
     position: absolute;
-    left: 35%;
+    left: 32%;
     top: 35%;
 
     transform: translateX(-35%);
@@ -99,13 +99,13 @@
 
 .menu .menu-title-box .blending-des p {
     font-family: "Asta Sans", sans-serif;
-    font-size: 30px;
+    font-size: 24px;
 
 }
 
 
 .card-box {
-    width: 960px;
+    max-width: 960px;
     margin: 0 auto;
     /* 가운데 정렬 */
     padding: 20px 0;
@@ -119,7 +119,7 @@
     background: #fff;
     padding: 20px 10px;
     border-radius: 12px;
-    border: 3px solid #F6EBE3;
+    border: 5px solid #F6EBE3;
     box-sizing: border-box;
     box-sizing: border-box;
     text-align: center;
@@ -172,7 +172,6 @@
 
 .card .image {
     width: 300px;
-    height: auto;
     padding: 0;
     margin: 0;
     background: none;
@@ -181,46 +180,237 @@
 
 .image img {
     width: 100%;
-    height: auto;
     display: block;
 
 }
 
+hr.section-line {
+    border: none;
+    background-color: #eee;
+    width: 1720px;
+    padding: 2px 0;
+    margin: 0 auto 100px;
+    
+}
+
+.latte {
+    margin-bottom: 100px;
+}
+
+.latte .latte-title_des {
+    max-width: 1920px;
+    color: #333;
+    text-align: center;
+    margin: 0 auto 100px;
+    /* outline: 2px solid blue; */
+}
+
+.latte .latte-title_des h3 {
+    font-family: "Outfit", sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.latte .latte-title_des p {
+    font-family: "Asta Sans", sans-serif;
+    font-size: 24px;
+}
+
+.latte .latte-wrap {
+    
+    max-width: 1720px;
+    text-align: left;
+    margin: 0 auto;
+    /* outline: 2px solid blue; */
+}
+
+.latte .latte-wrap .latte-intro {
+    margin: 0 0 20px 20px;
+}
+
+.latte .latte-wrap .latte-intro p:first-child {
+    font-family: "Outfit",sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.latte .latte-wrap .latte-intro p:last-child {
+    font-family: "Outfit",sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
 
 
+.latte .latte-wrap .latte-box {
+    background-color: #F6EBE3;
+    border-radius: 24px;
+    /* border: 2px dotted #0094ff; */
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
 
-.title {
-    font-size: 18px;
+.latte .latte-wrap .latte-box>div {}
+
+.latte .latte-wrap .latte-box>div~div {
+    margin-left: 2%;
+}
+
+.latte .latte-wrap .latte-box .latte-img {
+    width: 40%;
+    border: 10px solid #F6EBE3;
+    border-radius: 50px;
+    overflow: hidden;
+    float: left;
+}
+
+.latte .latte-wrap .latte-box .latte-img img {
+    width: 100%;
+    display: block;
+}
+
+.latte .latte-wrap .latte-box .latte-des {
+    float: left;
+    width: calc(100% - 43%);
+    /* 이미지 너비 + 여백 */
+    margin-left: 20px;
+    box-sizing: border-box;
+    /* outline: 2px solid blue; */
+}
+
+.latte .latte-wrap .latte-box .latte-des h4 {
+    font-family: "Outfit", sans-serif;
+    /* outline: 2px solid blue; */
+    font-size: 32px;
     font-weight: bold;
     margin-bottom: 5px;
-    position: relative;
+
 }
 
-.title::after {
-    content: "";
-    display: block;
-    width: 20px;
-    height: 2px;
-    background-color: pink;
-    margin: 8px auto 10px;
-}
-
-.subtext {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.latte .latte-wrap .latte-box .latte-des p {
+    font-family: "Asta Sans", sans-serif;
+    font-size: 24px;
     line-height: 1.5;
+    margin-bottom: 20px;
 }
 
-.divider {
-    border: none;
-    border-top: 2px dashed #555;
-    margin: 12px 0;
+.latte .latte-wrap .latte-box .latte-des .strong {
+    font-family: "IM Fell English SC",serif;
+    color: #113928;
 }
 
-.origin,
-.note {
-    font-size: 14px;
+.cta-btn {
+    font-family: "Outfit", sans-serif;
+    width: 200px;
+    height: 40px;
+    background-color: #113829;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 20px;
+
+}
+
+.cta-btn a {
+    color: #fff ;
+}
+
+.cta-btn:hover {
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.cta-btn:hover a {
+    color: #113829;
+}
+
+
+.handmade {
+    margin-bottom: 100px;
+}
+
+.handmade .handmade-title_des {
+    max-width: 1920px;
+    color: #333;
+    text-align: center;
+    margin: 0 auto 100px;
+    /* outline: 2px solid blue; */
+}
+
+.handmade .handmade-title_des h3 {
+    font-family: "Outfit", sans-serif;
+    font-size: 60px;
     font-weight: bold;
-    line-height: 1.6;
+    margin-bottom: 40px;
 }
+
+.handmade .handmade-title_des p {
+    font-family: "Asta Sans", sans-serif;
+    font-size: 24px;
+}
+
+
+.handmade .handmade-wrap {
+    
+    max-width: 1720px;
+    text-align: left;
+    margin: 0 auto;
+    /* outline: 2px solid blue; */
+}
+
+.handmade .handmade-wrap .handmade-intro {
+    margin: 0 0 20px 20px;
+}
+
+.handmade .handmade-wrap .handmade-intro p:first-child {
+    font-family: "Outfit",sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.handmade .handmade-wrap .handmade-intro p:last-child {
+    font-family: "Outfit",sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.handmade-wrap .handmade-box_wrap {
+    width: 112.5%;
+    outline: 2px solid tomato;
+
+}
+
+.handmade-wrap .handmade-box {
+    outline: 2px solid blue;
+    width: 10.75%;
+    float: left;
+    letter-spacing: -1px;
+}
+
+.handmade-wrap .handmade-box~.handmade-box {
+    margin-left: 2%;
+}
+
+.handmade-wrap .handmade-box .handmade-img {}
+.handmade-wrap .handmade-box .handmade-img img {
+    width: 100%;
+    display: block;
+}
+.handmade-wrap .handmade-box .handmade-des {
+    text-align: center;
+    padding: 10px 0;
+}
+.handmade-wrap .handmade-box .handmade-des h4 {
+    font-size: 24px;
+}
+.handmade-wrap .handmade-box .handmade-des p {
+    font-size: 12px;
+}
+
+
+
