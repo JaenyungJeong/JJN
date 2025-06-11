@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* float 해제를 위한  */
+
+        .clear::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        header {
+            width: 100%;
+            border-top: 5px solid #0abab5;
+            background-color: #fff;
+
+            position: relative; /* .smenu 의 기준! header 가 가지고 있는 너비만큼 쓰겠다 (관계적 요소)*/
+        }
+
+        header h1 {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header nav {
+            width: 80%;
+            margin: 0 auto;
+
+            /* outline: 2px solid blue; */
+        }
+
+        nav ul.gnb {
+            background-color: rgb(147,233,228);
+        }
+
+        nav ul.gnb li {
+            width: 16.66%;
+            float: left;
+
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+
+            padding: 20px 0;
+
+            /* outline: 2px solid red; */
+        }
+
+        nav ul.gnb li a {
+            display: block;   /* 호버됐을때 내용만큼이 아닌 배경색 전체가 호버되게 구현 */
+           
+        }
+        nav ul.gnb li a:hover {
+            background-color: #0abab5;
+            color: #fff;
+
+        }
+
+        /* 대메뉴 hover */
+        /* nav ul.gnb li:hover {
+            background-color: rgb(147,233,228);
+        }
+
+        nav ul.gnb li:hover a {
+            color: #fff;
+        } */
+
+        
+        nav .smenu {
+        
+            background-color: #eee;
+
+            position: absolute;
+            left: 0;
+
+            width: 100%; /* 너비 100%를 가지기 위해 header의 너비를 갖고 옴 */
+            padding: 15px 10%; /* nav 가 너비 80% */
+            box-sizing: border-box;
+
+            display: none; /* 마지막에 none 처리 */
+            
+        }
+
+        nav .smenu ul {
+            /* outline: 2px solid blue; */
+            width: 16.66%;
+            float: left;
+        }
+        nav .smenu ul li{
+            text-align: center;
+        }
+        nav .smenu ul li a{
+            line-height: 1.4;
+        }
+        nav .smenu ul li a:hover{
+            text-decoration: underline;
+        }
+    </style>
+
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+
+        $(function(){
+            //mouseenter, mouseleave
+            $('.gnb li').mouseenter(function(){
+                $('.smenu').slideDown();
+            });
+
+            /* $('.gnb li').mouseleave(function(){
+                $('.smenu').slideUp();
+            }); */
+
+            $('nav').mouseleave(function(){
+                $('.smenu').stop().slideUp();
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <h1>jQuery 드롭다운 메뉴</h1>
+
+        <!-- 대메뉴와 서브메뉴 별도 구성! -->
+
+        <nav>
+            <!-- 대메뉴 -->
+
+            <ul class="gnb clear">
+                <li><a href="#">Main-menu1</a></li>
+                <li><a href="#">Main-menu2</a></li>
+                <li><a href="#">Main-menu3</a></li>
+                <li><a href="#">Main-menu4</a></li>
+                <li><a href="#">Main-menu5</a></li>
+                <li><a href="#">Main-menu6</a></li>
+            </ul>
+
+            <!-- 서브메뉴 -->
+
+            <div class="smenu clear">
+                <ul>
+                    <li><a href="#">Sub-menu1</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="#">Sub-menu2</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="#">Sub-menu3</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="#">Sub-menu4</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="#">Sub-menu5</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="#">Sub-menu6</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                    <li><a href="#">Sub-menu</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+</body>
+
+</html>

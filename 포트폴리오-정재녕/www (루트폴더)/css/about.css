@@ -162,12 +162,15 @@
 
 }
 
-.history .history-intro {}
+.history .history-intro {
+
+}
 
 .history .history-intro .intro-box {
     width: 100%;
     max-width: 1720px;
     overflow: hidden;
+    
 
     text-align: center;
 
@@ -180,8 +183,10 @@
 
 .history .history-intro .intro-box .des {
     width: 100%;
+    background-color: #F6EBE3;
     padding: 40px 0;
-    border: 5px solid #F6EBE3;
+    border: 5px solid #f8f0ea;
+    border-radius: 24px;
     box-sizing: border-box;
     margin-bottom: 40px;
 
@@ -212,13 +217,13 @@
 
 .history .history-intro .intro-box .des h4 {
     font-family: "Asta Sans", sans-serif;
-    font-size: 24px;
+    font-size: 60px;
     margin-bottom: 20px;
 }
 
 .history .history-intro .intro-box .des .des-box {
     font-family: "Asta Sans", sans-serif;
-    font-size: 16px;
+    font-size: 22px;
 }
 
 .history .history-intro .intro-box .intro-img {}
@@ -234,6 +239,8 @@
     display: flex;
     width: max-content;
     animation: slideLeft 20s linear infinite;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .history .history-intro .intro-box .history-img-box2 {
