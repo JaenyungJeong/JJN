@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordian</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol, li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            display: block;
+        }
+
+        nav {
+            width: 200px;
+            margin: 30px auto;
+        }
+        nav ul#gnb {
+            width: 100%;
+            text-indent: 10px;
+        }
+
+        nav ul#gnb > li {
+            outline: 2px solid blue;
+            margin-bottom: 6px;
+        } 
+
+        nav ul#gnb > li > a {
+            width: 100%;
+            line-height: 50px;
+            background-color: #9ab92e;
+            color: #333;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        ul.sub {}
+        ul.sub li {
+            line-height: 40px;
+            margin-bottom: 3px;
+            background-color: #fdf6dd;
+
+        }
+        ul.sub li a {
+            color: #333;
+            font-size: 18px;
+        }
+
+        ul.sub li a:hover {
+            background-color: #ccff00;
+        }
+
+        
+
+
+    </style>
+
+    <script src="jquery-1.12.4.min.js"></script>
+    <script>
+
+        $(function(){
+            //초기설정 - 첫번째 타이틀의 서브메뉴만 보이게 하기 
+            $('.sub').hide().first().show(); //퍼스트는 모든 그룹 통틀어서 첫번째, firstChild는 그룹별로 첫번째
+
+            
+            
+            //3. 
+
+            $('a.title').on('click', function(e){
+                e.preventDefault();
+
+                //1. 대메뉴를 클릭하면 하위메뉴(.sub) slide 효과로 보이기
+                //2. 클릭된 요소의 서브메뉴 외에 다른 서브메뉴는 숨기기
+                $(this).next().slideToggle().parent().siblings().find('.sub').slideUp(); //부모로 올라가서 자신 제외한 자식의 sub 선택
+                //toggle, slideToggle, fadeToggle
+
+                // $(this).next().slideToggle().parent().siblings().find('.sub').hide();
+            });
+
+        });
+    </script>
+</head>
+<body>
+    
+    <nav>
+        <ul id="gnb">
+            <li>
+                <a href="#" class="title">Title1</a>
+
+                <ul class="sub">
+                    <li><a href="#">Sub1</a></li>
+                    <li><a href="#">Sub2</a></li>
+                    <li><a href="#">Sub3</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#" class="title">Title2</a>
+
+                <ul class="sub">
+                    <li><a href="#">Sub1</a></li>
+                    <li><a href="#">Sub2</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#" class="title">Title3</a>
+
+                <ul class="sub">
+                    <li><a href="#">Sub1</a></li>
+                    <li><a href="#">Sub2</a></li>
+                    <li><a href="#">Sub3</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#" class="title">Title4</a>
+
+                <ul class="sub">
+                    <li><a href="#">Sub1</a></li>
+                    <li><a href="#">Sub2</a></li>
+                    <li><a href="#">Sub3</a></li>
+                    <li><a href="#">Sub4</a></li>
+                    <li><a href="#">Sub5</a></li>
+                    <li><a href="#">Sub6</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#" class="title">Title5</a>
+
+                <ul class="sub">
+                    <li><a href="#">Sub1</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

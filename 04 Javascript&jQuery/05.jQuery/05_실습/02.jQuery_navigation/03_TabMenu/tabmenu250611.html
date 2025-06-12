@@ -7,12 +7,14 @@
     <title>tabmenu</title>
 
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
 
-        ul, ol, li {
+        ul,
+        ol,
+        li {
             list-style: none;
         }
 
@@ -26,7 +28,7 @@
             width: 800px;
             margin: 50px auto;
 
-            
+
             /* outline: 2px solid red; */
         }
 
@@ -34,7 +36,9 @@
             margin-bottom: 30px;
             text-align: center;
         }
+
         .tabmenu ul {}
+
         .tabmenu ul li {
             font-size: 18px;
             text-transform: uppercase;
@@ -43,18 +47,22 @@
 
             border: 2px solid #ccc;
             border-radius: 50px;
-            
+
         }
+
         .tabmenu ul li a {
             color: #ccc;
-            padding: 8px 18px; /* 패딩을 a로 설정하면 마우스온할시 버튼 빈공간에도 손가락 버튼으로 변경 */
+            padding: 8px 18px;
+            /* 패딩을 a로 설정하면 마우스온할시 버튼 빈공간에도 손가락 버튼으로 변경 */
         }
 
         /* 선택된 탭메뉴 디자인! */
         .tabmenu ul li.on {
             background-color: tomato;
-            border-color: tomato; /* 보더색깔 변경  */
+            border-color: tomato;
+            /* 보더색깔 변경  */
         }
+
         .tabmenu ul li.on a {}
 
         .content-box {
@@ -62,9 +70,14 @@
             padding: 30px;
         }
 
-        .content-box > div {
+        .content-box>div {
             width: 100%;
-            display: none; /* 탭메뉴구현을 위한 초기 설정! none */
+            display: none;
+            /* 탭메뉴구현을 위한 초기 설정! none */
+        }
+
+        .content-box>div.on {
+            display: block;
         }
 
         .content-box h2 {
@@ -76,18 +89,17 @@
         .content-box p {
             font-size: 20px;
         }
-        .content-box  {
+
+        .content-box {
             width: 100%;
             display: block;
         }
-
-
     </style>
 
     <script src="jquery-1.12.4.min.js"></script>
     <script>
 
-        $(function(){
+        /* $(function(){
             //탭메뉴 구현을 위한 초기설정
             $('#box1').show();
 
@@ -95,7 +107,7 @@
 
             $('.tabmenu a').on('click', function(e){
 
-                e.preventDefault(); /* a 버튼 누르면 위로 올라가는 기능(이동하는 기본기능 막기) */
+                e.preventDefault(); // a 버튼 누르면 위로 올라가는 기능(이동하는 기본기능 막기) //
 
                 var aHref = $(this).attr('href');
                 console.log(aHref);
@@ -104,13 +116,48 @@
                 $(this).parent().addClass('on').siblings().removeClass('on');
 
                 // 내용변경
-                $(aHref).show().siblings().hide();
-                console.log(aHref);
+                // $(aHref).show().siblings().hide();
 
+                $('.content-box > div').hide(); 
+                $(aHref).fadeIn(600); // 부드럽게 전환하기 숨겨졌다가 나오는 구현 //
 
             });
 
+        }); */
+
+        $(document).ready(function () {
+            // 인덱스 번호 활용
+
+            $('.tabmenu a').on('click', function (evt) {
+
+                evt.preventDefault();
+
+                //1. 클릭된 a태그의 부모 li의 인덱스 구하기!, on 클래스 적용하기!
+                var idx = $(this).parent().index();
+                console.log(idx);
+
+                //2. 탭메뉴와 내용에 적용! >> on 클래스 사용하기
+
+                //함수호출! 매개변수에 들어갈 idx 삽입
+                tabtab(idx);
+
+                /* $('.tabmenu li').eq(idx).addClass('on').siblings().removeClass('on');
+                $('.content-box > div').eq(idx).addClass('on').siblings().removeClass('on'); */
+
+                
+            });
         });
+
+        //탭메뉴 함수 만들기!
+        function tabtab(num) { //변수를 삽입할 매개변수 설정
+            $('.tabmenu li').eq(num).addClass('on').siblings().removeClass('on');
+            //$('.content-box > div').eq(num).addClass('on').siblings().removeClass('on');
+
+            $('.content-box > div').hide().eq(num).fadeIn(600);
+
+
+        }
+
     </script>
 </head>
 
@@ -131,18 +178,23 @@
         <!-- 내용이 보여질 덩어리! -->
         <div class="content-box">
 
-            <div id="box1" class="con1">
+            <div id="box1" class="con1 on">
                 <h2>메뉴1 내용</h2>
                 <p>재미있는 탭메뉴 구현하기!</p>
             </div>
 
             <div id="box2" class="con2">
                 <h2>메뉴2 내용</h2>
-                
-                <div >
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                        </p>
-                    <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+                <div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book.
+                    </p>
+                    <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                        essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                        containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+                        PageMaker including versions of Lorem Ipsum.</p>
                 </div>
             </div>
 
@@ -151,7 +203,8 @@
                 <div class="survey">
                     <p>망곰이의 붕어빵 취향은?</p>
 
-                    <img src="https://mblogthumb-phinf.pstatic.net/MjAyMzEyMDhfNTAg/MDAxNzAyMDE0NDg4NzQ2.WbFH0jdTh63SyO1G3mtmcgHE8jH5aLqhrMdztYi3tzAg.5TuMPuFd_lmiPb5CVsQV8tgV9JLb0TM6vBMWKnP_Gysg.JPEG.bliss_zip/IMG_6812.JPG?type=w800" alt="붕어빵이 조금 작은데 괜찮어요?">
+                    <img src="https://mblogthumb-phinf.pstatic.net/MjAyMzEyMDhfNTAg/MDAxNzAyMDE0NDg4NzQ2.WbFH0jdTh63SyO1G3mtmcgHE8jH5aLqhrMdztYi3tzAg.5TuMPuFd_lmiPb5CVsQV8tgV9JLb0TM6vBMWKnP_Gysg.JPEG.bliss_zip/IMG_6812.JPG?type=w800"
+                        alt="붕어빵이 조금 작은데 괜찮어요?">
                 </div>
             </div>
 
