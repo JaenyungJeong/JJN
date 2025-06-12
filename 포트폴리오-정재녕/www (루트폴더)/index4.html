@@ -19,9 +19,9 @@
 
     <!-- <link rel="stylesheet" href="css/footer.css"> -->
 
-    <link rel="stylesheet" href="../www (루트폴더)/css/index2.css">
+    <link rel="stylesheet" href="../www (루트폴더)/css/index4.css">
 
-    <style>
+    <!-- <style>
         * {
             margin: 0;
             padding: 0;
@@ -40,6 +40,7 @@
             position: relative;
             width: 100%;
             height: 100vh;
+            filter: brightness(0.9);
         }
 
         video {
@@ -120,7 +121,30 @@
             font-size: 16px;
             font-weight: normal;
         }
-    </style>
+
+        .video-pager {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .pager-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .pager-dot.active {
+            background-color: #113829;
+        }
+    </style> -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 
@@ -161,11 +185,19 @@
         <div class="main-content">
 
             <div class="video-container">
-                <video id="video0" src="img/main/about2.mp4" muted></video>
-                <video id="video1" src="img/main/menu.mp4" muted></video>
+                <video id="video0" src="img/main/about2-2.mp4" muted></video>
+                <video id="video1" src="img/main/menu2-2.mp4" muted></video>
                 <video id="video2" src="img/main/space.mp4" muted></video>
                 <video id="video3" src="img/main/gallery.mp4" muted></video>
                 <video id="video4" src="img/main/visit.mp4" muted></video>
+
+                <div class="video-pager">
+                    <span class="pager-dot" data-index="0"></span>
+                    <span class="pager-dot" data-index="1"></span>
+                    <span class="pager-dot" data-index="2"></span>
+                    <span class="pager-dot" data-index="3"></span>
+                    <span class="pager-dot" data-index="4"></span>
+                </div>
 
                 <div id="textOverlay" class="text-overlay">
                     <div id="textContent">로딩 중...</div>
@@ -176,7 +208,7 @@
                 </div>
             </div>
 
-            <div class="main-logo_title">
+            <!-- <div class="main-logo_title">
                 <p>urban vintage coffee space</p>
                 <h2>angle <span class="number">340</span></h2>
 
@@ -189,7 +221,7 @@
                     고르고 사색할 수 있는 당신만의
                     아지트 <br>이곳에서, 하루를 예술처럼 채워보세요</p>
 
-            </div>
+            </div> -->
 
             <!-- <div class="main-intro">
             <h2>도심 속 작은 갤러리, 한 잔의 여유</h2>
@@ -203,19 +235,41 @@
         </div>
     </main>
 
-    <section class="intro">
+    <section class="intro2">
 
-        <div class="intro-box">
-        <p>ANGLE340's Coffee Philosophy</p>
-        <h2> ANGLE 340은 <span>공간</span>과 <span>커피</span>, <span>일상</span>에  <br>
-             새로운 가치를 제안하는 감성 카페입니다</h2>
-        <div id="textContent2">
-            <a href="#about" class="cta-button" id="ctaButton">자세히 보기</a>
-            <span id="infoText" class="info-text">ANGLE340을 소개합니다</span>
+        <div class="intro-box clear">
+            <p>ANGLE340's Coffee Philosophy</p>
+            <h2> <span>공간</span>과 <span>커피</span>, <span>일상</span>에 <br>
+                새로운 가치를 제안하는 감성 카페입니다</h2>
+            <div id="textContent2">
+                <a href="#about" class="cta-button2" id="ctaButton"><img src="img/main/cta-btn.png" alt=""></a>
+                <span id="infoText" class="info-text2">ANGLE340을 소개합니다</span>
+            </div>
+
         </div>
 
-    </div>
+    </section>
 
+    <section id="curriculum" class="section">
+        <div class="intro-box clear">
+            <p>ANGLE340's Coffee Philosophy</p>
+            <h2> <span>공간</span>과 <span>커피</span>, <span>일상</span>에 <br>
+                새로운 가치를 제안하는 감성 카페입니다</h2>
+            <div id="textContent2">
+                <a href="#about" class="cta-button2" id="ctaButton"><img src="img/main/cta-btn.png" alt=""></a>
+                <span id="infoText" class="info-text2">ANGLE340을 소개합니다</span>
+            </div>
+        <div class="curriculum">
+            <ol class="curriculum__list">
+                <li><span>강의소개</span></li>
+                <li><span>HTML 기초</span></li>
+                <li><span>CSS 기초</span></li>
+                <li><span>HTML 심화</span></li>
+                <li><span>CSS 심화</span></li>
+                <li><span>파이널 프로젝트</span></li>
+                <div class="curriculum__progress"></div>
+            </ol>
+        </div>
     </section>
 
     <section class="intro">
@@ -669,7 +723,7 @@
             `공간과 디자인,<br>일상의 스토리를 담았습니다`,
             `전문성과 신뢰를 담은  <br>커피 한잔으로 찾아가겠습니다`,
             `빈티지 감성과 따뜻함이<br>어우러진 공간으로 초대합니다`,
-            `작품을 감상하며<br>커피 한 잔의 여유를 즐기실 수 있습니다`,
+            `갤러리를 감상하며<br>커피 한 잔의 여유를 즐기실 수 있습니다`,
             `서울 도심에서<br>일상 속 새로운 즐거움을 만나보세요`
         ];
 
@@ -694,39 +748,71 @@
         const $textContent = $('#textContent');
         const $infoText = $('#infoText');
         const $ctaButton = $('#ctaButton');
+        const $pagerDots = $('.pager-dot');
 
-        function playNext() {
+        function playVideo(index) {
+            // 모든 영상 초기화
             videos.forEach((v, i) => {
                 v.pause();
                 v.classList.remove('active');
                 v.currentTime = 0;
             });
 
-            const video = videos[current];
-            video.classList.add('active');
-            video.play();
+            // 현재 영상 재생
+            videos[index].classList.add('active');
+            videos[index].play();
 
+            // 텍스트 변경
             $textOverlay.removeClass('active');
             setTimeout(() => {
-                $textContent.html(texts[current]);
-                $infoText.text(subTexts[current]);
-                $ctaButton.attr('href', links[current]); // 💡 버튼 링크 업데이트
+                $textContent.html(texts[index]);
+                $infoText.text(subTexts[index]);
+                $ctaButton.attr('href', links[index]);
                 $textOverlay.addClass('active');
             }, 400);
 
-            video.onended = () => {
-                current = (current + 1) % videos.length;
-                playNext();
+            // pager 버튼 스타일 업데이트
+            $pagerDots.removeClass('active');
+            $pagerDots.eq(index).addClass('active');
+
+            // 다음 영상 재생 설정
+            videos[index].onended = () => {
+                current = (index + 1) % videos.length;
+                playVideo(current);
             };
+
+            current = index;
         }
 
         $(window).on('load', function () {
-            playNext();
+            playVideo(0); // 첫 영상부터 시작
+        });
+
+        // pager 클릭 시 해당 영상 재생
+        $pagerDots.on('click', function () {
+            const index = parseInt($(this).data('index'));
+            playVideo(index);
         });
 
 
+        $(function () {
+            const totalSteps = 5;
+            const stepWidth = $('.process-bar').width() / (totalSteps - 1);
 
+            $('.bar-step').hover(function () {
+                const step = parseInt($(this).data('step'));
 
+                // 게이지 채우기
+                $('.bar-fill').css('width', (step - 1) * stepWidth + 'px');
+
+                // 이미지 보이기
+                $('.hover-image').hide();
+                $(this).find('.hover-image').fadeIn(150);
+            }, function () {
+                $('.bar-fill').css('width', '0');
+                $('.hover-image').fadeOut(150);
+            });
+        });
     </script>
 
 </body>
