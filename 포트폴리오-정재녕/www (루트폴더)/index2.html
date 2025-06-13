@@ -23,11 +23,24 @@
     <!-- <link rel="stylesheet" href="css/footer.css"> -->
 
     <link rel="stylesheet" href="../www (루트폴더)/css/index2-1.css">
+
+    <script src="../www (루트폴더)/script/jquery-1.12.4.min.js"></script>
+    <script>
+
+        /* $(document).ready(function(){
+            $('.main-img img').hide().fadeIn(3000);
+        }); */
+
+        $(window).on('load', function () {
+            $('.main-img img').css('opacity', 1);
+        });
+
+    </script>
 </head>
 
 <body>
 
-    
+
 
     <header>
         <div class="cafe-header clear">
@@ -74,6 +87,8 @@
                     고르고 사색할 수 있는 당신만의
                     아지트 <br>이곳에서, 하루를 예술처럼 채워보세요</p>
 
+
+
             </div>
 
             <!-- <div class="main-intro">
@@ -83,7 +98,9 @@
                     아지트 <br>이곳에서, 하루를 예술처럼 채워보세요</p>
             </div> -->
 
-
+            <div class="totop">
+                <a href="#">Top</a>
+            </div>
 
         </div>
     </main>
