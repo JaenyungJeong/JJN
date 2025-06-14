@@ -1,4 +1,4 @@
-//index.js
+//about.js 
 
 $(document).ready(function(){
                 //함수호출!
@@ -18,9 +18,9 @@ $(document).ready(function(){
 
                 var autoCall; //인터벌을 담는 변수
 
-                autoCall = setInterval(fadeSlide, 3000);
+                autoCall = setInterval(fadeSlide, 5000);
 
-                $('.main-content').mouseover(function(){
+                $('.vision-intro').mouseover(function(){
                     //인터벌 제거 - 멈춤
                     clearInterval(autoCall);
                 }).mouseout(function(){
@@ -39,7 +39,7 @@ $(document).ready(function(){
             function fadeSlide (){
 
                 //1번 - 현재 보여지는 슬라이드, 첫 번째 슬라이드
-                var firstSlide = $('.main-content .main-img-slide').first();
+                var firstSlide = $('.vision-intro .vision-box').first();
                 // console.log('첫번째 슬라이드: ' + firstSlide);
                 //2번 - 현재 보여지는 슬라이드의 '다음' 슬라이드
 
@@ -49,7 +49,7 @@ $(document).ready(function(){
                 nextSlide.hide().addClass('active').fadeIn(800, function(){
                     //다음을 위한 준비!
                     //1번 슬라이드를 맨 뒤로 이동!!
-                    $('.main-content').append(firstSlide);
+                    $('.vision-intro').append(firstSlide);
 
                     //첫번째 슬라이드의 z-index제거!
                     firstSlide.removeClass('active');

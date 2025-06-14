@@ -342,21 +342,14 @@
     height: 500px;
     margin: 0 auto;
     /* overflow: hidden; */
-    /* outline: 2px solid blue; */
-
-    position: relative;
+    outline: 2px solid blue;
     
 }
-.vision .vision-content .vision-intro .active {
-    z-index: 1;
-}
 .vision .vision-content .vision-intro .vision-box  {
-    width: 100%;
-    position: absolute;
+    position: relative;
 }
 .vision .vision-content .vision-intro .vision-box .vision-img {}
 .vision .vision-content .vision-intro .vision-box .vision-img img {
-    width: 100%;
     display: block;
 }
 .vision .vision-content .vision-intro .vision-box .vision-des {

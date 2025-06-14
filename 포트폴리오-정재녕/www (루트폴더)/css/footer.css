@@ -81,6 +81,7 @@ footer .info .copy p:last-child {
     font-family: "Outfit", sans-serif;
     font-size: 24px;
     font-weight: bold;
+    color: darkseagreen;
 }
 
 footer .info .inner {
@@ -90,6 +91,9 @@ footer .info .inner {
 
 footer .info .inner .inner-box {
     float: left;
+    /* outline: 3px solid #fff; */
+
+    margin-left: 100px;
 }
 
 footer .info .inner .inner-box h3 {
@@ -99,8 +103,14 @@ footer .info .inner .inner-box h3 {
 
 }
 
-footer .info .inner .inner-box h3 ul li {}
+footer .info .inner .inner-box ul li {
+    color: darkseagreen;
+}
 
 footer .info .inner .inner-box ul li a {
+    color: darkseagreen;
+}
+
+footer .info .inner .inner-box ul li a:hover {
     color: #fff;
 }

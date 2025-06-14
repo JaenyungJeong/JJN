@@ -409,10 +409,10 @@ hr.section-line {
     padding: 10px 0;
 }
 .handmade-wrap .handmade-box .handmade-des h4 {
-    font-size: 24px;
+    font-size: 36px;
 }
 .handmade-wrap .handmade-box .handmade-des p {
-    font-size: 12px;
+    font-size: 24px;
 }
 
 .handmade-wrap .handmade-box .handmade-des .cta-btn {
@@ -440,7 +440,8 @@ hr.section-line {
     max-width: 1920px;
     color: #333;
     text-align: center;
-    margin: 0 auto 100px;
+    margin: 0 auto;
+    word-break: keep-all;
     /* outline: 2px solid blue; */
 }
 
@@ -491,6 +492,7 @@ hr.section-line {
     width: 18.4%;
     float: left;
     letter-spacing: -1px;
+    word-break: keep-all;
 }
 
 .brewery-wrap .brewery-box~.brewery-box {
@@ -510,11 +512,11 @@ hr.section-line {
     padding: 10px 0;
 }
 .brewery-wrap .brewery-box .brewery-des h4 {
-    font-size: 24px;
+    font-size: 36px;
     margin-bottom: 10px;
 }
 .brewery-wrap .brewery-box .brewery-des p {
-    font-size: 12px;
+    font-size: 24px;
     margin-bottom: 10px;
 }
 

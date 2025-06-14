@@ -110,7 +110,7 @@
     }
 
     header .cafe-header .logo a {
-        color: #F6EBE3;
+        color: #fff;
         font-family: "IM Fell English SC", serif;
 
     }
@@ -125,17 +125,16 @@
 
     header .cafe-header .gnb .header-menu li {
 
-        font-size: 20px;
         float: left;
         margin: 0 30px;
     }
 
     header .cafe-header .gnb .header-menu li a {
-        color: #F6EBE3;
+        color: #fff;
     }
 
     header .cafe-header .gnb .header-menu li a:hover {
-        color: darkseagreen;
+        color: #113829;
         text-decoration: underline;
     }
 
@@ -155,28 +154,17 @@
 
     main .main-content {
         width: 100%;
-        height: 1080px;
+        height: 100%;
         max-width: 1920px;
         margin: 0 auto;
-        overflow: hidden;
-        text-align: left;
         position: relative;
-        /* .pager 의 기준 */
+        text-align: left;
 
-    }
-
-    main .main-content .main-img-slide {
-        width: 100%;
-        position: absolute;
-        /* main-logo_title의 기준 */
-    }
-
-    .main-content .active {
-        z-index: 1;
     }
 
     main .main-content .main-img {
         width: 100%;
+        border-radius: 40%;
         overflow: hidden;
         transition: border-radius 5s ease-in-out;
         background-color: #000;
@@ -189,8 +177,8 @@
         filter: brightness(0.6);
 
         opacity: 0;
-        transition: opacity 5s ease-in-out;
-
+        transition: opacity  5s ease-in-out;
+        
     }
 
     main .main-content .main-intro {
@@ -224,7 +212,7 @@
         width: 100%;
         max-width: 1440px;
         font-family: "IM Fell English SC", serif;
-        color: #F6EBE3;
+        color: #fff;
         text-align: left;
         text-transform: uppercase;
         position: absolute;
@@ -233,7 +221,7 @@
         transform: translateY(-35%);
 
         opacity: 0;
-        transition: opacity 5s ease-in-out;
+        transition: opacity 8s ease-in-out;
 
     }
 
@@ -247,68 +235,15 @@
         font-weight: 700;
     }
 
-    .cta-button2 {
-        /* display: inline-block; */
-        /* padding: 10px 25px;
-        background: rgba(255, 255, 255, 0.2);
-
-        color: #F6EBE3;
-        border: 2px solid #F6EBE3;
-        border-radius: 50px;
-        font-size: 16px;
-        text-decoration: none; */
-        transition: all 0.3s ease;
-        margin-right: 10px;
-
-    }
-
-    .textContent2::after {
-        content: "";
-        display: block;
-        clear: both;
-    }
-
-    #textContent2>a,
-    #textContent2>span {
-        float: left;
-    }
-
-    .cta-button2 img {
-        width: 50px;
-        display: block;
-        color: #F6EBE3;
-
-    }
-
-    .cta-button2:hover {
-        transform: scale(1.2);
-    }
-
-    .info-text2 {
-
-        font-family: "Outfit", sans-serif;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        /* 선택사항 */
-        height: 50px;
-        font-size: 18px;
-        color: #F6EBE3;
-
-    }
-
     main .main-content .main-logo_title p {
         font-size: 27px;
-
     }
 
     main .main-content .main-logo_title p.bigpont {
-        font-size: 60px;
+        font-size: 40px;
 
-        font-family: "Outfit", sans-serif;
+        font-family: "Special Elite", system-ui;
         font-weight: 600;
-
 
         /* font-family: "Black Ops One", system-ui;
     font-weight: 400; */
@@ -316,46 +251,16 @@
 
     main .main-content .main-logo_title p.smallpont {
         font-size: 24px;
-        font-family: "Outfit", sans-serif;
-
-        display: none;
+        font-family: "Special Elite", system-ui;
     }
 
     main .main-content .main-logo_title .main-intro {
         width: 100%;
 
-        outline: 3px solid rgb(196, 213, 245);
         outline: 3px solid red;
 
         left: 0;
         bottom: 0;
-    }
-
-    main .pager {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 15%;
-        z-index: 999;
-
-    }
-
-    main .pager li {
-        color: rgba(246, 235, 227, 0.3);
-        display: inline-block;
-        font-size: 20px;
-
-
-
-    }
-
-    main .pager li~li {
-        margin-left: 10px;
-
-    }
-
-    main .pager .active {
-        /* color: darkseagreen; */
     }
 
     /* .intro {
@@ -424,9 +329,9 @@
         /* height: 700px; */
         /* outline: 2px solid blue; */
         margin-bottom: 40px;
+        border-radius: 30px;
         overflow: hidden;
-        border: 5px solid #eee;
-        padding: 10px 10px;
+        border: 5px solid #F6EBE3;
         box-sizing: border-box;
     }
 
@@ -454,8 +359,8 @@
         color: #333;
 
 
-        border: 3px solid #eee;
-        padding: 10px 5px;
+        border-radius: 30px;
+        border: 3px solid #F6EBE3;
         box-sizing: border-box;
 
     }
@@ -478,9 +383,9 @@
     .intro .cafe-intro .box li {
         width: 49%;
         float: left;
+        border-radius: 30px;
         overflow: hidden;
-        border: 5px solid #eee;
-        padding: 10px 10px;
+        border: 5px solid #F6EBE3;
         box-sizing: border-box;
 
     }
@@ -559,9 +464,9 @@
     }
 
     .intro .content .content-box .box .content-img {
+        border-radius: 30px;
         overflow: hidden;
-        border: 5px solid #eee;
-        padding: 10px 10px;
+        border: 5px solid #F6EBE3;
         box-sizing: border-box;
     }
 
@@ -644,7 +549,8 @@
         margin-bottom: 40px;
     }
 
-    .intro .content .favorite-box {}
+    .intro .content .favorite-box {
+    }
 
     .intro .content .favorite-box::after {
         content: "";
@@ -1019,7 +925,6 @@
 
     footer .info .inner .inner-box {
         float: left;
-        margin-left: 100px;
     }
 
     footer .info .inner .inner-box h3 {
@@ -1029,9 +934,7 @@
 
     }
 
-    footer .info .inner .inner-box ul li {
-        color: #eee;
-    }
+    footer .info .inner .inner-box h3 ul li {}
 
     footer .info .inner .inner-box ul li a {
         color: #fff;
