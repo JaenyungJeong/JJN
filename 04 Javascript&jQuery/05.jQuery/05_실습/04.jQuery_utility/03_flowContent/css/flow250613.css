@@ -73,7 +73,8 @@ div.content { /* 실제 슬라이드가 보여지는 공간 */
 }
 
 .content ul li .caption {
-    background-color: white;
+    /* background-color: white;  */
+    /* 배경색 있으면 나올때 흰색 박스가 보여서 어색함 */
 
     width: calc(100% - 20px);
 

@@ -1,9 +1,40 @@
 // flow250613.js 
 
+var autocall; //인터벌을 담을 변수!
 
 $(document).ready(function(){
 
-    setInterval(flow, 20);  
+    autocall = setInterval(flow, 20);  // 흘러가는 속도 조절 -> 자동실행 시간으로 조절!
+
+    //마우스 오버 시 멈춤, 아웃시 다시 실행
+
+    $('.flow li').hover(function(){
+        //mouseenter
+        // 1) 자동실행 멈춤 - 인터벌 지우기
+        // 2) .caption 등장!
+
+        clearInterval(autocall);
+
+        $(this).find('.caption').animate({
+            top: '105%',
+            opacity: 1
+        }, 500);
+
+    }, function(){
+        //mouseleave
+        //1) 자동실행 - 인터벌 재실행
+        //2) .caption 숨기기
+
+        autocall = setInterval(flow, 20);
+
+        $(this).find('.caption').hide(0, function(){
+            $(this).css({  // display: none 상태인 것을 보이게 조절
+                top: '50%',
+                opacity: 0,
+                display: 'block'
+            });
+        });
+    });
 
 });
 
