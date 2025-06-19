@@ -1,0 +1,224 @@
+/* about.css */
+
+@charset "UTF-8";
+
+/* FONTS */
+/*
+*** NOTO SANS KR 100~900 ***
+font-family: "Noto Sans KR", sans-serif;
+
+*** RALEWAY ***
+font-family: 'Raleway';
+font-weight: 900;
+font-style: italic;
+
+*** PRODUCT SANS ***
+font-family: 'Product Sans';
+font-weight: bold;
+font-style: normal;
+
+font-family: 'Product Sans';
+font-weight: normal;
+font-style: normal;
+*/
+
+/* COLORS */
+/*
+rgb(90, 74, 248)
+rgb(116, 96, 217)
+*/
+
+body {
+    overflow-x: hidden;
+}
+
+/* MAIN */
+main {
+    width: 100%;
+    /* max-width: 1920px; */
+    height: 100%;
+    position: relative; /* .catch, .downbtn 기준 */
+    margin-bottom: 200px;
+}
+main .main_img {
+    width: 100%;
+    height: 100%;
+}
+.main_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+main .catch {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    left: 10%;
+    color: rgb(255,255,255);
+    font-family: 'Product Sans';
+    display: none;
+}
+main .catch h2 {
+    font-size: 64px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+main .catch p {
+    font-size: 18px;
+    line-height: 160%;
+}
+main .downbtn {
+    position: absolute;
+    bottom: 10%;
+    left: 50%; transform: translateX(-50%);
+}
+main .downbtn a {
+    display: inline-block;
+}
+main .downbtn a:last-child {
+    margin-left: 40px;
+}
+main .downbtn a img {
+    width: 100%;
+    border-radius: 50px;
+}
+
+/* CONTENTS */
+.contents {
+    width: 100%;
+}
+/* CONTENTS - FEATURES */
+.contents .features {
+    margin-bottom: 200px;
+}
+.contents .features .card {
+    width: 100%;
+}
+.contents .features .card .cardimg {
+    width: 50%;
+    opacity: 0;
+}
+.contents .features .card .cardimg img {
+    width: 100%;
+    border-radius: 50px;
+}
+.contents .features .card .desc {
+    width: 45%;
+    margin-top: 20%;
+    opacity: 0;   
+}
+.contents .features .card .desc h3 {
+    font-family: 'Raleway';
+    font-weight: 900;
+    font-style: italic;
+    font-size: 20px;
+    text-decoration-line: line-through;
+    text-decoration-color: rgba(116,96,217,0.4);
+    text-decoration-style: solid;
+    text-decoration-thickness: 15px;
+    margin-bottom: 20px;
+}
+.contents .features .card .desc h4 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 46px;
+    margin-bottom: 20px;
+}
+.contents .features .card .desc p {
+    font-size: 18px;
+    line-height: 30px;
+}
+.left .cardimg {
+    float: left;
+    margin-right: 5%;
+}
+.left .desc {
+    float: right;
+}
+.right .cardimg {
+    float: right;
+    margin-left: 5%;
+}
+.right .desc {
+    float: left;
+    text-align: right;
+}
+/* CONTENTS - appslide */
+.contents .appslide {
+    width: 100%;
+    padding: 120px 0 120px;
+    box-sizing: border-box;
+    background-color: rgb(90, 74, 248);
+    position: relative;
+    margin-bottom: 400px;
+}
+.contents .appslide::before {
+    content: "";
+    display: block;
+    width: 100%; height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    background-image: url(../../img/logo/runday_logo_white_r.png);
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    background-size: 65%;
+    background-position-x: -65%;
+    background-position-y: 43%;
+}
+.appslide .des {
+    width: 620px;
+    margin-left: 120px;
+    color: rgb(255,255,255);
+}
+.appslide .des h4 {
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 60px;
+}
+.appslide .des p {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 60px;
+}
+.appslide .des .pager {
+    font-size: 20px;
+}
+.appslide .des .pager li~li {
+    margin-left: 16px;
+}
+.appslide .des .pager li.on {
+    color: rgb(0,0,0);
+}
+.appslide .slider {
+    width: 1040px;
+    height: 800px;
+    position: absolute;
+    top: 10%;
+    right: 0;
+    outline: 2px solid red;
+    overflow: hidden;
+}
+.appslide .slider .slidewrap {
+    width: 1040px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0px;
+}
+.appslide .slider .slide {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 50px;
+    box-shadow: 1px 1px 10px rgba(116,96,217,0.3);
+    transition: all 0.6s;
+}
+.appslide .slider .slide.first {
+    width: 400px;
+}
+.appslide .slider .slide~.slide {
+    width: 300px;
+    margin-left: 20px;
+}
+.appslide .slider .slide img {
+    width: 100%;
+}
