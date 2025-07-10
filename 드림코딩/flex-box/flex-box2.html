@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            padding-top: 100px;
+            background-color: beige;
+            height: 100vh;
+            /* 부모에 상관없이 보이는 부분 전체를 쓴다는 의미
+            vh 안쓰면 html body 에 100% 사용해야함
+            */
+            display: flex;
+       
+        }
+
+        .item {
+            width: 40px;
+            height: 40px;
+            border: 1px solid blue;
+        }
+
+        .item1 {
+            background-color: #6DE1D2;
+            flex-grow: 1;
+            /* 남은 화면 전체(1)를 차지하게 됨  */
+            flex-shrink: 1;
+            /* 줄어들때 숫자의 비율(1이면 100%)대로 줄어들어  */
+            flex-basis: 60%;
+            /* 해당 비율만큼 아이템이 내용차지 */
+            flex: 2 2 auto;
+            /* grow shrink basis */
+            align-self: center;
+            /* 아이템 하나만 정렬 */
+        }
+        .item2 {background-color: #FFD63A;
+            flex-grow: 2;
+            /* 남은 화면 전체를 다른 아이템의 2배로 차지하게 됨  */
+        }
+        .item3 {background-color: #FFA955;
+            flex-grow: 1;
+        }
+ 
+    </style>
+</head>
+<body>
+    
+    <!-- div.container>div.item.item${$}*10 -->
+    <div class="container">
+        <div class="item item1">1</div>
+        <div class="item item2">2</div>
+        <div class="item item3">3</div>
+
+    </div>
+</body>
+</html>

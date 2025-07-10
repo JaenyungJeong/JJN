@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            background-color: beige;
+            height: 100vh;
+            /* 부모에 상관없이 보이는 부분 전체를 쓴다는 의미
+            vh 안쓰면 html body 에 100% 사용해야함
+            */
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            /* 한줄이 가득차면 자동으로 줄넘김 */
+            /* flex-flow: column nowrap;
+            -> flex-direction + flex-wrap
+            */
+            justify-content: flex-start; 
+            /* main-axis 중심축에서 아이템을 어떻게 배치하는지 결정 */
+            /* 아이템 순서는 그대로인 상태에서 왼쪽정렬 end 는 오른쪽 정렬 */
+            justify-content: space-around;
+            /* 아이템 좌우 동일하게 여백주기 */
+            justify-content: space-evenly;
+            /* 좌우 똑같은 여백 주기 */
+            justify-content: space-between;
+            /* 화면 맨 좌우 여백 없고 중간 여백을 동일하게; */
+
+            align-items: center;
+            /* cross axis 반대축을 기준하여 배치 */
+            align-content: space-between;
+            /* 반대축 여백 균일하게 */
+            align-content: center;
+            /* 반대축 여백없이 중앙에 모임 */
+        }
+
+        .item {
+            width: 40px;
+            height: 40px;
+            border: 1px solid blue;
+        }
+
+        .item1 {background-color: #6DE1D2;}
+        .item2 {background-color: #FFD63A;}
+        .item3 {background-color: #FFA955;}
+        .item4 {background-color: #F75A5A;}
+        .item5 {background-color: #B7B1F2;}
+        .item6 {background-color: #FDB7EA;}
+        .item7 {background-color: #FFDCCC;}
+        .item8 {background-color: #FBF3B9;}
+        .item9 {background-color: #FF8383;}
+        .item10 {background-color: #FFF574;}
+        .item {background-color: #;}
+    </style>
+</head>
+<body>
+    
+    <!-- div.container>div.item.item${$}*10 -->
+    <div class="container">
+        <div class="item item1">1</div>
+        <div class="item item2">2</div>
+        <div class="item item3">3</div>
+        <div class="item item4">4</div>
+        <div class="item item5">5</div>
+        <div class="item item6">6</div>
+        <div class="item item7">7</div>
+        <div class="item item8">8</div>
+        <div class="item item9">9</div>
+        <div class="item item10">10</div>
+
+        <div class="item item1">1</div>
+        <div class="item item2">2</div>
+        <div class="item item3">3</div>
+        <div class="item item4">4</div>
+        <div class="item item5">5</div>
+        <div class="item item6">6</div>
+        <div class="item item7">7</div>
+        <div class="item item8">8</div>
+        <div class="item item9">9</div>
+        <div class="item item10">10</div>
+
+        <div class="item item1">1</div>
+        <div class="item item2">2</div>
+        <div class="item item3">3</div>
+        <div class="item item4">4</div>
+        <div class="item item5">5</div>
+        <div class="item item6">6</div>
+        <div class="item item7">7</div>
+        <div class="item item8">8</div>
+        <div class="item item9">9</div>
+        <div class="item item10">10</div>
+
+        <div class="item item1">1</div>
+        <div class="item item2">2</div>
+        <div class="item item3">3</div>
+        <div class="item item4">4</div>
+        <div class="item item5">5</div>
+        <div class="item item6">6</div>
+        <div class="item item7">7</div>
+        <div class="item item8">8</div>
+        <div class="item item9">9</div>
+        <div class="item item10">10</div>
+    </div>
+</body>
+</html>
