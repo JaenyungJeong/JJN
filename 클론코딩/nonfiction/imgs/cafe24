@@ -1,0 +1,1103 @@
+(function (w, d, s, l, i, c, g) {
+
+  var IS_SELECT_OPTION_IFRAME = isAllowIframe();
+  if (w.location !== w.parent.location && !IS_SELECT_OPTION_IFRAME) return;
+
+  w["_b_g_e_b_f"] = w["_b_g_e_b_f"] ? w["_b_g_e_b_f"] : [];
+  w[l] = w[l] ? w[l] : {};
+  w[l].user = function (c, d) {
+    w["_b_g_e_b_f"].push({t: "user", a1: c, a2: d});
+  }
+  w[l].event = function (c, d, t) {
+    w["_b_g_e_b_f"].push({t: "event", a1: c, a2: d, a3: t ? t : new Date().getTime()});
+  }
+  w[l].track = function (c, d) {
+    w["_b_g_e_b_f"].push({t: "track", a1: c, a2: d});
+  }
+
+  function fEv() {
+    if (w["_b_g_e_b_f"] && w["_b_g_e_b_f"].length > 0) {
+      for (var i = 0; i < w["_b_g_e_b_f"].length; i++) {
+        var ev = w["_b_g_e_b_f"][i]
+        w[l][ev["t"]](ev["a1"], ev["a2"], ev["a3"])
+      }
+    }
+  }
+
+  var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+  j.async = true;
+  j.src = "https://sdk.bigin.io/v1/bigin.sdk.js";
+
+  w.biginCafe24DisableOptions = "";
+  var u = navigator.userAgent.toLowerCase(), h = {
+    projectID: i,
+    currencyCode: c,
+    url: "https://i.bigin.io",
+    api_url: "https://server.k8sprd.bigin.io/api",
+    adsGtmID: g,
+    disableTrigger: IS_SELECT_OPTION_IFRAME,    /* 캠페인 노출 여부(iframe일 경우 캠페인이 노출되면 안됨) */
+    disableTrackEvent: IS_SELECT_OPTION_IFRAME  /* 기본추적 이벤트 수집 여부(iframe일 경우 기본 추적 이벤트가 수집될 필요가 없음) */
+  };
+
+  function bootstrap() {
+    if (w.CAFE24API) {
+      CAFE24API.init("iJf0852OYiGZTznb7gXaEG");
+
+      if (w.biginCafe24DisableOptions.indexOf("disableUser") === -1) {
+        CAFE24API.getCustomerInfo(function (err, res) {
+          if (err) {
+          } else {
+            if (res.customer) {
+
+              var user = {
+                'id': res.customer.member_id,
+              };
+
+              if (res.customer.email) {
+                user.email = res.customer.email
+              };
+
+              if (res.customer.name) {
+                user.name = res.customer.name
+              };
+
+              if (res.customer.phone) {
+                user.phoneNumber = res.customer.phone;
+              };
+
+              if (res.customer.cellphone) {
+                user.phoneCell = res.customer.cellphone;
+              };
+
+              if (!(user.phoneCell && user.phoneNumber)) {
+                user.phoneNumber = user.phoneNumber || user.phoneCell;
+                user.phoneCell = user.phoneCell || user.phoneNumber;
+              }
+
+              if (res.customer.additional_information
+                && res.customer.additional_information.length > 0
+                && w.biginCafe24DisableOptions.indexOf("removeUserAddress") === -1) {
+
+                for (var i in res.customer.additional_information) {
+                  var info = res.customer.additional_information[i];
+                  if (info.key.includes("주소")) {
+                    user.address += info.value;
+                  }
+                }
+              }
+
+              if(res.customer.group_name) {
+                user.membership = res.customer.group_name;
+              }
+              if (res.customer.sms) {
+                user.phoneAgree = res.customer.sms === 'T';
+              }
+              if (res.customer.news_mail) {
+                user.emailAgree = res.customer.news_mail === 'T';
+              }
+
+              bigin.user("profile", user);
+            }
+          }
+        });
+
+        logout();
+        login();
+      }
+
+      if (w.biginCafe24DisableOptions.indexOf("disableEcommerce") === -1) {
+        viewProduct();
+        cart();
+        removeCart();
+        removeCartChecked();
+        removeCartAll();
+        // checkout step1과 purchase 이벤트 수집
+        checkout1AndPurchase();
+        refund();
+        listAddToCart();
+        review();
+        iframeLayerOption();
+      }
+    }
+  }
+
+  function refund() {
+      var refundBtnArr = $('[onclick*="OrderHistory.orderCancel"], a[href*="cancel.html"]');
+      if (refundBtnArr.length > 0) {
+        $(refundBtnArr).click(function () {
+          try {
+            var orderId = this.getAttribute('href').indexOf('cancel.html') >= 0
+              ? /cancel\.html\?order_id=([\d-]+)/.exec(this.getAttribute('href'))[1] // [취소신청] 버튼
+              : /.+\('([\d-]+)'\)$/.exec(this.getAttribute('onclick'))[1];  // [주문취소] 버튼
+            if (!orderId) return;
+
+            var biginRefund = {
+              'id': orderId
+            };
+
+            var biginOrder = (CAFE24.MOBILE_DEVICE) ? getBiginOrderFromMobile()[orderId] : getBiginOrderFromPC()[orderId];
+            var orderProducts = biginOrder.products || [] ;
+
+            if (typeof biginOrder.revenue !== 'undefined') {
+              biginRefund.revenue = biginOrder.revenue;
+            }
+            if (orderProducts.length > 0) {
+              biginRefund.products = orderProducts;
+            }
+
+            bigin.event('bg:refund', biginRefund);
+          } catch (e) {
+          }
+        });
+      }
+  }
+
+  /**
+   * PC 모드일 때 주문내역 페이지의 주문번호와 상품리스트를 모두 들고온다.
+   * @returns {{}}
+   */
+  function getBiginOrderFromPC() {
+    try{
+      var biginOrder = {};
+      var revenue = 0;
+      document.querySelectorAll('a.line[href^="detail.html"]').forEach(function(orderElem) {
+        var orderId = orderElem.textContent.trim().replace(/[^\d-]/g, '');
+        var tr = $(orderElem).parents('tr')[0];
+        var product = {
+          thumbnail: [tr.querySelector('.thumb img').src],
+          id: /product_no=([\d]+)/.exec(tr.querySelector('.product a'))
+            ? /product_no=([\d]+)/.exec(tr.querySelector('.product a').search)[1]
+            : /product_no=([\d]+)/.exec(tr.querySelector('.thumb a').search)[1],
+          name: tr.querySelector('.product a').textContent.trim(),
+          category: /cate_no=([\d]+)/.exec(tr.querySelector('.product a'))
+            ? [/cate_no=([\d]+)/.exec(tr.querySelector('.product a').search)[1]]
+            : [/cate_no=([\d]+)/.exec(tr.querySelector('.thumb a').search)[1]],
+          variant: /^\[옵션:\s(.+)\]$/.exec(tr.querySelector('.option').textContent.trim())[1],
+          price: parseInt(tr.querySelector('.right').textContent.replace(/[\D]/g, ''))
+        };
+        revenue += product.price;
+        biginOrder[orderId] = biginOrder[orderId] || {};
+        biginOrder[orderId].products = biginOrder[orderId].products || [];
+        biginOrder[orderId].products.push(product);
+        biginOrder[orderId].revenue = revenue;
+      });
+      return biginOrder;
+    }catch (e) {
+      return {};
+    }
+  }
+
+
+  /**
+   * Mobile 모드일 때 주문내역 페이지의 주문번호와 상품리스트를 모두 들고온다.
+   * @returns {{}}
+   */
+  function getBiginOrderFromMobile() {
+    try {
+      var biginOrder = {};
+      var revenue = 0;
+      document.querySelectorAll('.number a').forEach(function(orderElem) {
+        var orderId = orderElem.textContent.trim().replace(/[^\d-]/g, '');
+        var div = $(orderElem).parents('div')[0];
+        var product = {
+          thumbnail: div.querySelector('.prdImg img')
+            ? [div.querySelector('.prdImg img').src]
+            : [div.querySelector('.thumbnail img').src],
+          id: /product_no=([\d]+)/.exec(div.querySelector('.prdName a'))
+            ? /product_no=([\d]+)/.exec(div.querySelector('.prdName a').search)[1]
+            : /product_no=([\d]+)/.exec(div.querySelector('.prdBox a').search)[1],
+          name: div.querySelector('.prdName a').textContent.trim(),
+          category: /cate_no=([\d]+)/.exec(div.querySelector('.prdName a'))
+            ? [/cate_no=([\d]+)/.exec(div.querySelector('.prdName a').search)[1]]
+            : [/cate_no=([\d]+)/.exec(div.querySelector('.prdBox a').search)[1]],
+          variant: /^\[옵션:\s(.+)\]$/.exec(
+            div.querySelector('.option').textContent.trim())[1],
+          price: parseInt(
+            div.querySelector('.price').textContent.replace(/[\D]/g, '')),
+        };
+        revenue += product.price;
+        biginOrder[orderId] = biginOrder[orderId] || {};
+        biginOrder[orderId].products = biginOrder[orderId].products || [];
+        biginOrder[orderId].products.push(product);
+        biginOrder[orderId].revenue = revenue;
+      });
+      return biginOrder;
+    } catch (e) {
+      return {};
+    }
+  }
+
+  /**
+   * 구매 이벤트
+   * @param purchaseSegment 구매 이벤트의 segment
+   */
+  function purchase(purchaseSegment) {
+    try {
+      var validSegment = purchaseSegment && purchaseSegment.id != getLsOrderId();
+      if (!validSegment) {
+        return;
+      }
+
+      setLsOrderId(purchaseSegment.id);
+      bigin.event('bg:purchase', purchaseSegment);
+    } catch (e) {
+    }
+  }
+
+  function setLsOrderId(id) {
+    try {
+      if (window.localStorage) {
+        window.localStorage.setItem('_bg_purchase_id', id);
+      }
+    } catch (e) {
+    }
+  }
+
+  function getLsOrderId() {
+    var orderId = "";
+    try {
+      if (window.localStorage) {
+        orderId = window.localStorage.getItem("_bg_purchase_id");
+      }
+    } catch (e) {
+    }
+
+    return orderId
+  }
+
+  /**
+   * 특정 상품에 대한 카테고리를 local storage에 덧붙여 저장.
+   *
+   * @param id 상품 ID
+   * @param categoryArr 저장할 카테고리 배열 (지우고 싶은 경우 undefined를 넘길 것)
+   */
+  function storeProductCategories(id, categoryArr) {
+    try {
+      var foundFromStorage = window.localStorage.getItem('_bg_checkout_items');
+      var storedItems = foundFromStorage ? JSON.parse(foundFromStorage) : {};
+      storedItems[id] = categoryArr;
+
+      window.localStorage.setItem('_bg_checkout_items', JSON.stringify(storedItems));
+    } catch (e) {}
+  }
+
+  /**
+   * local storage에서 원하는 상품ID에 대한 카테고리 배열을 리턴.
+   * 카테고리를 찾으면 해당 카테고리를 제외하고 다시 storage에 저장한다.
+   *
+   * @param id 상품 ID
+   * @returns 찾은 카테고리 배열 (못찾으면 빈 배열)
+   */
+  function getCategoriesByProductId(id) {
+    try {
+      var storedItems = JSON.parse(window.localStorage.getItem('_bg_checkout_items'));
+      if (storedItems[id]) {
+        var categories = storedItems[id];
+        storeProductCategories(id, undefined);
+
+        return categories;
+      }
+
+      return [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  /**
+   * 특정 상품에 대한 변형옵션을 local storage에 덧붙여 저장.
+   *
+   * @param id 상품 ID
+   * @param variantCode 변형 옵션 코드
+   * @param variantName 변형 옵션 텍스트
+   */
+  function storeProductVariant(id, variantCode, variantName) {
+    try {
+      var foundFromStorage = window.localStorage.getItem('_bg_variants');
+      var storedItems = foundFromStorage ? JSON.parse(foundFromStorage) : {};
+      var storedVariants = storedItems[id] ? storedItems[id] : {};
+
+      storedVariants[variantCode] = variantName;
+      storedItems[id] = storedVariants;
+      window.localStorage.setItem('_bg_variants', JSON.stringify(storedItems));
+    } catch (e) {
+    }
+  }
+
+  /**
+   * local storage에서 원하는 상품ID에 대한 변형옵션을 리턴.
+   * 옵션을 찾으면 해당 옵션을 제외하고 다시 storage에 저장한다.
+   *
+   * @param id 상품 ID
+   * @param variantCode 변형 옵션 코드
+   * @returns 찾은 변형옵션 (못찾으면 undefined)
+   */
+  function getVariantByProduct(id, variantCode) {
+    try {
+      var storedItems = JSON.parse(window.localStorage.getItem('_bg_variants'));
+      if (storedItems[id]) {
+        var variants = storedItems[id];
+        if (variants[variantCode]) {
+          var variant = variants[variantCode];
+          storeProductVariant(id, variantCode, undefined);
+
+          return variant;
+        }
+
+        storeProductVariant(id, undefined, undefined);
+      }
+
+      return undefined;
+    } catch (e) {
+      return undefined;
+    }
+  }
+
+
+
+  function getVariantCodeArr() {
+    try {
+      var variantCodeArr = [];
+      $('input[name="item_code[]"]').each(function () {
+        variantCodeArr.push($(this).val());
+      });
+
+      return variantCodeArr;
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function setVariant(productId, callback) {
+    try {
+      CAFE24API.get('/api/v2/products/' + productId + '/variants', function (err, res) {
+          try {
+            var variantMap;
+
+            if (res && res.variants && res.variants.length > 0) {
+              variantMap = {};
+              res.variants.forEach(function (variantObj) {
+                var variantArr = [];
+                variantObj.options.forEach(function (optionObj) {
+                  variantArr.push(optionObj.value);
+                });
+                variantMap[variantObj.variant_code] = variantArr.join('/');
+              });
+            }
+            callback(variantMap);
+          } catch (e) {
+            callback(undefined);
+          }
+        });
+    } catch (e) {
+      callback(undefined);
+    }
+  }
+
+  function listAddToCart() {
+    var foundEls = $("[onclick*=category_add_basket]");
+    if (foundEls && foundEls[0] && foundEls[0] instanceof HTMLElement) {
+      $(foundEls).click(function () {
+        var foundEl = $(this)[0];
+        var paramsWrapper = foundEl.getAttribute("onclick");
+
+        paramsWrapper = paramsWrapper.split("(");
+        if (!paramsWrapper[1]) return;
+        paramsWrapper = paramsWrapper[1].split(")")[0];
+        // 0 iProductNo
+        // 1 iCategoryNo
+        // 2 iDisplayGroup
+        // 3 sBasketType
+        // 4 bList
+        // 5 iQuantity
+        // 6 sItemCode
+        // 7 sDelvType
+        // 8 sProductMaxType
+        // 9 sProductMax
+        paramsWrapper = paramsWrapper.split(",");
+
+        if (!paramsWrapper || paramsWrapper.length === 0) return;
+        var productId = paramsWrapper[0].replace(new RegExp('\'', 'g'), "").trim();
+        var category = paramsWrapper[1].replace(new RegExp('\'', 'g'), "").trim();
+        var quantity = paramsWrapper[5].replace(new RegExp('\'', 'g'), "").trim();
+
+        try {
+
+          var product = {};
+
+          product.id = productId;
+          product.quantity = quantity;
+
+          // todo 쿠폰으로 가능한 상품조회 페이지 접근이 가능하면 setVariant() 적용 by sghwang
+          if (w.biginCafe24DisableOptions.indexOf("removeEcomVariant") === -1)
+            product.variant = product.id + "-" + "000A";
+
+          if (product && product.id) {
+            bigin.event("bg:addToCart", {source: 'list', category: category, products: [product]});
+          }
+        } catch (e) {
+        }
+      });
+    }
+  }
+
+  // iframe을 통해 상품 옵션 선택 후 장바구니, 구매하기 버튼이 존재하는 페이지에서 addToCart, checkout 이벤트 동작
+  function iframeLayerOption() {
+    var productIdMatchesFromUrl = location.search.match(/product_no=([^&]*)/);
+    var productId = productIdMatchesFromUrl && productIdMatchesFromUrl.length > 1 ? productIdMatchesFromUrl[1] : null;
+
+    if(IS_SELECT_OPTION_IFRAME && productId) {
+      CAFE24API.get('/api/v2/products/' + productId, function (err, res) {
+        try {
+          if (res && res.product && res.product.product_no) {
+            var product = {};
+
+            product.id = res.product.product_no;
+            product.name = res.product.product_name;
+
+            if (w.biginCafe24DisableOptions.indexOf("removeEcomCategory") === -1) {
+              if (res.product.category && res.product.category.length > 0) {
+                var category = [];
+                for (var key in res.product.category) {
+                  category.push(res.product.category[key].category_no);
+                }
+                product.category = category;
+              }
+            }
+
+            if (w.biginCafe24DisableOptions.indexOf("removeEcomBrand") === -1)
+              product.brand = res.product.brand_code;
+
+            if (w.biginCafe24DisableOptions.indexOf("removeEcomThumbnail") === -1)
+              if (res.product.list_image) product.thumbnail = [res.product.list_image];
+
+            product.price = res.product.price;
+            product.list = document.referrer;
+
+            setVariant(productId, function (variantMap) {
+              addToCart(res.product, variantMap);
+              checkoutStep0Direct(res.product, variantMap);
+            });
+          }
+        } catch (e) {
+        }
+      });
+    }
+  }
+
+  function viewProduct() {
+    // bg:impression && bg:viewProduct
+    var productId = null;
+
+    var currentUrl = window.location.href;
+    if (/\/product\/detail.html/g.test(currentUrl)) {
+      var wrapper = currentUrl.substring(currentUrl.indexOf("product_no=")).split("&")[0].split("=");
+      if (wrapper.length === 2) productId = wrapper[1];
+    }
+
+    if (/^(?=.*\bproduct\b)(?=.*\bcategory\b).*$/g.test(currentUrl)) {
+      var urlWrapper = currentUrl.split("/");
+      var categoryIndex = urlWrapper.indexOf("category");
+      if (urlWrapper[categoryIndex - 1]) productId = urlWrapper[categoryIndex - 1];
+    }
+
+    // 위의 2개의 URL 패턴과 일치하지 않을 경우 meta tag에서 product id 수집
+    if(!productId && !IS_SELECT_OPTION_IFRAME) {
+      productId = document.querySelector('meta[property="product:productId"]')
+                  ? document.querySelector('meta[property="product:productId"]').content
+                  : null;
+    }
+
+    if (productId) {
+      CAFE24API.get('/api/v2/products/' + productId, function (err, res) {
+        try {
+          if (res && res.product && res.product.product_no) {
+            var product = {};
+
+            product.id = res.product.product_no;
+            product.name = res.product.product_name;
+
+            if (w.biginCafe24DisableOptions.indexOf("removeEcomCategory") === -1) {
+              if (res.product.category && res.product.category.length > 0) {
+                var category = [];
+                for (var key in res.product.category) {
+                  category.push(res.product.category[key].category_no);
+                }
+                product.category = category;
+              }
+            }
+
+            if (w.biginCafe24DisableOptions.indexOf("removeEcomBrand") === -1)
+              product.brand = res.product.brand_code;
+
+            if (w.biginCafe24DisableOptions.indexOf("removeEcomThumbnail") === -1)
+              if (res.product.list_image) product.thumbnail = [res.product.list_image];
+
+            product.price = res.product.price;
+            product.list = document.referrer;
+
+            bigin.event("bg:impression", product);
+            bigin.event("bg:viewProduct", product);
+
+            setVariant(productId, function (variantMap) {
+              addToCart(res.product, variantMap);
+              checkoutStep0Direct(res.product, variantMap);
+            });
+          }
+        } catch (e) {
+        }
+      });
+    }
+  }
+
+  function cart() {
+    try {
+      // bg:cart
+      var currentUrl = window.location.href;
+      if (/\/order\/basket.html/g.test(currentUrl) && aBasketProductData) {
+        var items = aBasketProductData;
+        if (items && Array.isArray(items) && items[0]) {
+          bigin.event("bg:cart", {products: parseProducts(items)});
+        }
+        checkoutStep0Single();
+        checkoutStep0Selected();
+        checkoutStep0All();
+      }
+    } catch (e) {
+    }
+  }
+// checkout : 장바구니 => 개별상품 옵션에서 [주문하기]
+  function checkoutStep0Single() {
+    var foundEl1 = $('[onclick*="Basket.orderBasketItem("]');
+    if (!foundEl1[0]) return;
+
+    $(foundEl1).click(function () {
+      try {
+        var removeCartBtn = $(this)[0];
+        var paramsWrapper = removeCartBtn.getAttribute("onclick");
+        paramsWrapper = paramsWrapper.split("(");
+        if (!paramsWrapper[1]) return;
+        paramsWrapper = paramsWrapper[1].split(")")[0];
+        var idx = paramsWrapper.replace(new RegExp('\'', 'g'), "").trim();
+        if (!idx) return;
+        var items = aBasketProductData;
+        if (items && Array.isArray(items) && items[parseInt(idx)]) {
+          bigin.event("bg:checkout", {step: 0, products: parseProducts([items[parseInt(idx)]])});
+        }
+      } catch (e) {
+      }
+    });
+  }
+// checkout : 상품상세 => [바로구매]
+  function checkoutStep0Direct(_product, variantMap) {
+    var foundEl1 = $('[onclick*="product_submit(1"]');
+    var addCartBtn = null;
+    if (foundEl1[0]) addCartBtn = foundEl1[0];
+    if (addCartBtn) {
+      $(addCartBtn).click(function () {
+        try {
+          if (PRODUCTSUBMIT) {
+
+            var variantCodeArr = getVariantCodeArr();
+            var variantIdx = variantCodeArr.length - 1;
+            var products = [];
+            var parsedForm;
+            parsedForm = getFormData(PRODUCTSUBMIT.oForm);
+
+            Object.keys(parsedForm["selected_item"]).forEach(function (key) {
+              var wrappedItem = parsedForm['selected_item'][key];
+              wrappedItem = wrappedItem.split("||");
+
+              var product = {};
+              product.id = _product.product_no;
+              product.name = _product.product_name;
+              product.price = parseInt(_product.price);
+
+              if (w.biginCafe24DisableOptions.indexOf("removeEcomCategory") === -1) {
+                if (_product.category && _product.category.length > 0) {
+                  var category = [];
+                  for (var key in _product.category) {
+                    category.push(_product.category[key].category_no);
+                  }
+                  product.category = category;
+                }
+              }
+
+              if (w.biginCafe24DisableOptions.indexOf("removeEcomBrand") === -1)
+                product.brand = _product.brand_code;
+
+              if (w.biginCafe24DisableOptions.indexOf("removeEcomThumbnail") === -1)
+                if (_product.list_image) product.thumbnail = [_product.list_image];
+
+              if (w.biginCafe24DisableOptions.indexOf("removeEcomVariant") === -1) {
+                if (variantMap && variantCodeArr.length > 0) {
+                  var variantCode = variantCodeArr[variantIdx];
+                  var variant = variantMap[variantCode];
+                  if (variant) {
+                    product.variant = variant;
+                    storeProductVariant(product.id, variantCode, variant);
+                  }
+                  variantIdx--;
+                }
+              }
+
+              product.quantity = parseInt(wrappedItem[0]);
+              storeProductCategories(product.id, product.category);
+              products.push(product);
+            });
+
+            if (products && Array.isArray(products) && products[0]) {
+
+              bigin.event("bg:checkout", {step: '0', products: products});
+            }
+          }
+        } catch (e) {
+        }
+      });
+    }
+  }
+// checkout : 장바구니 => 선택상품주문
+  function checkoutStep0Selected() {
+    var foundEl1 = $('[onclick*="Basket.orderSelectBasket(this)"]');
+    var removeCartBtn = null;
+    if (foundEl1[0]) removeCartBtn = foundEl1[0];
+    if (!removeCartBtn) return;
+
+    $(removeCartBtn).click(function () {
+      try {
+        var items = [];
+        var checkedItems = Basket._getCheckedProductList();
+        for (var i in checkedItems) {
+          var wrappedData = checkedItems[i].split(":");
+          if (wrappedData.length > 1) {
+            var productNo = parseInt(wrappedData[0]);
+            var optionCode = wrappedData[1];
+            for (var j in aBasketProductData) {
+              var itemToCheck = aBasketProductData[j];
+              if (itemToCheck.product_no === productNo && itemToCheck.opt_id === optionCode)
+                items.push(itemToCheck);
+            }
+          }
+        }
+        var products = parseProducts(items);
+
+        if (products && Array.isArray(products) && products[0]) {
+          bigin.event("bg:checkout", {step: '0', products: products});
+        }
+      } catch (e) {
+      }
+    });
+  }
+// checkout : 장바구니 => 전체상품주문
+  function checkoutStep0All() {
+    var foundEl1 = $('[onclick*="Basket.orderAll(this)"]');
+    var removeCartBtn = null;
+    if (foundEl1[0]) removeCartBtn = foundEl1[0];
+    if (!removeCartBtn) return;
+
+    $(removeCartBtn).click(function () {
+      try {
+        var products = parseProducts(aBasketProductData);
+        if (products && Array.isArray(products) && products[0]) {
+          bigin.event("bg:checkout", {step: '0', products: products});
+        }
+      } catch (e) {
+      }
+    });
+  }
+
+  /**
+   * 체크아웃 이벤트 step1과 구매 이벤트 수집을 진행한다.
+   * (두 이벤트 모두 주문 완료 페이지에서 API의 response를 이용하여 수집)
+   */
+  function checkout1AndPurchase() {
+    if (!/\/order\/order_result.html/g.test(window.location.href)) {
+      return;
+    }
+
+    try {
+      fetchOrder(function(err, res) {
+        if (err) {
+          return;
+        }
+
+        var orderArray = res.orders[0];
+        var products = extractProducts(orderArray.items);
+
+        if (products.length > 0) {
+          /* checkout */
+          var paymentMethod = res.orders[0].first_payment_method;
+          var checkoutSegment = {
+            step: '1',
+            products: products,
+          };
+          checkoutStep1(checkoutSegment, paymentMethod);
+
+          /* purchase */
+          var purchaseSegment = {
+            id: orderArray.order_id
+              || window.location.search.match(/order_id=([^&]*)/)[1],
+            revenue: orderArray.initial_order_amount.order_price_amount,
+            shipping: orderArray.initial_order_amount.shipping_fee,
+            products: products,
+          };
+          purchase(purchaseSegment);
+        }
+      });
+    } catch (e) {}
+  }
+
+  /**
+   * 주문 정보와 주문 상품을 API로 받아 callback에 전달.
+   *
+   * @param callback
+   */
+  function fetchOrder(callback) {
+    var order_id = window.location.search.match(/order_id=([^&]*)/)[1];
+    CAFE24API.getOrderDetailInfo(CAFE24API.SHOP_NO, order_id,
+      function(err, res) {
+        if (typeof callback === 'function') {
+          callback(err, res);
+        }
+      },
+    );
+  }
+
+  /**
+   * API로 받은 주문상품 배열에서 상품정보를 추출한다.
+   *
+   * @param fetchedOrderedItems API로 받은 주문상품 배열
+   * @returns error 발생시 빈 배열
+   */
+  function extractProducts(fetchedOrderedItems) {
+    try {
+      var orderedProducts = [];
+      fetchedOrderedItems.forEach(function (item) {
+        var product = {};
+        product.id = item.product_no;
+        product.name = item.product_name;
+        product.quantity = item.quantity;
+        product.price = item.product_price;
+        product.category = getCategoriesByProductId(product.id);
+        product.variant = getVariantByProduct(product.id, item.variant_code);
+
+        orderedProducts.push(product);
+      });
+
+      return orderedProducts;
+    } catch (e) {
+      return [];
+    }
+  }
+
+  /**
+   * Check-out Step 1
+   *
+   * @param checkoutSegment 체크아웃 이벤트의 segment
+   * @param paymentMethod 결제 수단
+   */
+  function checkoutStep1(checkoutSegment, paymentMethod) {
+    try {
+      if (!checkoutSegment) {
+        return;
+      }
+
+      var payOptions = {
+        cash: '무통장',
+        card: '신용카드',
+        cell: '휴대폰',
+        tcash: '계좌이체',
+        icash: '가상계좌',
+        prepaid: '선불금',
+        credit: '예치금',
+        point: '적립금',
+        pointfy: '통합포인트',
+        cvs: '편의점',
+        cod: '후불',
+        coupon: '쿠폰',
+        market_discount: '마켓할인',
+        etc: '기타',
+      };
+
+      checkoutSegment.option = payOptions[paymentMethod] || paymentMethod;
+      bigin.event('bg:checkout', checkoutSegment);
+    } catch (e) {
+    }
+  }
+
+  function parseProducts(items) {
+    var products = [];
+    if (items && items.length > 0) {
+      for (var key in items) {
+        if (items[key]) {
+          var product = {};
+          product.id = items[key].product_no;
+          product.name = items[key].product_name;
+          product.quantity = items[key].quantity;
+          product.price = items[key].product_sale_price;
+          product.category = items[key].categories;
+
+          if (w.biginCafe24DisableOptions.indexOf("removeEcomVariant") === -1) {
+            var variantArr = items[key].option_str;
+            if (variantArr && variantArr.length > 0) {
+              product.variant = variantArr.join(',');
+
+              var variantCode = items[key].item_code;
+              storeProductVariant(product.id, variantCode, product.variant);
+            }
+          }
+
+          storeProductCategories(product.id, product.category);
+          products.push(product);
+        }
+      }
+    }
+    return products;
+  }
+
+
+  function removeCart() {
+    var foundEl1 = $('[onclick*="Basket.deleteBasketItem("]');
+    if (!foundEl1[0]) return;
+
+    $(foundEl1).click(function () {
+      try {
+        var removeCartBtn = $(this)[0];
+        var paramsWrapper = removeCartBtn.getAttribute("onclick");
+        paramsWrapper = paramsWrapper.split("(");
+        if (!paramsWrapper[1]) return;
+        paramsWrapper = paramsWrapper[1].split(")")[0];
+        var idx = paramsWrapper.replace(new RegExp('\'', 'g'), "").trim();
+        if (!idx) return;
+        var items = aBasketProductData;
+        if (items && Array.isArray(items) && items[parseInt(idx)]) {
+          bigin.event("bg:removeCart", {products: parseProducts([items[parseInt(idx)]])});
+        }
+      } catch (e) {
+      }
+    });
+  }
+
+  function removeCartChecked() {
+    var foundEl1 = $('[onclick*="Basket.deleteBasket()"]');
+    var removeCartBtn = null;
+    if (foundEl1[0]) removeCartBtn = foundEl1[0];
+    if (!removeCartBtn) return;
+
+
+    $(removeCartBtn).click(function () {
+      try {
+        var items = [];
+        var checkedItems = Basket._getCheckedProductList();
+        for (var i in checkedItems) {
+          var wrappedData = checkedItems[i].split(":");
+          if (wrappedData.length > 1) {
+            var productNo = parseInt(wrappedData[0]);
+            var optionCode = wrappedData[1];
+            for (var j in aBasketProductData) {
+              var itemToCheck = aBasketProductData[j];
+              if (itemToCheck.product_no === productNo && itemToCheck.opt_id === optionCode)
+                items.push(itemToCheck);
+            }
+          }
+        }
+
+        if (items && Array.isArray(items) && items[0]) {
+          bigin.event("bg:removeCart", {products: parseProducts(items)});
+        }
+      } catch (e) {
+      }
+    });
+  }
+
+  function removeCartAll() {
+    var foundEl1 = $('[onclick*="Basket.emptyBasket"]');
+    var removeCartBtn = null;
+    if (foundEl1[0]) removeCartBtn = foundEl1[0];
+    if (!removeCartBtn) return;
+
+    $(removeCartBtn).click(function () {
+      try {
+        var products = parseProducts(aBasketProductData);
+        if (products && Array.isArray(products) && products[0]) {
+          bigin.event("bg:removeCart", {products: products});
+        }
+      } catch (e) {
+      }
+    });
+  }
+
+  function getFormData($form) {
+    var unindexed_array = $form.serializeArray();
+    var indexed_array = {};
+
+    $.map(unindexed_array, function (n, i) {
+      if (n['name'].indexOf("[]") > -1) {
+        var normalName = n['name'].replace("[]", "");
+        if (!indexed_array[normalName])
+          indexed_array[normalName] = [];
+        indexed_array[normalName].push(n['value']);
+      } else {
+        indexed_array[n['name']] = n['value'];
+      }
+    });
+
+    return indexed_array;
+  }
+
+
+  function addToCart(_product, variantMap) {
+    var foundEl1 = $('[onclick*="category_add_basket"]');
+    var foundEl2 = $('[onclick*="product_submit(2"]');
+    var addCartBtn = null;
+    if (foundEl1[0]) addCartBtn = foundEl1[0];
+    if (foundEl2[0]) addCartBtn = foundEl2[0];
+    if (addCartBtn) {
+      $(addCartBtn).click(function () {
+        try {
+          if (PRODUCTSUBMIT) {
+
+            var variantCodeArr = getVariantCodeArr();
+            var variantIdx = variantCodeArr.length - 1;
+            var products = [];
+            var parsedForm = getFormData(PRODUCTSUBMIT.oForm);
+            Object.keys(parsedForm["selected_item"]).forEach(function (key) {
+              var wrappedItem = parsedForm["selected_item"][key];
+              wrappedItem = wrappedItem.split("||");
+
+
+              var product = {};
+
+              product.id = _product.product_no;
+              product.name = _product.product_name;
+              product.price = parseInt(_product.price);
+
+
+              if (w.biginCafe24DisableOptions.indexOf("removeEcomCategory") === -1) {
+                if (_product.category && _product.category.length > 0) {
+                  var category = [];
+                  for (var key in _product.category) {
+                    category.push(_product.category[key].category_no);
+                  }
+                  product.category = category;
+                }
+              }
+
+              if (w.biginCafe24DisableOptions.indexOf("removeEcomBrand") === -1)
+                product.brand = _product.brand_code;
+
+              if (w.biginCafe24DisableOptions.indexOf("removeEcomThumbnail") === -1)
+                if (_product.list_image) product.thumbnail = [_product.list_image];
+
+              if (w.biginCafe24DisableOptions.indexOf("removeEcomVariant") === -1) {
+                if (variantMap && variantCodeArr.length > 0) {
+                  var variant = variantMap[variantCodeArr[variantIdx--]];
+                  if (variant)  product.variant = variant;
+                }
+              }
+
+              product.quantity = parseInt(wrappedItem[0]);
+
+              products.push(product);
+            });
+
+            if (products && Array.isArray(products) && products[0]) {
+              bigin.event("bg:addToCart", {products: products});
+            }
+          }
+
+        } catch (e) {
+        }
+      });
+    }
+  }
+
+
+  function review() {
+    // bg:review
+    var currentUrl = window.location.href;
+
+    if (/\/board\/product\/write.html/g.test(currentUrl)) {
+      var foundEl1 = $('[onclick*="boardWriteForm"]');
+      var addReviewBtn = null;
+      if (foundEl1[0]) addReviewBtn = foundEl1[0];
+      if (addReviewBtn) {
+        $(addReviewBtn).click(function () {
+          try {
+            var boardWriteForm = $('#boardWriteForm');
+
+            if (boardWriteForm && boardWriteForm[0]) {
+              var parsedForm = getFormData($(boardWriteForm));
+
+              if (parsedForm && parsedForm.product_no) {
+                var review = {
+                  id: parseInt(parsedForm.product_no) + new Date().getTime() + parseInt(Math.random()),
+                  product: parsedForm.product_no,
+                  score: parsedForm.point,
+                  content: $('<p>' + parsedForm.content + '</p>').text()
+                };
+
+                if (review && review.id && review.product && review.content) {
+                  bigin.event('bg:review', review);
+                }
+              }
+            }
+          } catch (e) {
+          }
+        });
+      }
+    }
+  }
+
+  function login() {
+    try {
+      $('[onclick*="MemberAction.login"] , [onclick*="MemberAction.snsLogin"] , [onclick*="MemberAction.kakaosyncLogin"]').click(function () {
+        bigin.user('login');
+      })
+    } catch (e) {
+    }
+  }
+
+  function logout() {
+    try {
+      // bg:logout
+      $('a[href="/exec/front/Member/logout/"]').click(function () {
+        bigin.user("logout");
+      });
+    } catch (e) {
+    }
+  }
+
+  // 몇몇 페이지의 경우 iframe으로 옵션 선택 후 상품의 장바구니 추가, 구매하기 등의 행동이 가능하다.<br>
+  // 이와 같은 페이지에서 이벤트를 수집하기 위하여 해당 아래 경로는 플러그인이 동작하게 예외로 허용한다.<br>
+  // layer_option.html, basket_option.html, image_zoom.html
+  function isAllowIframe() {
+    return !!window.frameElement && /\/product\/(layer_option|basket_option|image_zoom).html/.test(location.pathname);
+  }
+
+  // j.onload = function () {
+  //   w[l].config(h);
+  //   fEv();
+  //   bootstrap();
+  // };
+
+  if ((u.indexOf('msie') !== -1) && parseInt(u.split('msie')[1]) < 9) {
+    var r = setInterval(function () {
+      if (w[l] !== undefined) {
+        clearInterval(r);
+        w[l].config(h);
+        fEv();
+        bootstrap();
+      }
+    }, 50);
+  } else {
+    j.onload = function () {
+      w[l].config(h);
+      fEv();
+      bootstrap();
+    };
+  }
+
+  f.parentNode.insertBefore(j, f);
+})
+(window, document, 'script', 'bigin', 'QJUXCT552O-L', "KRW", '');
