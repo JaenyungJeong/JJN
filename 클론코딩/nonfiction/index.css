@@ -1,0 +1,159 @@
+@charset 'UTF-8'
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+header {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    top: 0;
+    z-index: 303;
+
+}
+header {
+    /* display: none; */
+}
+
+header .header-inner {}
+
+
+header .header-inner>div {
+    margin: 0;
+    width: 15%;
+}
+
+#top_ban {
+    position: relative;
+    z-index: 280;
+}
+
+#top_ban>div {
+    text-align: center;
+
+}
+
+#top_ban>div:first-child a {
+    background-color: #000;
+}
+
+#top_ban>div:last-child a {
+    background-color: #F8F8F8;
+}
+
+#top_ban>div a {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    line-height: 30px;
+    height: 30px;
+}
+
+.header-inner {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+
+    padding: 13px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 280;
+    position: relative;
+    text-align: left;
+
+    box-sizing: border-box;
+
+}
+
+.header-logo a .web-view {
+    display: block;
+}
+
+header .header-logo svg {
+    width: 54px;
+}
+
+header .header-inner>div.shop-nav {
+    width: 70%;
+}
+
+header .header-inner>div.shop-nav>ul {
+    text-align: center;
+}
+
+header .header-inner>div.shop-nav>ul>li {
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0 24px;
+
+    display: inline-block;
+}
+
+header .header-nav.member-nav>ul {
+    text-align: right;
+}
+
+header .header-nav.member-nav>ul>li {
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 0 10px;
+}
+
+header .header-nav.member-nav svg {
+    height: 19px;
+    width: auto;
+}
+
+
+#hero_ban>div {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#hero_ban .column2 section {
+    width: 50%;
+}
+
+#hero_ban section {
+    position: relative;
+}
+
+#hero_ban section .banBox {
+    position: absolute;
+    bottom: 60px;
+    left: 40px;
+}
+
