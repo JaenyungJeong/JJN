@@ -1,6 +1,19 @@
 @charset 'UTF-8'
 
 
+/* 
+
+    noto sans korean: 한글
+     font-family: "Noto Sans KR", sans-serif;
+
+    noto sans: 영어
+     font-family: "Noto Sans", sans-serif;
+    
+    DM serif Display: gnb 메뉴
+     font-family: "DM Serif Display", serif;
+
+*/
+
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +24,7 @@
 
 body {
     margin: 0;
+    font-family: "Noto Sans KR", sans-serif;
 }
 
 a {
@@ -41,6 +55,7 @@ header {
     z-index: 303;
 
 }
+
 header {
     /* display: none; */
 }
@@ -54,8 +69,22 @@ header .header-inner>div {
 }
 
 #top_ban {
+    font-family: "Noto Sans", sans-serif;
+
     position: relative;
     z-index: 280;
+}
+
+#top_ban a {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    line-height: 30px;
+    height: 30px;
+}
+
+#top_ban a:hover {
+    text-decoration: underline;
 }
 
 #top_ban>div {
@@ -80,8 +109,8 @@ header .header-inner>div {
 }
 
 .header-inner {
-    background: #fff;
-    border-bottom: 1px solid #eee;
+    background: none;
+    /* border-bottom: 1px solid #eee; */
 
     padding: 13px 10px;
     display: flex;
@@ -96,6 +125,10 @@ header .header-inner>div {
 
 }
 
+.header-inner:hover {
+    background-color: #fff;
+}
+
 .header-logo a .web-view {
     display: block;
 }
@@ -106,6 +139,7 @@ header .header-logo svg {
 
 header .header-inner>div.shop-nav {
     width: 70%;
+    font-family: "DM Serif Display", serif;
 }
 
 header .header-inner>div.shop-nav>ul {
@@ -113,11 +147,19 @@ header .header-inner>div.shop-nav>ul {
 }
 
 header .header-inner>div.shop-nav>ul>li {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 20px;
     margin: 0 24px;
 
     display: inline-block;
+}
+
+header .header-nav.shop-nav>ul>li a {
+    color: #000;
+}
+
+header .header-nav.shop-nav>ul>li.rosepale a {
+    color: #F89CC2;
 }
 
 header .header-nav.member-nav>ul {
@@ -131,11 +173,17 @@ header .header-nav.member-nav>ul>li {
     margin: 0 10px;
 }
 
+
+
+
 header .header-nav.member-nav svg {
     height: 19px;
     width: auto;
 }
 
+#hero_ban {
+    margin-top: 60px;
+}
 
 #hero_ban>div {
     display: flex;
@@ -157,3 +205,8 @@ header .header-nav.member-nav svg {
     left: 40px;
 }
 
+#hero_ban section .banBox h2 {
+    font-size: 20px;
+    line-height: 20px;
+    margin: 0 0 8px;
+}
