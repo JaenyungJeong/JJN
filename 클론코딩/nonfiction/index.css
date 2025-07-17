@@ -110,7 +110,6 @@ header .header-inner>div {
 
 .header-inner {
     background: none;
-    /* border-bottom: 1px solid #eee; */
 
     padding: 13px 10px;
     display: flex;
@@ -127,6 +126,8 @@ header .header-inner>div {
 
 .header-inner:hover {
     background-color: #fff;
+    border-bottom: 1px solid #eee;
+
 }
 
 .header-logo a .web-view {
@@ -206,7 +207,75 @@ header .header-nav.member-nav svg {
 }
 
 #hero_ban section .banBox h2 {
+    font-family: "Noto Sans", sans-serif;
     font-size: 20px;
     line-height: 20px;
     margin: 0 0 8px;
 }
+
+#hero_ban section .banBox h3 {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 0 12px;
+    color: #fff;
+    font-weight: 400;
+}
+
+#hero_ban section .banBox a {
+    margin: 0;
+    font-size: 13px;
+    text-decoration: underline;
+    line-height: 17px;
+    font-weight: 400;
+}
+
+#product_wrap {
+    margin: 0 0 50px;
+    height: 100%;
+}
+
+#product > ul {
+    padding: 10px 10px 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    box-sizing: border-box;
+    font-size: 0;
+}
+
+#product > ul.column4 > li {
+    flex: 0 0 calc(25% - 7.5px);
+    margin: 0 0 10px;
+
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#product .thumbnail li .thumbnail-image {
+    position: relative;
+}
+
+#product .thumbnail li .thumbnail-image > a .pp > img {
+    opacity: 1;
+    transition: ease 0s;
+
+    max-width: 100%;
+    height: auto !important;
+}
+
+#product .thumbnail li .thumbnail-image > a .pp > img.second-img {
+
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 4;
+    opacity: 0;
+    left: 0;
+    transition: ease 0.5s;
+
+    
+}
+
+
+
