@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+body {
+  font-family: 'Pretendard', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+.header {
+  background-color: #1c1c1c;
+  color: white;
+  padding: 16px;
+  text-align: center;
+}
+
+.market-summary {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px;
+}
+
+.box {
+  background-color: white;
+  padding: 12px;
+  border-radius: 8px;
+  width: 45%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.up {
+  color: red;
+}
+.down {
+  color: blue;
+}
+
+.stock-list {
+  padding: 16px;
+  background-color: white;
+  margin: 16px;
+  border-radius: 8px;
+}
+
+.stock-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.stock-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.notice-banner {
+  background-color: #ffeeba;
+  padding: 12px;
+  margin: 0 16px 16px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+}
+
