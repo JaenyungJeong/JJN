@@ -1,0 +1,10 @@
+alpha_review_count_update_on=!0;alpha_review_count_update();function alpha_review_count_update(){if(alpha_review_count_update_on){alpha_review_count_update_on=!1;let review_counter=$('.alpha_module_count:not([complete="true"])')
+if(review_counter.length>0){for(let j=0;j<review_counter.length/10;j++){let review_counter_sub=review_counter.slice(j*10,(j+1)*10)
+let value_set=new Set([])
+let value_array=[];for(let i=0;i<review_counter_sub.length;i++){let value=review_counter_sub[i].getAttribute('value');value_set.add(value)}
+value_set.forEach(function(v){value_array.push(v)});let url_reviewCounter='https://review.alphwidget.com/api_widget/module/review/count?mall_id='+CAFE24API.MALL_ID+'&shop_no='+CAFE24API.SHOP_NO+'&product_no='+value_array.join(',')
+$.ajax({async:!0,url:url_reviewCounter,success:function(json){let review_data=json.review_count
+for(let i=0;i<review_counter_sub.length;i++){let value=review_counter_sub[i].getAttribute('value');review_counter_sub[i].setAttribute('complete','true');if(review_data[value]){review_counter_sub[i].innerText=review_data[value].toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")}
+if(review_data[value]!=0&&review_counter_sub[i].parentElement.classList.contains('alpha_module_count_container')){review_counter_sub[i].parentElement.style.display='block'}}}})}}
+alpha_review_count_update_on=!0}
+setTimeout(function(){alpha_review_count_update()},250)}

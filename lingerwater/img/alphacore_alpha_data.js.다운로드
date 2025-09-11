@@ -1,0 +1,542 @@
+var ALPHAREVIEW_FRONT_ALL = ALPHAREVIEW_FRONT_ALL || {};
+var CLOUDFRONT_CACHE_INVALIDATE_TEST = true;
+ALPHAREVIEW_FRONT_ALL.makenamespace = function (ns_string) {
+  var parts = ns_string.split('.'),
+    parent = ALPHAREVIEW_FRONT_ALL,
+    i;
+  // 처음에 중복되는 전역 객체명은 제거
+  if (parts[0] === 'ALPHAREVIEW_FRONT_ALL') {
+    parts = parts.slice(1);
+  }
+
+  for (i = 0; i < parts.length; i += 1) {
+    // 프로퍼티가 존재하지 않는 경우 생성
+    if (typeof parent[parts[i]] === 'undefined') {
+      parent[parts[i]] = {};
+    }
+
+    parent = parent[parts[i]];
+  }
+
+  return parent;
+};
+ALPHAREVIEW_FRONT_ALL.makenamespace('ALPHAREVIEW_FRONT_ALL.modules.alphaDataModule');
+ALPHAREVIEW_FRONT_ALL.makenamespace('ALPHAREVIEW_FRONT_ALL.modules.utils');
+ALPHAREVIEW_FRONT_ALL.makenamespace('ALPHAREVIEW_FRONT_ALL.modules.dbModule');
+
+ALPHAREVIEW_FRONT_ALL.modules.utils = {
+  toInteger: function (value) {
+    if (!value) return 0;
+    return parseInt(value, 10);
+  },
+  makeUuid: function () {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      const r = (Math.random() * 16) | 0;
+      const v = c === 'x' ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
+  },
+  isValidWindow: function () {
+    if (window.location.pathname.includes('protected/loginSns.html')) return false;
+    return true;
+  },
+};
+ALPHAREVIEW_FRONT_ALL.modules.dbModule = {
+  dbName: 'ALPHAREVIEW_FRONT_DB',
+  dbVersion: 4,
+  storeTypes: ['PV', 'PRV', 'OCV', 'ONCV', 'ONCC', 'SUA'],
+  db: undefined,
+  delete: function () {
+    const self = this;
+    return new Promise((resolve, reject) => {
+      const deleteRequest = indexedDB.deleteDatabase(self.dbName);
+
+      deleteRequest.onerror = (event) => {
+        console.error('AlphaReview - DB deletion error:', event.target.error);
+        reject(event.target.error);
+      };
+
+      deleteRequest.onsuccess = (event) => {
+        console.log(`AlphaReview - Existing DB '${self.dbName}' deleted successfully or did not exist.`);
+        resolve(event.target.result);
+      };
+    });
+  },
+  open: function () {
+    const self = this;
+    return new Promise((resolve, reject) => {
+      const request = indexedDB.open(self.dbName, this.dbVersion);
+      request.onerror = (event) => {
+        console.error(`AlphaReview - ${self.dbName} init error.`);
+        reject(event.target.error);
+      };
+      request.onsuccess = (event) => {
+        console.log(`AlphaReview - ${self.dbName} init.`);
+        self.db = event.target.result;
+        resolve(self.db);
+      };
+      request.onupgradeneeded = (event) => {
+        self.db = event.target.result;
+        self.storeTypes.forEach((storeType) => {
+          if (!storeType) return;
+          if (self.db.objectStoreNames.contains(storeType)) return;
+          self.db.createObjectStore(storeType, { keyPath: 'id', autoIncrement: true });
+        });
+      };
+    });
+  },
+  addData: function (store, data) {
+    const self = this;
+    if (!self.db) {
+      console.error(`AlphaReview - ${self.dbName} not initialized`);
+      return;
+    }
+    return new Promise((resolve, reject) => {
+      const transaction = self.db.transaction(store, 'readwrite');
+      const objectStore = transaction.objectStore(store);
+      const request = objectStore.add({ timestamp: new Date().getTime(), ...data });
+      request.onsuccess = (event) => {
+        resolve(event.target.result);
+      };
+      request.onerror = (event) => {
+        reject(event.target.error);
+      };
+    });
+  },
+  getDatas: function (store, filterFunc = (data) => true, limit = 100) {
+    /**
+     * example) filterFunc = (data) => { return 5 < data.id && data.id < 10 };
+     */
+    const self = this;
+    if (!self.db) {
+      console.error(`AlphaReview - ${self.dbName} not initialized`);
+      return;
+    }
+    return new Promise((resolve, reject) => {
+      const transaction = self.db.transaction([store], 'readonly');
+      const objectStore = transaction.objectStore(store);
+      const request = objectStore.openCursor(null, 'prev');
+      const datas = [];
+      request.onsuccess = function (event) {
+        const cursor = event.target.result;
+
+        if (cursor && datas.length < limit) {
+          const data = cursor.value;
+          const isTarget = filterFunc ? filterFunc(data) : true;
+          if (isTarget) datas.push(data);
+          cursor.continue();
+        } else {
+          resolve(datas);
+        }
+      };
+      request.onerror = function (event) {
+        reject(event.target.error);
+      };
+    });
+  },
+  putDatas: function (store, updatedDatas) {
+    const self = this;
+    if (!self.db) {
+      console.error(`AlphaReview - ${self.dbName} not initialized`);
+      return;
+    }
+    return new Promise((resolve, reject) => {
+      const transaction = self.db.transaction(store, 'readwrite');
+      const objectStore = transaction.objectStore(store);
+      updatedDatas.forEach((updatedData) => {
+        const request = objectStore.put(updatedData);
+        request.onsuccess = (event) => {
+          resolve(event.target.result);
+        };
+        request.onerror = (event) => {
+          console.error('AlphaReview - Update error:', event.target.error);
+          reject(event.target.error);
+        };
+      });
+    });
+  },
+};
+ALPHAREVIEW_FRONT_ALL.modules.alphaDataModule = {
+  utils: ALPHAREVIEW_FRONT_ALL.modules.utils,
+  dbModule: ALPHAREVIEW_FRONT_ALL.modules.dbModule,
+  awsApiGatewayUrl: 'https://4hfvbao1ea.execute-api.ap-northeast-2.amazonaws.com/alpha-data-production',
+  allowedOrigins: ['Alpha-Push', 'Alpha-Core', 'Alpha-Upsell'],
+  localStorageKeys: { onsiteSegmentId: 'ALPHAREVIEW_FRONT_ONSITE_SEGMENT' },
+  sessionKeys: {
+    sessionId: 'ALPHAREVIEW_FRONT_SESSION',
+    originMemberId: 'ALPHAREVIEW_FRONT_ORIGIN_MEMBER_ID',
+  },
+  customerData: undefined,
+  baseData: {
+    device: undefined,
+    browser: undefined,
+    session_id: undefined,
+    mall_id: undefined,
+    shop_no: undefined,
+    member_id: undefined,
+    date: undefined,
+    time: undefined,
+    event: undefined,
+    origin_member_id: undefined,
+    onsite_segment_id: undefined,
+  },
+  isLoading: false, // 로딩 시작 여부
+  isLoad: false, // 로딩 완료 여부
+  isRecord: false, // 이벤트 등록 완료 여부
+  init: async function () {
+    if (!this.utils.isValidWindow()) return;
+    const self = this;
+    const initInterval = async () => {
+      if (!self.isLoading && self._depsReady()) {
+        self.isLoading = true;
+        self._addEventListener();
+        self._setBaseData();
+        self._setSessionId();
+        await self._setCustomerData();
+        self._setOriginMemberId();
+        await self._setOnsiteSegmentId();
+        self.isLoad = true;
+        console.log('AlphaReview - AlphaData init.');
+
+        await self.triggerEventByPV();
+        await self.triggerEventByPRV();
+        await self.triggerEventByOCV();
+        await self.triggerEventBySUA();
+        self.isRecord = true;
+      } else {
+        setTimeout(initInterval, 500);
+      }
+    };
+
+    initInterval();
+  },
+  _hasLS: function () {
+    try {
+      if (typeof window === 'undefined' || !window.localStorage) return false;
+      const k = '__probe__';
+      localStorage.setItem(k, '1');
+      localStorage.removeItem(k);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  },
+  _hasCafe24: function () {
+    return typeof window !== 'undefined' && !!window.CAFE24API;
+  },
+  _hasIndexedDB: function () {
+    return typeof indexedDB !== 'undefined' && typeof indexedDB.databases === 'function';
+  },
+  _depsReady: function () {
+    return this._hasLS() && this._hasCafe24() && this._hasIndexedDB() && typeof CAPP_ASYNC_METHODS != 'undefined';
+  },
+  _setSessionId: function () {
+    const sessionIdKey = this.sessionKeys.sessionId;
+    const sessionId = sessionStorage.getItem(sessionIdKey);
+    if (sessionId) {
+      this.baseData.session_id = sessionId;
+      return;
+    }
+
+    const timestamp = Date.now();
+    const uuid = this.utils.makeUuid();
+
+    this.baseData.session_id = `${timestamp}--${uuid}`;
+    sessionStorage.setItem(sessionIdKey, this.baseData.session_id);
+  },
+  _setBaseData: function () {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    this.baseData.device = isMobile ? 'M' : 'P';
+    this.baseData.browser = this._getBrowserName();
+    this.baseData.mall_id = CAFE24API.MALL_ID;
+    this.baseData.shop_no = CAFE24API.SHOP_NO;
+  },
+  _setCustomerData: function () {
+    const self = this;
+    return new Promise((resolve) =>
+      CAFE24API.getCustomerInfo((err, res) => {
+        if (err) {
+          this.baseData.member_id = '';
+          this.customerData = {};
+          resolve(null);
+        } else {
+          this.baseData.member_id = res.customer.member_id ?? '';
+          this.customerData = res.customer ?? {};
+          resolve(res);
+        }
+      }),
+    );
+  },
+  _setOriginMemberId: function () {
+    // originMemberId 우선순위
+    // 1. url query parameter의 urlOriginMemberId
+    // 2. sessionStorage의 sessionOriginMemberId
+    // 3. 비로그인시 ''
+
+    const self = this;
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlOriginMemberId = urlParams.get('origin_member_id');
+    const originMemberIdKey = self.sessionKeys.originMemberId;
+    const sessionOriginMemberId = sessionStorage.getItem(originMemberIdKey);
+
+    if (urlOriginMemberId) {
+      this.baseData.origin_member_id = urlOriginMemberId;
+      sessionStorage.setItem(originMemberIdKey, self.baseData.origin_member_id);
+    } else if (sessionOriginMemberId) {
+      this.baseData.origin_member_id = sessionOriginMemberId;
+    } else {
+      this.baseData.origin_member_id = '';
+    }
+  },
+  _setOnsiteSegmentId: async function () {
+    const self = this;
+    const onsiteSegmentIdKey = `${self.localStorageKeys.onsiteSegmentId}_SHOP_${self.baseData.shop_no}`;
+    self.dbModule.dbName = `${self.dbModule.dbName}_SHOP_${self.baseData.shop_no}`;
+    const onsiteSegmentId = localStorage.getItem(onsiteSegmentIdKey);
+    if (onsiteSegmentId) {
+      self.baseData.onsite_segment_id = onsiteSegmentId;
+      return self.dbModule.open();
+    }
+
+    const timestamp = Date.now();
+    const uuid = self.utils.makeUuid();
+
+    // 초기화시 onsiteSegmentId 및 DB 초기화
+    self.baseData.onsite_segment_id = `${timestamp}--${uuid}`;
+    localStorage.setItem(onsiteSegmentIdKey, self.baseData.onsite_segment_id);
+    return self.dbModule.delete().then(() => self.dbModule.open());
+  },
+  _addEventListener: function () {
+    const self = this;
+    window.addEventListener('message', function (e) {
+      if (!self.allowedOrigins.includes(e.from)) return;
+      const event = e.event;
+      const metaData = e.metaData;
+      self.createData(event, metaData);
+    });
+  },
+  _getBrowserName: function () {
+    const ua = navigator.userAgent;
+    let browserName = 'Unknown';
+
+    if (ua.indexOf('SamsungBrowser') > -1) {
+      browserName = 'SamsungBrowser';
+    } else if (ua.indexOf('NAVER') > -1) {
+      browserName = 'NAVER';
+    } else if (ua.indexOf('Whale') > -1) {
+      browserName = 'Whale';
+    } else if (ua.indexOf('KAKAOTALK') > -1) {
+      browserName = 'KAKAOTALK';
+    } else if (ua.indexOf('Instagram') > -1) {
+      browserName = 'Instagram';
+    } else if (ua.indexOf('Chrome') > -1 && ua.indexOf('Edg') === -1 && ua.indexOf('OPR') === -1) {
+      browserName = 'Chrome';
+    } else if (ua.indexOf('Safari') > -1 && ua.indexOf('Chrome') === -1) {
+      browserName = 'Safari';
+    } else if (ua.indexOf('Firefox') > -1) {
+      browserName = 'Firefox';
+    } else if (ua.indexOf('Edge') > -1 || ua.indexOf('Edg') > -1) {
+      browserName = 'Edge';
+    } else if (ua.indexOf('OPR') > -1 || ua.indexOf('Opera') > -1) {
+      browserName = 'Opera';
+    } else if (ua.indexOf('MSIE') > -1 || ua.indexOf('Trident/') > -1) {
+      browserName = 'InternetExplorer';
+    }
+
+    return browserName;
+  },
+  _postData: async function (data) {
+    // console.log('postData - data:', data);
+
+    const url = this.awsApiGatewayUrl;
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify(data),
+      });
+      console.log('AlphaReview - postData response:', response);
+    } catch (error) {
+      console.error('AlphaReview - postData error:', error);
+    }
+  },
+  createData: async function (event, metaData = {}) {
+    if (!event) return;
+
+    const datetime = new Date();
+    const data = {
+      ...this.baseData,
+      ...metaData,
+      date: datetime.toISOString().split('T')[0],
+      time: datetime.toTimeString().split(' ')[0],
+      event: event,
+    };
+    await this._postData(data);
+
+    const dbData = {
+      session_id: this.baseData.session_id,
+      member_id: this.baseData.member_id,
+      origin_member_id: this.baseData.origin_member_id,
+      ...metaData,
+    };
+    await this.dbModule.addData(event, dbData);
+  },
+  // 이벤트 트리거
+  triggerEventByPV: async function () {
+    try {
+      const event = 'PV';
+      const metaData = {
+        page: CAPP_ASYNC_METHODS.EC_PATH_ROLE,
+        origin: window.location.origin,
+        pathname: window.location.pathname,
+        search: window.location.search,
+      };
+
+      await this.createData(event, metaData);
+    } catch {
+      console.error('AlphaReview - triggerEventByPV');
+    }
+  },
+  triggerEventByPRV: async function () {
+    try {
+      if (CAPP_ASYNC_METHODS.EC_PATH_ROLE != 'PRODUCT_DETAIL') return;
+
+      const productName = product_name;
+      const productNo = parseInt(iProductNo);
+      const category = [parseInt(iCategoryNo)];
+      const price = parseInt(product_price);
+      const discountprice = window.product_sale_price ? parseInt(window.product_sale_price, 10) : -1;
+
+      const event = 'PRV';
+      const metaData = {
+        product_name: productName,
+        product_no: productNo,
+        category: category,
+        price: price,
+        discountprice: discountprice,
+      };
+
+      await this.createData(event, metaData);
+    } catch (error) {
+      console.error('AlphaReview - triggerEventByPRV', error);
+    }
+  },
+  triggerEventByOCV: async function () {
+    try {
+      if (CAPP_ASYNC_METHODS.EC_PATH_ROLE != 'ORDER_ORDERRESULT') return;
+
+      const self = this;
+      const event = 'OCV';
+      const urlParams = new URLSearchParams(window.location.search);
+      const orderId = urlParams.get('order_id');
+
+      if (!orderId) return;
+
+      await CAFE24API.getOrderDetailInfo(self.baseData.shop_no, orderId, async (err, res) => {
+        if (err) {
+          console.error('getOrderDetailInfo - err:', res);
+        } else {
+          const order = res.orders.find((order) => {
+            return order.order_id === orderId;
+          });
+
+          if (!order) return;
+
+          const items = order.items.map((item) => {
+            return {
+              variant_code: item.variant_code,
+              product_no: item.product_no,
+              product_code: item.product_code,
+              product_name: item.product_name,
+              product_price: self.utils.toInteger(item.product_price),
+              option_price: self.utils.toInteger(item.option_price),
+              additional_discount_price: self.utils.toInteger(item.additional_discount_price),
+            };
+          });
+
+          const initialOrderAmount = Object.fromEntries(
+            Object.entries(order.initial_order_amount).map(([key, value]) => [key, self.utils.toInteger(value)]),
+          );
+
+          const metaData = {
+            order_id: orderId,
+            items: items,
+            ...initialOrderAmount,
+          };
+
+          self.createData(event, metaData);
+        }
+      });
+    } catch (error) {
+      console.error('AlphaReview - triggerEventByOCV', error);
+    }
+  },
+  triggerEventBySUA: async function (timestamp = undefined) {
+    try {
+      const self = this;
+      const event = 'SUA';
+      const metaData = {
+        viewHistories: [],
+      };
+      if (timestamp) metaData.timestamp = timestamp;
+
+      if (CAPP_ASYNC_METHODS.EC_PATH_ROLE == 'MEMBER_JOINRESULT') {
+        self.createData(event, metaData);
+      } else if (this.baseData.member_id) {
+        if (!this.customerData.created_date) return;
+
+        const createdDate = new Date(this.customerData.created_date);
+        const now = new Date();
+        const actionDelayOffset = 3 * 60 * 1000;
+        const limitDate = new Date(now - actionDelayOffset);
+
+        if (createdDate < limitDate) return;
+
+        const SUADatas = await this.dbModule.getDatas(
+          'SUA',
+          (data) => {
+            return data.member_id == this.baseData.member_id;
+          },
+          1,
+        );
+        if (SUADatas.length >= 1) return;
+
+        metaData.timestamp = createdDate.getTime();
+        self.createData(event, metaData);
+      }
+    } catch (error) {
+      console.error('AlphaReview -triggerEventBySUA', error);
+    }
+  },
+  triggerEventByONCC: function (onsiteCampaignId, extraData) {
+    try {
+      const event = 'ONCC';
+      const metaData = {
+        ...extraData,
+        onsite_campaign_id: onsiteCampaignId,
+      };
+
+      this.createData(event, metaData);
+    } catch (error) {
+      console.error('AlphaReview - triggerEventByONCC', error);
+    }
+  },
+  triggerEventByONCV: function (onsiteCampaignId) {
+    try {
+      const event = 'ONCV';
+      const metaData = {
+        onsite_campaign_id: onsiteCampaignId,
+      };
+
+      this.createData(event, metaData);
+    } catch (error) {
+      console.error('AlphaReview - triggerEventByONCV', error);
+    }
+  },
+};
+
+ALPHAREVIEW_FRONT_ALL.modules.alphaDataModule.init();

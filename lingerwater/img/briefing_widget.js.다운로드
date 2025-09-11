@@ -1,0 +1,48 @@
+let activate_briefing_widget_list=[]
+window.addEventListener('message',function(e){if(typeof base_url=='undefined'||e.origin!=base_url){return 0}
+if(e.data.from!='alpha_briefing'){return 0}
+switch(e.data.data){case 'onload_briefing':onload_briefing(e.data)
+break
+case 'open_briefing_filter':open_briefing_filter();break
+case 'close_briefing_filter':close_briefing_filter();break
+case 'reset_briefing_filter':reset_briefing_filter();break
+case 'apply_briefing_filter':apply_briefing_filter(e.data);break}})
+function onload_briefing(data){let idx=data.idx
+let id='alpha_widget_'+idx.toString()
+activate_briefing_widget_list.push(id)
+value=data.value
+code=data.code
+custom_trigger=data.custom_trigger
+widget_position=data.widget_position
+z_index=data.z_index
+option_changed=data.option_changed
+create_briefing_filter(value,code)
+let widget=document.getElementById(id)
+if(widget_position!='none'){widget.style.margin='unset'
+widget.style.position='fixed';widget.style.zIndex=data.z_index;x_axis='0px'
+position=data.position
+if(document.body.offsetWidth<=540){position=data.position_m}else{widget.style.minWidth='440px';x_axis='calc(10vw - 40px)'}
+if(position.indexOf('top')>-1){widget.style.top='0px'}
+if(position.indexOf('bottom')>-1){widget.style.bottom='0px'}
+if(position.indexOf('right')>-1){widget.style.right=x_axis}
+if(position.indexOf('left')>-1){widget.style.left=x_axis}}
+if(widget_position=='option'){$('.ProductOption0').change(function(){if($(this).find('option:selected').val()!='*'){let item={'mall_id':CAFE24API_MALLID,'shop_no':CAFE24API_SHOPNO,'type':'widget','result':'briefing','data':'show_briefing',}
+document.getElementById(id).contentWindow.postMessage(item,base_url)}})}
+if(widget_position=='custom'){$(custom_trigger).click(function(){let item={'mall_id':CAFE24API_MALLID,'shop_no':CAFE24API_SHOPNO,'type':'widget','result':'briefing','data':'show_briefing',}
+document.getElementById(id).contentWindow.postMessage(item,base_url)})}
+if(option_changed=='True'){$('.ProductOption0').change(function(){if($(this).find('option:selected').val()!='*'){let data={'mall_id':CAFE24API.MALL_ID,'shop_no':CAFE24API.SHOP_NO,'host':window.location.host,'type':'briefing_filter','data':'option_change','option':$(this).attr("option_title")+'='+$(this).find('option:selected').text()}
+document.getElementById('alpha_widget_briefingFilter').contentWindow.postMessage(data,base_url)}})}
+let item={'mall_id':CAFE24API_MALLID,'shop_no':CAFE24API_SHOPNO,'type':'widget','result':'briefing',}
+document.getElementById(id).contentWindow.postMessage(item,base_url)}
+function create_briefing_filter(){if(document.getElementById('alpha_widget_briefingFilter')){return 0}
+iframe_filter=document.createElement("iframe");iframe_filter.style.width='100vw';iframe_filter.style.height='100vh';iframe_filter.style.position='fixed';iframe_filter.style.display='none';iframe_filter.style.top='0';iframe_filter.style.left='0';iframe_filter.style.margin='0';iframe_filter.style.zIndex='2147483647';iframe_filter.style.border='none';iframe_filter.style.backgroundColor='rgba(0,0,0,0.7)';iframe_filter.id='alpha_widget_briefingFilter';iframe_filter.src=base_url+'/api_widget/widget_sub/widget/briefing/filter?code='+code+'&value='+value;document.body.appendChild(iframe_filter)
+let data_overlay={'mall_id':CAFE24API.MALL_ID,'shop_no':CAFE24API.SHOP_NO,'host':window.location.host,'type':'briefing_filter','data':'onload','front_url':window.location.href,}
+iframe_filter.onload=function(){if(iframe_filter.src.indexOf(base_url)>-1){iframe_filter.contentWindow.postMessage(data_overlay,base_url)}}}
+function open_briefing_filter(){document.getElementById('alpha_widget_briefingFilter').style.display='block'}
+function close_briefing_filter(){document.getElementById('alpha_widget_briefingFilter').style.display='none'}
+function reset_briefing_filter(){let item={'mall_id':CAFE24API_MALLID,'shop_no':CAFE24API_SHOPNO,'type':'widget','result':'briefing','data':'reset_filter',}
+for(let i=0;i<activate_briefing_widget_list.length;i++){document.getElementById(activate_briefing_widget_list[i]).contentWindow.postMessage(item,base_url)}
+close_briefing_filter()}
+function apply_briefing_filter(data){let item={'mall_id':CAFE24API_MALLID,'shop_no':CAFE24API_SHOPNO,'type':'widget','result':'briefing','data':'apply_filter','filter':data.filter,}
+for(let i=0;i<activate_briefing_widget_list.length;i++){document.getElementById(activate_briefing_widget_list[i]).contentWindow.postMessage(item,base_url)}
+close_briefing_filter()}

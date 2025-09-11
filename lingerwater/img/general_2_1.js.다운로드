@@ -1,0 +1,42 @@
+var ht = null;
+(function(id, scriptSrc, callback) {
+    var d = document,
+        tagName = 'script',
+        $script = d.createElement(tagName),
+        $element = d.getElementsByTagName(tagName)[0];
+
+    $script.id = id;
+    $script.async = true;
+    $script.src = scriptSrc;
+
+    if (callback) { $script.addEventListener('load', function (e) { callback(null, e); }, false); }
+    $element.parentNode.insertBefore($script, $element);
+})('happytalkSDK', 'https://chat-static.happytalkio.com/sdk/happytalk.chat.v2.min.js', function() {
+    var appendParams = (typeof happytalkCusParams !== 'undefined' && typeof happytalkCusParams === 'string') ? (',' + happytalkCusParams) : '';
+    var appendSiteInfo = {
+        'siteName': '(주)링티',
+        'categoryId': '175048',
+        'divisionId': '175049',
+    };
+
+    if (typeof happytalkExtraData !== 'undefined' && typeof happytalkExtraData === 'object') {
+        appendSiteInfo = {
+            'siteName': happytalkExtraData.siteName ?? '(주)링티',
+            'categoryId': happytalkExtraData.categoryId ?? '175048',
+            'divisionId': happytalkExtraData.divisionId ?? '175049'
+        }
+    }
+
+    ht = new Happytalk({
+      siteId: '1000228083',
+      siteName: appendSiteInfo.siteName,
+      categoryId: appendSiteInfo.categoryId,
+      divisionId: appendSiteInfo.divisionId,
+      partnerId: '2',
+      shopId: '1',
+      params: 'partner_id=2,shop_id=1' + appendParams ,
+      chatview: {
+          disableLoadEvent: true
+      }
+  });
+});

@@ -1,0 +1,10 @@
+let customer_main_id='';CAFE24API.init('tgHZp6LCG5KuklqvIYgrtB')
+function check_widget_display(){const is_widget=sessionStorage.getItem('is_widget');if(is_widget==='false'){return!1}
+return!0}
+window.addEventListener('message',function(e){if(typeof base_url=='undefined'||e.origin!=base_url){return 0}
+if(e.data.from!='alpha_write'){return 0}
+if(!check_widget_display())return;switch(e.data.data){case 'write_button':CAFE24API.getMemberID(function(memberID){if(memberID){CAFE24API.getCustomerInfo(function(err,res){if(err){}else{write_button(res.customer,e.data)}})}});break}})
+function write_button(customer,data){let idx=data.idx
+let id='alpha_widget_'+idx.toString()
+customer_main_id=customer.member_id;let item={'mall_id':CAFE24API.MALL_ID,'shop_no':CAFE24API.SHOP_NO,'customer':customer_main_id,'type':'widget','result':'write_btn','data':'reset_btn_filter',}
+test=document.getElementById(id).contentWindow.postMessage(item,base_url)}

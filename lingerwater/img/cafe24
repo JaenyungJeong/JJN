@@ -1,0 +1,391 @@
+(function (window, document, scriptTagName, biginName, cafe24AppKey, sdkOptions, gtmId, dataLayerName) {
+  if (!window.CAFE24API) {
+    return;
+  }
+
+  var cafe24API = window.CAFE24API.init(cafe24AppKey);
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, scriptTagName, dataLayerName, gtmId);
+
+  var bigin = {
+    // 외부 공개용
+    cafe24: {
+      shouldTrackUser: function () {
+        return sdkOptions.indexOf('disableUser') === -1;
+      },
+      shouldTrackUserAddress: function () {
+        return sdkOptions.indexOf('removeUserAddress') === -1;
+      },
+      shouldTrackEcommerce: function () {
+        return sdkOptions.indexOf('disableEcommerce') === -1;
+      },
+      shouldTrackEcommerceBrand: function () {
+        return sdkOptions.indexOf('removeEcomBrand') === -1;
+      },
+      shouldTrackEcommerceCategory: function () {
+        return sdkOptions.indexOf('removeEcomCategory') === -1;
+      },
+      shouldTrackEcommerceThumbnail: function () {
+        return sdkOptions.indexOf('removeEcomThumbnail') === -1;
+      },
+      shouldTrackEcommerceVariant: function () {
+        return sdkOptions.indexOf('removeEcomVariant') === -1;
+      },
+    },
+    // 외부 공개용
+    storage: {
+      items: {},
+      getItem: function (key) {
+        if (!!this.hasItem(key)) {
+          return this.items[key];
+        }
+
+        return undefined;
+      },
+      setItem: function (key, value) {
+        this.items[key] = value;
+      },
+      hasItem: function(key) {
+        return !!this.items.hasOwnProperty(key);
+      },
+    },
+
+    __isDebug: (function () {
+      return JSON.parse(window.localStorage.getItem('isBiginDebug'));
+    })(),
+    __console: {
+      error: function (...args) {
+        if (!bigin.__isDebug) {
+          return;
+        }
+
+        window.console.error(new Date().toISOString(), '[biginCafe24Plugin]', ...args);
+      },
+      log: function (...args) {
+        if (!bigin.__isDebug) {
+          return;
+        }
+
+        window.console.log(new Date().toISOString(), '[biginCafe24Plugin]', ...args);
+      },
+    },
+
+    bootstrap: function () {
+      this.__bootstrapCommonPage();
+      this.__bootstrapDetailPage();
+      this.__bootstrapLayerOptionPage();
+      this.__bootstrapBasketPage();
+      this.__bootstrapOrderFormPage();
+      this.__bootstrapOrderResultPage();
+    },
+    __bootstrapCommonPage: function () {
+      try {
+        var commonPage = bigin.__buildCommonPage();
+        if (!commonPage) {
+          return;
+        }
+
+        bigin.__fetchAndNotifyUser();
+      }
+      catch (e) {
+        bigin.__console.error(e);
+      }
+    },
+    __bootstrapDetailPage: function () {
+      try {
+        var detailPage = bigin.__buildDetailPage();
+        if (!detailPage) {
+          return;
+        }
+
+        bigin.__fetchAndNotifyProduct(detailPage.productId);
+        bigin.__fetchAndNotifyProductVariant(detailPage.productId);
+      }
+      catch (e) {
+        bigin.__console.error(e);
+      }
+    },
+    __bootstrapLayerOptionPage: function () {
+      try {
+        var layerOptionPage = bigin.__buildLayerOptionPage();
+        if (!layerOptionPage) {
+          return;
+        }
+
+        bigin.__fetchAndNotifyProduct(layerOptionPage.productId);
+        bigin.__fetchAndNotifyProductVariant(layerOptionPage.productId);
+      }
+      catch (e) {
+        bigin.__console.error(e);
+      }
+    },
+    __bootstrapBasketPage: function () {
+      try {
+        var basketPage = bigin.__buildBasketPage();
+        if (!basketPage) {
+          return;
+        }
+
+        bigin.__fetchAndNotifyProductsWithVariants(basketPage.productIds);
+      }
+      catch (e) {
+        bigin.__console.error(e);
+      }
+    },
+    __bootstrapOrderFormPage: function () {
+      try {
+        var orderFormPage = bigin.__buildOrderFormPage();
+        if (!orderFormPage) {
+          return;
+        }
+
+        bigin.__fetchAndNotifyProductsWithVariants(orderFormPage.productIds);
+      }
+      catch (e) {
+        bigin.__console.error(e);
+      }
+    },
+    __bootstrapOrderResultPage: function () {
+      try {
+        var orderResultPage = bigin.__buildOrderResultPage();
+        if (!orderResultPage) {
+          return;
+        }
+
+        bigin.__fetchAndNotifyOrder(orderResultPage.orderId);
+      }
+      catch (e) {
+        bigin.__console.error(e);
+      }
+    },
+
+    __buildCommonPage: function () {
+      var page = {};
+
+      return page;
+    },
+    __buildDetailPage: function () {
+      var page;
+
+      // Type1
+      page = (function () {
+        var page = {
+          productId: undefined,
+        };
+
+        var matches = /\/*product\/detail\.html$/g.exec(window.location.pathname);
+        if (!matches) {
+          return null;
+        }
+
+        page.productId = (function () {
+          return /product_no=(\d+)/.exec(window.location.search)[1];
+        })();
+
+        return page;
+      })();
+      if (page) {
+        return page;
+      }
+
+      // Type2
+      page = (function () {
+        var page = {
+          productId: undefined,
+        };
+
+        var matches = /\/*product\/[^\/]+\/(\d+)\/*.*/g.exec(window.location.pathname);
+        if (!matches) {
+          return null;
+        }
+
+        page.productId = (function () {
+          return matches[1];
+        })();
+
+        return page;
+      })();
+      if (page) {
+        return page;
+      }
+
+      // Type3
+      page = (function () {
+        var page = {
+          productId: undefined,
+        };
+
+        var pathRole = document.querySelector('meta[name="path_role"]')
+          ? document.querySelector('meta[name="path_role"]').content
+          : null;
+        if (pathRole !== 'PRODUCT_DETAIL') {
+          return null;
+        }
+
+        page.productId = (function () {
+          return /product_no=(\d+)/.exec(window.location.search)[1];
+        })();
+
+        return page;
+      })();
+      if (page) {
+        return page;
+      }
+
+      return null;
+    },
+    __buildLayerOptionPage: function () {
+      var page = {
+        productId: undefined,
+      };
+
+      var matches = /\/*product\/layer_option\.html$/g.exec(window.location.pathname);
+      if (!matches) {
+        return null;
+      }
+
+      page.productId = (function () {
+        return /product_no=(\d+)/.exec(window.location.search)[1];
+      })();
+
+      return page;
+    },
+    __buildBasketPage: function () {
+      var page = {
+        productIds: undefined,
+      };
+
+      var matches = /\/*order\/basket\.html$/g.exec(window.location.pathname);
+      if (!matches) {
+        return null;
+      }
+
+      page.productIds = (function () {
+        return window.aBasketProductData
+        .map((item) => item.product_no)
+        .filter((value, index, self) => self.indexOf(value) === index);
+      })();
+
+      return page;
+    },
+    __buildOrderFormPage: function () {
+      var page = {
+        productIds: undefined,
+      };
+
+      var matches = /\/*order\/orderform\.html$/g.exec(window.location.pathname);
+      if (!matches) {
+        return null;
+      }
+
+      page.productIds = (function () {
+        return window.aBasketProductOrderData
+        .map((item) => item.product_no)
+        .filter((value, index, self) => self.indexOf(value) === index);
+      })();
+
+      return page;
+    },
+    __buildOrderResultPage: function () {
+      var page = {
+        orderId: undefined,
+      };
+
+      var matches = /\/*order\/order_result\.html$/g.exec(window.location.pathname);
+      if (!matches) {
+        return null;
+      }
+
+      page.orderId = (function () {
+        return /order_id=([^?&#]+)/.exec(window.location.search)[1];
+      })();
+
+      return page;
+    },
+
+    __fetchAndNotifyUser: function () {
+      var self = this;
+      cafe24API.getCustomerInfo(function(error, response) {
+        if (error) {
+          if (response && response.error && response.error.code === 403) {
+            return;
+          }
+
+          self.__console.error(error);
+        }
+
+        self.__notify('userResponse', response);
+      });
+    },
+    __fetchAndNotifyOrder: function (orderId) {
+      var self = this;
+      cafe24API.getOrderDetailInfo(cafe24API.SHOP_NO, orderId, function(error, response) {
+        if (error) {
+          self.__console.error(error);
+        }
+
+        self.__notify('orderResponse', response);
+      });
+    },
+    __fetchAndNotifyProduct: function (productId) {
+      var self = this;
+      cafe24API.get('/api/v2/products/' + productId, function (error, response) {
+        if (error) {
+          self.__console.error(error);
+          return;
+        }
+
+        self.__notify('productResponse', response);
+      });
+    },
+    __fetchAndNotifyProductVariant: function (productId) {
+      var self = this;
+      cafe24API.get('/api/v2/products/' + productId + '/variants', function (error, response) {
+        if (error) {
+          self.__console.error(error);
+          return;
+        }
+
+        self.__notify('productVariantResponse', response);
+      });
+    },
+    __fetchAndNotifyProductsWithVariants: function (productIds) {
+      var self = this;
+      cafe24API.get('/api/v2/products?product_no=' + productIds.join(',') + '&embed=variants', function (error, response) {
+        if (error) {
+          self.__console.error(error);
+          return;
+        }
+
+        self.__notify('productsWithVariantsResponse', response);
+      });
+    },
+
+    __notify: function (key, value) {
+      this.__console.log(key, value);
+      this.storage.setItem(key, value);
+
+      window[dataLayerName].push({
+        event: 'bg.notify',
+        key: key,
+        value: value,
+      });
+    },
+  };
+  bigin.bootstrap();
+
+  window._bigin = window._bigin || {};
+  window._bigin.cafe24 = window._bigin.cafe24 || bigin.cafe24;
+  window._bigin.storage = window._bigin.storage || bigin.storage;
+})(window, document, 'script', 'bigin', 'iJf0852OYiGZTznb7gXaEG', '', 'GTM-M3J36C2P', 'dataLayer');
