@@ -30,9 +30,20 @@ body{
 }
 
 header{
+    position: relative;
     height: 100px;
-    background: #f45750;
+    background: #fff;
+    padding-top: 35px;
+    padding-left: 10px;
 }
+nav{position: absolute; top: 40px; right: 10px; z-index: 10;}
+nav>ul{display: flex;}
+nav>ul>li>a{display: block; width: 120px; text-align: center; font-weight: bold; padding: 10px; background: #3d155f; color: #fff;}
+nav>ul>li:hover>a{background: #f96167;}
+.sub{display: none;}
+.sub li a{display: block; background: #fff; padding: 5px; text-align: center; font-size: 14px;}
+.sub li:hover a{background: #3d155f; color: #fff;}
+
 
 .slide{
     height: 300px;
