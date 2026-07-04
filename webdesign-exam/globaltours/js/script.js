@@ -24,5 +24,14 @@ $(function(){
         }
 
         setInterval(slide, 3000);
+        //팝업창
+        $(".pop").click(function(){
+            $(".popup").show();
+            return false;
+            //링크가 걸려서 다른곳에 이동하는 개념이 아니라서 a태그의 링크를 막아줘야함
+        })
+        $(".close button").click(function(){
+            $(".popup").hide();
+        })
         
 })
