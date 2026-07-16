@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+div{
+	background:#ccc;
+	width:300px;
+}
+p{
+	width:100px;
+	height:100px;
+	margin:0;/*기본 스타일을 없애줌*/
+	border:1px solid #000;
+	background:#fc6;
+}
+.box1-2{
+	position:relative;/*.box1-2 자기자리 기준*/
+	top:20px;/*위쪽에서 20px*/
+	left:20px;/*왼쪽에서 20px*/
+}
+.box2{
+		position:relative;/*.box2-2의 기준역할(기준은 부모, 조상에게 줄 수 있음)*/
+}
+.box2-2{
+	position:absolute;/*.box2를 기준*/
+	top:20px;/*위쪽에서 20px*/
+	left:20px;/*왼쪽에서 20px*/
+}
+.box3-2{
+	position:fixed;/*화면을 기준*/
+	top:20px;/*위쪽에서 20px*/
+	right:20px/*오른쪽에서 20px*/
+}

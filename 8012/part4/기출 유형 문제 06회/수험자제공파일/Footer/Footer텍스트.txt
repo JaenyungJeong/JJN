@@ -1,0 +1,21 @@
+===========================================================================
+D : Footer
+===========================================================================
+
+▶Copyright 텍스트
+
+It is a long established fact that a reader will be distracted by the readable content.
+COPYRIGHT © by WEB DESIGN DEVELOPMENT. ALL RIGHTS RESERVED.
+
+
+▶SNS
+
+sns1
+sns2
+sns3
+
+▶패밀리사이트
+
+Family Site1
+Family Site2
+Family Site3

@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+/*모든 div태그에게 너비, 높이, 테두리, 아래쪽 여백 적용*/
+div{
+	width:200px; 
+	height:200px;
+	border:3px solid #000;
+	margin-bottom:10px;
+}
+/*.bg1에게 배경색 적용*/
+.bg1{
+	background-color:skyblue;
+}
+/*.bg2에게 배경이미지 적용*/
+.bg2{
+	background-image:url(img1.png);/*상대경로 - 동일폴더*/
+}
+/*.bg3에게 배경이미지 적용(자동 반복), 반복X*/
+.bg3{
+	background-image:url(img1.png);
+	background-repeat:no-repeat;/*repeat-x, repeat-y*/
+}
+/*.bg4에게 배경이미지 적용(자동 반복), 반복X, 배경이미지 위치*/
+.bg4{
+	background-image:url(img1.png);
+	background-repeat:no-repeat;
+	background-position:50px 20px;/*x축 50px, y축 20px*/
+}
+/*.bg5에게 배경이미지 적용(자동 반복), 반복X, 배경이미지 위치*/
+.bg5{
+	background-image:url(img1.png);
+	background-repeat:no-repeat;
+	background-size:cover;/*cover:가로 너비 채우기, contain:세로 너비 채우기*/
+}
+/*.bg6 함축형 : 배경색 url() 반복 위치/크기 */
+.bg6{
+   background:skyblue url(img1.png) no-repeat 50px 20px/50px
+}

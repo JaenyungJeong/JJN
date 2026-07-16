@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>setInterval/setTimeout</title>
+</head>
+<body>
+    <script>
+            let i = 0;
+            
+            function count(){
+                    i++;
+                    document.write("hello" + i);
+            }
+
+            function first(){
+                    i++;
+                    document.write("<h1>" + "bye" +"</h1>" );
+            }
+
+            setTimeout(first, 1000); //1초에 first함수 한번만 실행
+            setInterval(count, 500);//0.5초마다 count함수 실행
+    </script>
+</body>
+</html>

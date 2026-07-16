@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>자바스크립트 연산자</title>
+</head>
+<body>
+	<script>
+		let a = 5; //a 변수 선언 후 숫자 5 할당
+		let b = 10; //b변수 선언 후  숫자 10 할당
+		let c = 10; //c변수 선언 후 숫자 10할당
+		let result; //result변수 선언 생성
+
+		//산술 연산자
+		result = a + b; //더하기
+		document.write(result + "<br>");//15
+
+		//증감 연산자
+		a++; //1씩 증가
+		document.write(a + "<br>");//6 a의 값이 6으로 바뀜
+
+		//복합 대입 연산자
+		a += b; // a = a + b  //a의 값 6(위에서 값이 내려옴)
+		document.write(a + "<br>");//16
+
+		//비교 연산자
+		result = a > b; //16 > 10  //a의 값 16(위에서 값이 내려옴) 
+		document.write(result + "<br>");//true
+
+		//논리 연산자
+		result = a > b && b == c; //16 > 10 && 10 == 10  -> &&연산자는 두 조건 만족시키면 true 
+		document.write(result + "<br>"); //true
+	</script>
+</body>
+</html>

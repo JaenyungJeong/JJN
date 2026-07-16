@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+.box1 p {
+    background: #fc6;
+}
+.txt1 .t1_1 {
+    font-family: '궁서', serif;/*글자 서체*/
+}
+.txt1 .t1_2 {
+    font-size: 30px;/*글자 사이즈*/
+}
+.txt1 .t1_3 {
+    letter-spacing: -2px;/*글자 자간(양,음수 가능)*/
+}
+.txt1 .t1_4 {
+    line-height: 50px;/*글자 행간(줄간격)*/
+    background: #fc6
+}
+.txt2 .t2_1 {
+    font-weight: normal;/*글자 두께 두꺼운 것을 얇게*/
+}
+.txt2 .t2_2 {
+    font-weight: bold;/*글자 두께 두껍게*/
+}
+.txt3 .t3_1 {
+    text-decoration: overline;/*글자 윗줄*/
+}
+.txt3 .t3_2 {
+    text-decoration: underline;/*글자 밑줄*/
+}
+.txt3 .t3_3 {
+    text-decoration: line-through;/*글자 가운데줄(취소선)*/
+}
+.txt3 a {
+    text-decoration: none;/*글자 밑줄 삭제*/
+}
+.txt4 p {
+    background: #fc6
+}
+.txt4 .t4_1 {
+    text-indent: 20px;/*텍스트 들여쓰기*/
+}
+.txt4 .t4_2 {
+    text-indent: -20px;/*텍스트 내어쓰기*/
+}
+.txt5 div {
+    background: #fc6
+}
+.txt5 .t5_1 {
+    text-align: left;/*인라인요소 왼쪽 정렬(기본값)*/
+}
+.txt5 .t5_2 {
+    text-align: center/*인라인요소 가운쪽 정렬*/
+}
+.txt5 .t5_3 {
+    text-align: right/*인라인요소 오른쪽 정렬*/
+}

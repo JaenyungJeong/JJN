@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+*{
+	/*기본 CSS 리셋*/
+	margin:0; 
+	padding:0; 
+	box-sizing:border-box;
+}
+.inner{
+	width:1200px;
+	margin:auto;/*블록요소 div 가운데 정렬*/
+}
+header{
+	height:100px;
+	background:#6a5ea6;
+}
+section{
+	height:250px;
+	background:#47b749;
+}
+.contents{
+	background:#369;
+	height:200px;
+	display:flex;/*자식 요소 나열*/
+}
+.con1{
+	background:tomato;
+	width:600px;
+}
+footer{
+	background:#333;
+	height:100px;		
+}

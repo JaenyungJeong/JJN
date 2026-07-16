@@ -1,0 +1,69 @@
+@charset "utf-8";
+
+*{
+	/*기본 CSS 리셋*/
+	margin:0; 
+	padding:0; 
+}
+.box1 p{
+	width:80px;
+	height:80px;
+	background:#fcc;
+	margin:30px;
+}
+.box1 .box1_2{
+	overflow:hidden;/*넘치는 이미지 숨김*/
+}
+.box1 .box1_3{
+	overflow:scroll;/*넘치는 이미지만큼 스크롤*/
+}
+.box2 p{
+	width:80px;
+	height:80px;
+	background:#fcc;
+	margin:10px;
+}
+.box2 .box2_2{
+	border-radius:20px;/*모서리 20px 둥글게*/
+}
+.box2 .box2_3{
+    border-radius:20px 0;/*왼쪽 위 , 오른쪽 아래 모서리 20px 둥글게 */
+}
+.box3 p{
+	width:300px;
+	height:80px;
+	background:#fcc;
+	margin:20px;
+}
+.box3 .box3_1{
+    padding:20px; 
+    box-sizing:content-box;
+}
+.box3 .box3_2{
+	padding:20px;
+	box-sizing:border-box;
+ }
+ .box4{
+	background:#ccc;
+	width:200px;
+	height:200px;
+	position:relative;/*.box4 p의 기준역할*/
+ }
+ .box4 p{
+	width:80px;
+	height:80px;
+	position:absolute;/*.box4 p를 공중에 띄움*/
+}
+.box4 .box4_1{
+	background:red;
+	top:0; left:0;/*.box4기준 위치 배치*/
+}
+.box4 .box4_2{
+	background:yellow;
+	top:20px; left:20px;/*.box4기준 위치 배치*/
+	z-index:10;/*z-index값이 클수록 위로 올라감*/
+}
+.box4 .box4_3{
+	background:blue;
+	top:40px; left:40px;/*.box4기준 위치 배치*/
+}

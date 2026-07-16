@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+.box1{
+	width:300px; /*너비 300px*/
+	height:150px;/*높이 150px*/
+	background-color:pink;
+	margin:20px;/*상하좌우 바깥 여백*/
+}
+.box2{
+	width:300px; /*너비 300px*/
+	height:150px; /*높이 150px*/
+	background-color:skyblue;
+	padding:20px;/*상하좌우 안쪽 여백*/
+}
+.box3{
+	width:300px; /*너비 300px*/
+	height:150px;/*높이 150px*/
+	border:3px solid tomato;/*상하좌우 테두리*/
+	border-top:none;/*상단 테두리 제거*/
+	margin-top:20px;/*상단 바깥 여백 20px*/
+}

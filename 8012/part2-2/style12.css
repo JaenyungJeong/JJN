@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+*{
+	/*기본 CSS 리셋*/
+	margin:0; 
+	padding:0; 
+}
+div{
+	background:skyblue;
+	width:300px;
+	height:100px;
+	margin-bottom:20px;
+}
+div p{
+	background:#fc6; 
+	border:1px solid #fdaa05;
+}
+h2{
+    margin-bottom:20px;
+}
+/*나열하고자 하는 요소(플렉스 아이템)의 부모에게 display:flex*/
+.con1{
+	display:flex;
+}
+/*flex-direction : 플렉스 아이템 줄바꿈*/
+.con2{
+	display:flex;
+	flex-direction:column;/*row(기본값), column, row-reverse, column-reverse*/
+}
+/*flex-direction*/
+.con3{
+	display:flex;
+	flex-wrap:wrap;/*nowrap(기본값), wrap, wrap-reverse*/
+}
+.con3 p{
+	width:120px;/*줄바꿀 수 있도록 너비 설정*/
+}
+/*justify-content : 플렉스 아이템의 가로정렬*/
+.con4{
+	display:flex;
+	justify-content:space-evenly;/*flex-start(기본값), flex-end, center, space-between, space-around, space-evenly*/
+}
+/*align-items : 플렉스 아이템의 세로정렬*/
+.con5{
+	display:flex;
+	align-items:center;/*stretch(기본값), flex-start, flex-end, center, baseline*/
+}
+/*gap : 플렉스 아이템 사이 간격*/
+.con6{
+	display:flex;
+	gap:20px;
+}
+.con7{
+	display:flex;
+}
+.con7 p{
+	flex-grow:1;/*남은 공간을 1:1:1로 분배하여 가짐*/
+}
+.con8{
+	display:flex;
+}
+.con8 p{
+	width:400px;
+}
+.con8 p:nth-child(1){
+	flex-shrink:1;
+}
+.con8 p:nth-child(2){
+	flex-shrink:1;
+}
+.con8 p:nth-child(3){
+	flex-shrink:2;/*공간이 부족할 경우 숫자가 클수룩 축소된다.*/
+}
+.con9{
+	display:flex;
+}
+.con9 p:nth-child(1){
+	flex-basis:70px;/*초기너비 설정*/
+}
+.con9 p:nth-child(2){
+	flex-basis:70px;/*width와 flex-basis 차이를 알아보세요!*/
+}
+.con9 p:nth-child(3){
+	width:50px;/*width와 flex-basis 차이를 알아보세요!*/
+}
